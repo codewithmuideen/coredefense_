@@ -11,7 +11,7 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.coredefense.co.uk";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.coredefense.co.uk";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
