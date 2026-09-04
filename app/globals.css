@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  * {
+    scroll-behavior: auto;
+  }
+}
+
+html {
+  background-color: #080b14;
+}
+
+body {
+  background-color: #ffffff;
+  color: #0a0d16;
+}
+
+::selection {
+  background-color: #1e6aff;
+  color: #ffffff;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-8xl px-6 sm:px-8 lg:px-10;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.radial-fade {
+  mask-image: radial-gradient(ellipse at center, black 45%, transparent 80%);
+}
+
+.focus-ring {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900;
+}
+
+/* Custom scrollbar for horizontally scrolling content */
+.scroll-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(30, 106, 255, 0.4);
+  border-radius: 999px;
+}
