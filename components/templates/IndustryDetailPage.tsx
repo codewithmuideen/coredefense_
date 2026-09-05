@@ -20,10 +20,8 @@ export default function IndustryDetailPage({ industry }: { industry: IndustryDet
 
       <section className="bg-white py-20 sm:py-28">
         <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative overflow-hidden rounded-2xl bg-surface p-10 lg:order-2">
-            <div className="relative aspect-square w-full">
-              <Image src={industry.image} alt={industry.title} fill className="object-contain" />
-            </div>
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface lg:order-2">
+            <Image src={industry.image} alt={industry.title} fill className="object-cover" />
           </div>
           <div className="lg:order-1">
             <SectionHeading title="How CoreDefense helps" description={industry.description} />

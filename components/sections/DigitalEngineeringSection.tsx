@@ -49,10 +49,8 @@ export default function DigitalEngineeringSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
         >
-          <div className="relative mx-auto max-w-sm overflow-hidden rounded-[2rem] border-4 border-ink-700 bg-ink-800 shadow-2xl">
-            <div className="relative aspect-[9/18] w-full">
-              <Image src="/images/illustrations/cloud-devops.png" alt="Digital platform preview" fill className="object-contain p-6" />
-            </div>
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-ink-800 shadow-2xl">
+            <Image src="/images/illustrations/cloud-devops.png" alt="Digital platform preview" fill className="object-cover" />
           </div>
         </motion.div>
       </div>

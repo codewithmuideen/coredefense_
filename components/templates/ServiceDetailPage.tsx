@@ -49,10 +49,8 @@ export default function ServiceDetailPage({ service }: { service: ServiceDetail 
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl bg-surface p-10">
-            <div className="relative aspect-square w-full">
-              <Image src={service.image} alt={service.title} fill className="object-contain" />
-            </div>
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface">
+            <Image src={service.image} alt={service.title} fill className="object-cover" />
           </div>
         </div>
       </section>

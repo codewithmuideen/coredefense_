@@ -68,7 +68,7 @@ export default function MegaMenuPanel({ menu, onNavigate }: MegaMenuPanelProps) 
                 alt=""
                 fill
                 sizes="320px"
-                className="object-contain p-3"
+                className="object-cover"
               />
             </div>
             <h3 className="text-sm font-bold text-white">{menu.featured.title}</h3>

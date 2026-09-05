@@ -17,11 +17,9 @@ export default function BusinessTransformationSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-2xl bg-surface p-10"
+          className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface"
         >
-          <div className="relative aspect-square w-full">
-            <Image src="/images/illustrations/process-mapping.png" alt="Business process mapping" fill className="object-contain" />
-          </div>
+          <Image src="/images/illustrations/process-mapping.png" alt="Business process mapping" fill className="object-cover" />
         </motion.div>
 
         <div>
