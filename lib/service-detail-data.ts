@@ -187,7 +187,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Map current-state processes and design what should replace them.",
     description:
       "You can't optimise what you haven't mapped. CoreDefense works with your teams to document how processes actually run today, then designs optimised, automation-ready versions.",
-    image: "/images/illustrations/business-transformation-operating-model.jpg",
+    image: "/images/illustrations/business-transformation-process-flow.jpg",
     whatWeDo: [
       "Current-state process mapping and documentation",
       "Bottleneck and risk identification",
@@ -313,7 +313,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "A grounded AI roadmap tied to real business outcomes.",
     description:
       "Adopting AI without a strategy leads to scattered pilots that never scale. CoreDefense helps you build an AI roadmap grounded in your actual data, processes and business priorities.",
-    image: "/images/illustrations/ai-automation-intelligence-loom.jpg",
+    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
     whatWeDo: [
       "AI readiness and opportunity assessment",
       "Use case identification and prioritisation",
@@ -355,7 +355,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Custom AI/ML solutions and analytics for better decisions.",
     description:
       "From predictive analytics to custom machine learning models, CoreDefense builds AI/ML solutions designed around your data and your decisions — not generic off-the-shelf assumptions.",
-    image: "/images/illustrations/ai-automation-intelligence-loom.jpg",
+    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
     whatWeDo: [
       "Custom AI/ML model development",
       "Business intelligence and analytics dashboards",

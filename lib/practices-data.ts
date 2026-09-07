@@ -48,7 +48,7 @@ export const practices: Practice[] = [
     summary: "Put artificial intelligence and automation to work safely.",
     description:
       "We help organisations use AI, machine learning and automation to improve operations, intelligence, productivity and decision-making.",
-    image: "/images/illustrations/ai-automation-intelligence-loom.jpg",
+    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
     points: ["AI strategy", "Intelligent workflow automation", "AI/ML solutions", "Business intelligence"],
   },
 ];

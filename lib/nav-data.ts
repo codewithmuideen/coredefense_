@@ -229,7 +229,7 @@ export const aboutMenu: MegaMenuSection = {
       "Cybersecurity, business transformation, digital engineering and AI & automation — working together.",
     href: "/about",
     ctaLabel: "Learn about CoreDefense",
-    image: "/images/illustrations/ai-automation-intelligence-loom.jpg",
+    image: "/images/illustrations/business-transformation-operating-model.jpg",
   },
 };
 
