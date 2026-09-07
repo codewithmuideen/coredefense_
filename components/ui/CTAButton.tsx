@@ -8,12 +8,13 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "secondary" | "ghost" | "text";
 type Size = "md" | "lg";
 
-interface CTAButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CTAButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
   href?: string;
   variant?: Variant;
   size?: Size;
   icon?: boolean;
   external?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 const base =
@@ -47,6 +48,7 @@ export const CTAButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABu
           className={classes}
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener noreferrer" : undefined}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         >
           {children}
           {icon && <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />}

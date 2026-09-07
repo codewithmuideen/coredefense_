@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import TrustStats from "@/components/sections/TrustStats";
 import Difference from "@/components/sections/Difference";
+import CoreSentinelSection from "@/components/sections/CoreSentinelSection";
 import CyberIntro from "@/components/sections/CyberIntro";
 import CyberCapabilities from "@/components/sections/CyberCapabilities";
 import PlatformPreview from "@/components/sections/PlatformPreview";
@@ -31,6 +32,7 @@ export default function HomePage() {
       <Hero />
       <TrustStats />
       <Difference />
+      <CoreSentinelSection />
       <CyberIntro />
       <CyberCapabilities />
       <PlatformPreview />

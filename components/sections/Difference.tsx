@@ -40,7 +40,7 @@ function StackCard({ practice, index, total }: { practice: Practice; index: numb
             !imageFirst && "md:flex-row-reverse"
           )}
         >
-          <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-surface md:w-1/2">
+          <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-white md:w-1/2">
             <Image
               src={practice.image}
               alt=""
@@ -51,6 +51,18 @@ function StackCard({ practice, index, total }: { practice: Practice; index: numb
             <span className="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1 font-mono text-sm font-bold text-primary-600 shadow-sm">
               {practice.number}
             </span>
+            {/* Soft fade where the image meets the text panel, so it reads as one blended surface */}
+            <div
+              className={cn(
+                "pointer-events-none absolute inset-y-0 hidden w-28 md:block",
+                imageFirst ? "right-0 bg-gradient-to-r from-transparent to-white" : "left-0 bg-gradient-to-l from-transparent to-white"
+              )}
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent md:hidden"
+              aria-hidden
+            />
           </div>
 
           <div className="flex w-full flex-col justify-center p-8 sm:p-10 md:w-1/2 md:p-14">

@@ -11,7 +11,6 @@ import MobileMenu from "@/components/layout/MobileMenu";
 import GlobalSearch from "@/components/layout/GlobalSearch";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
-import TrialModal from "@/components/forms/TrialModal";
 import BookingModal from "@/components/forms/BookingModal";
 import { cn } from "@/lib/utils";
 
@@ -112,17 +111,19 @@ export default function Header() {
               <Search className="h-5 w-5" />
             </button>
 
+            <CTAButton
+              href="/platform/features"
+              variant="secondary"
+              size="md"
+              icon={false}
+              className="hidden xl:inline-flex"
+            >
+              Explore Our Capabilities
+            </CTAButton>
             <BookingModal
               trigger={
-                <CTAButton variant="secondary" size="md" icon={false} className="hidden xl:inline-flex">
-                  Book a Consultation
-                </CTAButton>
-              }
-            />
-            <TrialModal
-              trigger={
                 <CTAButton variant="primary" size="md" icon={false} className="hidden sm:inline-flex">
-                  Start Free Trial
+                  Book a Consultation
                 </CTAButton>
               }
             />

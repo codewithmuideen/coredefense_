@@ -109,7 +109,7 @@ export default function TrialModal({ trigger, triggerClassName }: TrialModalProp
       >
         {trigger}
       </span>
-      <Modal open={open} onClose={closeAndReset} title="Start Your Free Trial" size="lg">
+      <Modal open={open} onClose={closeAndReset} title="Request Early Access" size="lg">
         {status === "success" ? (
           <div className="flex flex-col items-center gap-4 py-8 text-center">
             <CheckCircle2 className="h-14 w-14 text-primary-500" />

@@ -40,6 +40,7 @@ export const searchIndex: SearchableItem[] = [
   { title: "All Industries", href: "/industries", category: "Industries" },
 
   // Resources
+  { title: "Blog", href: "/blog", category: "Resources", description: "Live cybersecurity and hacking news" },
   { title: "Insights", href: "/resources/insights", category: "Resources" },
   { title: "Guides", href: "/resources/guides", category: "Resources" },
   { title: "Case Studies", href: "/resources/case-studies", category: "Resources" },
@@ -49,7 +50,7 @@ export const searchIndex: SearchableItem[] = [
   { title: "Careers", href: "/careers", category: "Pages" },
   { title: "Talent Hub", href: "/careers/talent-hub", category: "Pages" },
   { title: "Contact", href: "/contact", category: "Pages" },
-  { title: "Start Free Trial", href: "/free-trial", category: "Pages" },
+  { title: "Request Early Access", href: "/request-access", category: "Pages" },
   { title: "Book a Consultation", href: "/book-consultation", category: "Pages" },
 
   // FAQs

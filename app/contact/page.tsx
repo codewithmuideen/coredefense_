@@ -16,7 +16,6 @@ export default function ContactPage() {
         title="Let's talk"
         description="Tell us about your organisation and what you're looking to achieve — a member of the CoreDefense team will respond promptly."
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
-        primaryCta="trial"
       />
 
       <section className="bg-white py-20 sm:py-28">

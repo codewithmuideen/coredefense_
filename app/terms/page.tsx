@@ -15,7 +15,6 @@ export default function TermsPage() {
         title="Terms of Use"
         description="Last updated: September 2026. Please read these terms before using this website."
         breadcrumbs={[{ label: "Terms", href: "/terms" }]}
-        primaryCta="trial"
       />
       <LegalContent
         sections={[

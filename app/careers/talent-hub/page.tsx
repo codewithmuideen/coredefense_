@@ -23,8 +23,6 @@ export default function TalentHubPage() {
         title="CoreDefense Talent Hub"
         description="A single place to introduce yourself to CoreDefense — whether you're interested in cybersecurity, transformation, engineering or AI & automation."
         breadcrumbs={[{ label: "Careers", href: "/careers" }, { label: "Talent Hub", href: "/careers/talent-hub" }]}
-        primaryCta="trial"
-        primaryLabel="Start Free Trial"
       />
 
       <section className="bg-white py-20 sm:py-28">

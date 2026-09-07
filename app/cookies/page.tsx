@@ -16,7 +16,6 @@ export default function CookiesPage() {
         title="Cookie Policy"
         description="How we use cookies on this website, and how you can control them."
         breadcrumbs={[{ label: "Cookie Policy", href: "/cookies" }]}
-        primaryCta="trial"
       />
       <LegalContent
         sections={[

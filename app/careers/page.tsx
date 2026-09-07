@@ -25,7 +25,6 @@ export default function CareersPage() {
         title="Work across cybersecurity, transformation, engineering and AI"
         description="CoreDefense brings together people who care about doing security, transformation and engineering properly — not just quickly."
         breadcrumbs={[{ label: "Careers", href: "/careers" }]}
-        primaryCta="trial"
         primaryLabel="View Talent Hub"
       />
 

@@ -38,7 +38,7 @@ export default function FreeTrialSection() {
             ))}
           </ul>
           <div className="mt-6">
-            <TrialModal trigger={<CTAButton size="lg" className="w-full justify-center">Start Free Trial</CTAButton>} />
+            <TrialModal trigger={<CTAButton size="lg" className="w-full justify-center">Request Early Access</CTAButton>} />
           </div>
         </motion.div>
       </div>

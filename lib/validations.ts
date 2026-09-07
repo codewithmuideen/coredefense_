@@ -1,5 +1,38 @@
 import { z } from "zod";
 
+const FREE_EMAIL_DOMAINS = new Set([
+  "gmail.com",
+  "googlemail.com",
+  "yahoo.com",
+  "yahoo.co.uk",
+  "ymail.com",
+  "hotmail.com",
+  "hotmail.co.uk",
+  "outlook.com",
+  "live.com",
+  "msn.com",
+  "icloud.com",
+  "me.com",
+  "mac.com",
+  "aol.com",
+  "protonmail.com",
+  "proton.me",
+  "gmx.com",
+  "gmx.co.uk",
+  "mail.com",
+  "yandex.com",
+  "zoho.com",
+  "fastmail.com",
+  "hey.com",
+  "web.de",
+  "inbox.com",
+]);
+
+function isCompanyEmail(email: string) {
+  const domain = email.split("@")[1]?.toLowerCase().trim();
+  return !!domain && !FREE_EMAIL_DOMAINS.has(domain);
+}
+
 export const contactSchema = z.object({
   name: z.string().min(2, "Please enter your full name").max(120),
   company: z.string().min(2, "Please enter your company name").max(120),
@@ -15,7 +48,10 @@ export type ContactInput = z.infer<typeof contactSchema>;
 export const trialSchema = z.object({
   firstName: z.string().min(1, "First name is required").max(80),
   lastName: z.string().min(1, "Last name is required").max(80),
-  workEmail: z.string().email("Please enter a valid work email"),
+  workEmail: z
+    .string()
+    .email("Please enter a valid work email")
+    .refine(isCompanyEmail, "Please use your company email address — personal email domains aren't accepted"),
   company: z.string().min(2, "Company name is required").max(120),
   jobTitle: z.string().min(2, "Job title is required").max(120),
   phone: z.string().min(5, "Please enter a valid phone number").max(30),

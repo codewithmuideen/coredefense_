@@ -15,7 +15,6 @@ export default function PrivacyPage() {
         title="Privacy Policy"
         description="Last updated: September 2026. This policy explains how CoreDefense Limited handles personal data collected through this website."
         breadcrumbs={[{ label: "Privacy Policy", href: "/privacy" }]}
-        primaryCta="trial"
       />
       <LegalContent
         sections={[

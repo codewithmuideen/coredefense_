@@ -17,7 +17,7 @@ interface PageHeroProps {
   title: string;
   description: string;
   breadcrumbs?: Crumb[];
-  primaryCta?: "trial" | "consultation" | "contact";
+  primaryCta?: "consultation" | "request-access";
   primaryLabel?: string;
 }
 
@@ -26,7 +26,7 @@ export default function PageHero({
   title,
   description,
   breadcrumbs = [],
-  primaryCta = "trial",
+  primaryCta = "consultation",
   primaryLabel,
 }: PageHeroProps) {
   return (
@@ -82,16 +82,14 @@ export default function PageHero({
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-8 flex flex-wrap gap-4"
         >
-          {primaryCta === "trial" && (
-            <TrialModal trigger={<CTAButton size="lg">{primaryLabel ?? "Start Free Trial"}</CTAButton>} />
+          {primaryCta === "request-access" ? (
+            <TrialModal trigger={<CTAButton size="lg">{primaryLabel ?? "Request Early Access"}</CTAButton>} />
+          ) : (
+            <BookingModal trigger={<CTAButton size="lg">{primaryLabel ?? "Book a Consultation"}</CTAButton>} />
           )}
-          <BookingModal
-            trigger={
-              <CTAButton variant="ghost" size="lg" icon={false}>
-                Book a Consultation
-              </CTAButton>
-            }
-          />
+          <CTAButton href="/platform/features" variant="ghost" size="lg" icon={false}>
+            Explore Our Capabilities
+          </CTAButton>
         </motion.div>
       </div>
     </section>

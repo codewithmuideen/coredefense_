@@ -24,12 +24,12 @@ export const faqItems: FAQItem[] = [
   {
     question: "Can I access the CoreDefense cybersecurity platform?",
     answer:
-      "The CoreDefense cybersecurity platform is under active development and is not yet publicly available. You can request early access via Start Free Trial, and our team will contact you about onboarding once access opens.",
+      "The CoreDefense cybersecurity platform is under active development and is not yet publicly available. You can request early access via Request Early Access, using your company email address, and our team will contact you about onboarding once access opens.",
   },
   {
-    question: "How does the free trial work?",
+    question: "How does requesting early access work?",
     answer:
-      "\"Start Free Trial\" is a request-access workflow rather than an instant sign-up, since our platform is still being built. Complete the short form and our team will get in touch to discuss access, timelines and how CoreDefense can support you in the meantime.",
+      "\"Request Early Access\" is a request-access workflow rather than an instant sign-up, since our platform is still being built. Complete the short form with your company email and our team will get in touch to discuss access, timelines and how CoreDefense can support you in the meantime.",
   },
   {
     question: "Can CoreDefense help with compliance?",

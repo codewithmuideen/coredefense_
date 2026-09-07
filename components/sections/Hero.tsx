@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck, Cpu, Workflow, Sparkles } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-import TrialModal from "@/components/forms/TrialModal";
 import BookingModal from "@/components/forms/BookingModal";
 
 const badges = [
@@ -69,14 +68,10 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <TrialModal trigger={<CTAButton size="lg">Start Free Trial</CTAButton>} />
-            <BookingModal
-              trigger={
-                <CTAButton variant="ghost" size="lg" icon={false}>
-                  Book a Consultation
-                </CTAButton>
-              }
-            />
+            <BookingModal trigger={<CTAButton size="lg">Book a Consultation</CTAButton>} />
+            <CTAButton href="/platform/features" variant="ghost" size="lg" icon={false}>
+              Explore Our Capabilities
+            </CTAButton>
           </motion.div>
 
           <motion.div

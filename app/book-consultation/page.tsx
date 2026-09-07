@@ -24,7 +24,6 @@ export default function BookConsultationPage() {
         title="Book a CoreDefense consultation"
         description="Pick a time that works for you. Tell us what you'd like to discuss and we'll make sure the right person from CoreDefense joins the call."
         breadcrumbs={[{ label: "Book a Consultation", href: "/book-consultation" }]}
-        primaryCta="trial"
       />
 
       <section className="bg-white py-20 sm:py-28">

@@ -8,7 +8,6 @@ import { ChevronDown, X } from "lucide-react";
 import { megaMenus } from "@/lib/nav-data";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
-import TrialModal from "@/components/forms/TrialModal";
 import BookingModal from "@/components/forms/BookingModal";
 import { cn } from "@/lib/utils";
 
@@ -126,14 +125,16 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </div>
 
             <div className="mt-8 flex flex-col gap-3">
-              <TrialModal trigger={<CTAButton className="w-full justify-center" icon={false}>Start Free Trial</CTAButton>} />
               <BookingModal
                 trigger={
-                  <CTAButton variant="secondary" className="w-full justify-center" icon={false}>
+                  <CTAButton className="w-full justify-center" icon={false}>
                     Book a Consultation
                   </CTAButton>
                 }
               />
+              <CTAButton href="/platform/features" variant="secondary" className="w-full justify-center" icon={false} onClick={onClose}>
+                Explore Our Capabilities
+              </CTAButton>
             </div>
           </div>
         </motion.div>

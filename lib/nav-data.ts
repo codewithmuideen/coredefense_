@@ -40,6 +40,7 @@ import {
   Info,
   Compass,
   Mail,
+  Rss,
 } from "lucide-react";
 import type { MegaMenuSection, NavColumn } from "@/types";
 
@@ -103,7 +104,7 @@ export const solutionsMenu: MegaMenuSection = {
       "See how CoreDefense combines AI and human expertise to detect, prioritise and remediate threats faster.",
     href: "/cybersecurity/ai-threat-triage",
     ctaLabel: "Explore the capability",
-    image: "/images/illustrations/ai-threat-triage.jpg",
+    image: "/images/illustrations/premium_isometric_illustration_BRAND.png",
   },
 };
 
@@ -131,9 +132,9 @@ export const platformMenu: MegaMenuSection = {
     title: "Request Platform Access",
     description:
       "CoreDefense's cybersecurity platform is in active development. Request early access and we'll be in touch about onboarding.",
-    href: "/free-trial",
-    ctaLabel: "Start Free Trial",
-    image: "/images/illustrations/security-analytics.png",
+    href: "/request-access",
+    ctaLabel: "Request Early Access",
+    image: "/images/illustrations/cybersecurity_shield_icon_FINAL.png",
   },
 };
 
@@ -166,7 +167,7 @@ export const industriesMenu: MegaMenuSection = {
       "Every industry carries a different risk profile. See how CoreDefense tailors cybersecurity and transformation to yours.",
     href: "/industries",
     ctaLabel: "View all industries",
-    image: "/images/illustrations/it-ot-hub.png",
+    image: "/images/illustrations/security_hub_isometric_vector_BRAND.png",
   },
 };
 
@@ -177,6 +178,7 @@ export const resourcesMenu: MegaMenuSection = {
     {
       heading: "Resource Center",
       links: [
+        { label: "Blog", href: "/blog", icon: Rss },
         { label: "Insights", href: "/resources/insights", icon: Newspaper },
         { label: "Guides", href: "/resources/guides", icon: BookOpenText },
         { label: "Case Studies", href: "/resources/case-studies", icon: FileBarChart2 },
@@ -196,7 +198,7 @@ export const resourcesMenu: MegaMenuSection = {
       "A practical look at how CoreDefense maps vulnerabilities and controls against ISO, NIST, PCI DSS and GDPR.",
     href: "/platform/compliance-mapping",
     ctaLabel: "Read the guide",
-    image: "/images/illustrations/compliance-governance.png",
+    image: "/images/illustrations/compliance_scale_isometric_BRAND.png",
   },
 };
 
@@ -227,7 +229,7 @@ export const aboutMenu: MegaMenuSection = {
       "Cybersecurity, business transformation, digital engineering and AI & automation — working together.",
     href: "/about",
     ctaLabel: "Learn about CoreDefense",
-    image: "/images/illustrations/it-ot-security.png",
+    image: "/images/illustrations/isometric_tech_infrastructure_BRAND.png",
   },
 };
 
@@ -272,6 +274,7 @@ export const footerColumns: NavColumn[] = [
   {
     heading: "Resources",
     links: [
+      { label: "Blog", href: "/blog" },
       { label: "Insights", href: "/resources/insights" },
       { label: "Guides", href: "/resources/guides" },
       { label: "Case Studies", href: "/resources/case-studies" },

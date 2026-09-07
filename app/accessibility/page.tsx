@@ -15,7 +15,6 @@ export default function AccessibilityPage() {
         title="Accessibility"
         description="Our commitment to making this website usable by everyone."
         breadcrumbs={[{ label: "Accessibility", href: "/accessibility" }]}
-        primaryCta="trial"
       />
       <LegalContent
         sections={[
