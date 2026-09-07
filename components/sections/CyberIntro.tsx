@@ -59,7 +59,7 @@ export default function CyberIntro() {
           className="relative"
         >
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-ink-900">
-            <Image src="/images/illustrations/network_security_globe_FINAL.png" alt="CoreDefense protecting connected infrastructure" fill className="object-cover" />
+            <Image src="/images/illustrations/cybersecurity-security-threshold.jpg" alt="CoreDefense protecting connected infrastructure" fill className="object-cover" />
           </div>
         </motion.div>
       </div>

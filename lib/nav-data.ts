@@ -104,7 +104,7 @@ export const solutionsMenu: MegaMenuSection = {
       "See how CoreDefense combines AI and human expertise to detect, prioritise and remediate threats faster.",
     href: "/cybersecurity/ai-threat-triage",
     ctaLabel: "Explore the capability",
-    image: "/images/illustrations/premium_isometric_illustration_BRAND.png",
+    image: "/images/illustrations/cybersecurity-security-threshold.jpg",
   },
 };
 
@@ -134,7 +134,7 @@ export const platformMenu: MegaMenuSection = {
       "CoreDefense's cybersecurity platform is in active development. Request early access and we'll be in touch about onboarding.",
     href: "/request-access",
     ctaLabel: "Request Early Access",
-    image: "/images/illustrations/cybersecurity_shield_icon_FINAL.png",
+    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
   },
 };
 
@@ -167,7 +167,7 @@ export const industriesMenu: MegaMenuSection = {
       "Every industry carries a different risk profile. See how CoreDefense tailors cybersecurity and transformation to yours.",
     href: "/industries",
     ctaLabel: "View all industries",
-    image: "/images/illustrations/security_hub_isometric_vector_BRAND.png",
+    image: "/images/illustrations/networking-security.jpg",
   },
 };
 
@@ -198,7 +198,7 @@ export const resourcesMenu: MegaMenuSection = {
       "A practical look at how CoreDefense maps vulnerabilities and controls against ISO, NIST, PCI DSS and GDPR.",
     href: "/platform/compliance-mapping",
     ctaLabel: "Read the guide",
-    image: "/images/illustrations/compliance_scale_isometric_BRAND.png",
+    image: "/images/illustrations/compliance-mapping.jpg",
   },
 };
 
@@ -229,7 +229,7 @@ export const aboutMenu: MegaMenuSection = {
       "Cybersecurity, business transformation, digital engineering and AI & automation — working together.",
     href: "/about",
     ctaLabel: "Learn about CoreDefense",
-    image: "/images/illustrations/isometric_tech_infrastructure_BRAND.png",
+    image: "/images/illustrations/ai-automation-intelligence-loom.jpg",
   },
 };
 

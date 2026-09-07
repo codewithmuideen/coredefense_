@@ -50,7 +50,7 @@ export default function DigitalEngineeringSection() {
           className="relative"
         >
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-ink-800 shadow-2xl">
-            <Image src="/images/illustrations/isometric_cloud_laptop_BRAND.png" alt="Digital platform preview" fill className="object-cover" />
+            <Image src="/images/illustrations/digital-engineering-digital-foundry.jpg" alt="Digital platform preview" fill className="object-cover" />
           </div>
         </motion.div>
       </div>

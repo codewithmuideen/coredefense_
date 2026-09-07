@@ -19,7 +19,7 @@ export default function BusinessTransformationSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface"
         >
-          <Image src="/images/illustrations/premium_blueprint_vector_BRAND.png" alt="Business process mapping" fill className="object-cover" />
+          <Image src="/images/illustrations/business-transformation-operating-model.jpg" alt="Business process mapping" fill className="object-cover" />
         </motion.div>
 
         <div>

@@ -29,7 +29,7 @@ export default function IntegrationsPage() {
       <section className="bg-white py-20 sm:py-28">
         <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface">
-            <Image src="/images/illustrations/isometric_workflow_blueprint_BRAND.png" alt="Integrations ecosystem" fill className="object-cover" />
+            <Image src="/images/illustrations/ai-automation-intelligence-loom-2.jpg" alt="Integrations ecosystem" fill className="object-cover" />
           </div>
           <div>
             <SectionHeading
