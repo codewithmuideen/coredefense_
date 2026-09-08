@@ -22,7 +22,8 @@ export interface MegaMenuSection {
     description: string;
     href: string;
     ctaLabel: string;
-    image: string;
+    image?: string;
+    icon?: LucideIcon;
   };
 }
 

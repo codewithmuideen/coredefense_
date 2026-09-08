@@ -104,7 +104,7 @@ export const solutionsMenu: MegaMenuSection = {
       "See how CoreDefense combines AI and human expertise to detect, prioritise and remediate threats faster.",
     href: "/cybersecurity/ai-threat-triage",
     ctaLabel: "Explore the capability",
-    image: "/images/illustrations/cybersecurity-security-threshold.jpg",
+    image: "/images/illustrations/single-black-cube-monolith.jpg",
   },
 };
 
@@ -134,7 +134,7 @@ export const platformMenu: MegaMenuSection = {
       "CoreDefense's cybersecurity platform is in active development. Request early access and we'll be in touch about onboarding.",
     href: "/request-access",
     ctaLabel: "Request Early Access",
-    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
+    image: "/images/illustrations/floating-cube-data-stream.jpg",
   },
 };
 
@@ -198,7 +198,7 @@ export const resourcesMenu: MegaMenuSection = {
       "A practical look at how CoreDefense maps vulnerabilities and controls against ISO, NIST, PCI DSS and GDPR.",
     href: "/platform/compliance-mapping",
     ctaLabel: "Read the guide",
-    image: "/images/illustrations/compliance-mapping.jpg",
+    icon: MapPinned,
   },
 };
 
@@ -229,7 +229,7 @@ export const aboutMenu: MegaMenuSection = {
       "Cybersecurity, business transformation, digital engineering and AI & automation — working together.",
     href: "/about",
     ctaLabel: "Learn about CoreDefense",
-    image: "/images/illustrations/business-transformation-operating-model.jpg",
+    image: "/images/photos/team-standing-desk.jpg",
   },
 };
 

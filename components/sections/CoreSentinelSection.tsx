@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck, BarChart3, Settings2, Users } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 import CTAButton from "@/components/ui/CTAButton";
 
 const pillars = [
@@ -24,16 +25,35 @@ export default function CoreSentinelSection() {
           className="relative overflow-hidden rounded-3xl bg-ink-900"
         >
           <div className="absolute inset-0 bg-grid-dark opacity-30" aria-hidden />
-          <div className="pointer-events-none absolute -left-24 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-primary-500/15 blur-[120px]" aria-hidden />
+          <div className="pointer-events-none absolute -left-16 top-0 h-[420px] w-[420px] rounded-full bg-primary-500/20 blur-[130px]" aria-hidden />
+          <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-primary-400/10 blur-[110px]" aria-hidden />
 
-          <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:p-16">
+          <div className="relative grid gap-10 p-8 sm:p-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:p-16">
+            {/* Character — desktop, standing on the left */}
+            <div className="relative hidden lg:block">
+              <div className="absolute left-1/2 top-[62%] h-40 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-500/25 blur-[70px]" aria-hidden />
+              <div className="relative mx-auto aspect-[2/3] w-full max-w-md">
+                <Image
+                  src="/images/photos/core-sentinel-cutout-half.png"
+                  alt="Core Sentinel, the CoreDefense brand guardian"
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 0px"
+                  className="object-contain object-bottom"
+                  priority
+                />
+              </div>
+            </div>
+
             <div>
-              <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary-400">
-                <span className="h-px w-6 bg-primary-400" />
-                The CoreDefense Ecosystem
-              </p>
+              <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <Logo dark className="opacity-90" />
+                <span className="hidden h-4 w-px bg-white/20 sm:block" aria-hidden />
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-400">
+                  The CoreDefense Ecosystem
+                </p>
+              </div>
               <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Meet <span className="text-primary-400">Core Sentinel</span>
+                Meet <span className="whitespace-nowrap">Core<span className="text-primary-400">Sentinel</span></span>
               </h2>
               <p className="mt-3 text-lg font-medium text-white/80">
                 The visual guardian of the CoreDefense ecosystem.
@@ -43,28 +63,20 @@ export default function CoreSentinelSection() {
                 expertise work together to turn complex risk into clear action.
               </p>
 
-              {/* Character — mobile only, sits beneath the copy per spec */}
-              <div className="relative mx-auto -mt-2 mb-6 h-[420px] w-[280px] lg:hidden">
-                <div className="absolute inset-0 flex items-center justify-center" aria-hidden>
-                  <Image
-                    src="/images/brand/logo-white.png"
-                    alt=""
-                    width={200}
-                    height={28}
-                    className="h-auto w-40 rotate-90 opacity-[0.07]"
-                  />
-                </div>
+              {/* Character — mobile only, sits beneath the copy */}
+              <div className="relative mx-auto -mt-2 mb-8 aspect-[2/3] w-[260px] lg:hidden">
+                <div className="absolute left-1/2 top-[62%] h-32 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-500/25 blur-[60px]" aria-hidden />
                 <Image
-                  src="/images/photos/core-sentinel-cutout.png"
+                  src="/images/photos/core-sentinel-cutout-half.png"
                   alt="Core Sentinel, the CoreDefense brand guardian"
                   fill
-                  sizes="280px"
+                  sizes="260px"
                   className="object-contain object-bottom"
                   priority
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3 sm:max-w-md">
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:max-w-md">
                 {pillars.map((pillar) => (
                   <div
                     key={pillar.label}
@@ -81,27 +93,6 @@ export default function CoreSentinelSection() {
                   Explore the Platform
                 </CTAButton>
               </div>
-            </div>
-
-            {/* Character — desktop, standing beside the copy */}
-            <div className="relative hidden h-[560px] lg:block">
-              <div className="absolute inset-0 flex items-center justify-end pr-8" aria-hidden>
-                <Image
-                  src="/images/brand/logo-white.png"
-                  alt=""
-                  width={420}
-                  height={58}
-                  className="h-auto w-[420px] rotate-90 opacity-[0.06]"
-                />
-              </div>
-              <Image
-                src="/images/photos/core-sentinel-cutout.png"
-                alt="Core Sentinel, the CoreDefense brand guardian"
-                fill
-                sizes="(min-width: 1024px) 45vw, 0px"
-                className="object-contain object-bottom"
-                priority
-              />
             </div>
           </div>
         </motion.div>

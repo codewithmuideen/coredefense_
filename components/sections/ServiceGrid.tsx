@@ -28,7 +28,13 @@ export default function ServiceGrid({ category }: { category: string }) {
                 className="focus-ring group flex h-full flex-col overflow-hidden rounded-2xl border border-ink-900/8 bg-white transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative h-36 w-full bg-surface-near">
-                  <Image src={item.image} alt="" fill className="object-cover" />
+                  {item.image ? (
+                    <Image src={item.image} alt="" fill className="object-cover" />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-500 to-ink-900">
+                      {item.icon && <item.icon className="h-10 w-10 text-white/90" strokeWidth={1.25} />}
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-sm font-bold text-ink-900">{item.title}</h3>

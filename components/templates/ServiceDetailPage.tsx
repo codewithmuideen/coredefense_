@@ -50,7 +50,14 @@ export default function ServiceDetailPage({ service }: { service: ServiceDetail 
           </div>
 
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface">
-            <Image src={service.image} alt={service.title} fill className="object-cover" />
+            {service.image ? (
+              <Image src={service.image} alt={service.title} fill className="object-cover" />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-500 to-ink-900">
+                <div className="absolute inset-0 bg-grid-dark opacity-20" aria-hidden />
+                {service.icon && <service.icon className="relative h-20 w-20 text-white/90" strokeWidth={1.25} />}
+              </div>
+            )}
           </div>
         </div>
       </section>

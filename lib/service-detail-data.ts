@@ -1,3 +1,15 @@
+import {
+  Users,
+  Workflow,
+  LayoutTemplate,
+  Code2,
+  Boxes,
+  Sparkles,
+  Bot,
+  BrainCircuit,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
 export interface ServiceDetail {
   slug: string;
   category: string;
@@ -5,7 +17,8 @@ export interface ServiceDetail {
   title: string;
   summary: string;
   description: string;
-  image: string;
+  image?: string;
+  icon?: LucideIcon;
   whatWeDo: string[];
   outcomes: string[];
 }
@@ -19,7 +32,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Secure cloud configuration, workload protection and DevSecOps practice.",
     description:
       "As organisations move faster in the cloud, misconfiguration and insecure pipelines become the fastest-growing source of risk. CoreDefense helps you secure cloud infrastructure and DevOps workflows without slowing delivery down.",
-    image: "/images/illustrations/networking-security.jpg",
+    image: "/images/photos/dev-team-screens.jpg",
     whatWeDo: [
       "Cloud configuration and posture review across AWS, Azure and GCP",
       "DevSecOps pipeline assessment and secure CI/CD recommendations",
@@ -40,7 +53,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Continuous discovery, scanning and prioritisation of vulnerabilities.",
     description:
       "Knowing you have vulnerabilities isn't enough — you need to know which ones matter. CoreDefense combines scanning, business context and AI-assisted triage to help you focus remediation where it counts.",
-    image: "/images/illustrations/compliance-mapping.jpg",
+    image: "/images/photos/analyst-desk.jpg",
     whatWeDo: [
       "Continuous vulnerability scanning across IT, cloud and OT assets",
       "Risk-based prioritisation using business context, not just CVSS",
@@ -61,7 +74,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Map vulnerabilities and controls against ISO, NIST, PCI DSS and GDPR.",
     description:
       "Compliance shouldn't be a once-a-year scramble. CoreDefense helps you build governance and control mapping into everyday security operations, so audits become a formality rather than a fire drill.",
-    image: "/images/illustrations/compliance-mapping.jpg",
+    image: "/images/photos/office-collab-1.jpg",
     whatWeDo: [
       "Control mapping against ISO 27001, NIST, PCI DSS and GDPR",
       "Governance framework design and policy support",
@@ -82,7 +95,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Bridging IT and operational technology security.",
     description:
       "Manufacturing and critical infrastructure environments run on operational technology that traditional IT security often can't see. CoreDefense bridges that gap with security designed for converged IT/OT environments.",
-    image: "/images/illustrations/networking-security.jpg",
+    image: "/images/photos/server-room-collab.jpg",
     whatWeDo: [
       "IT/OT network segmentation and visibility review",
       "Industrial control system risk assessment",
@@ -103,7 +116,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "AI-assisted investigation, resolution and quarantine of threats.",
     description:
       "Security teams are drowning in alerts. CoreDefense applies AI to help investigate, prioritise and triage threats faster — augmenting your analysts rather than replacing their judgement.",
-    image: "/images/illustrations/cybersecurity-security-threshold.jpg",
+    image: "/images/photos/night-security-review.jpg",
     whatWeDo: [
       "AI-assisted alert triage and investigation support",
       "Automated enrichment of security events with context",
@@ -124,7 +137,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Structured assessments that reveal your real exposure.",
     description:
       "A security assessment should tell you something you didn't already know. CoreDefense's assessments combine technical testing with business context to give you a realistic picture of your exposure.",
-    image: "/images/illustrations/cybersecurity-security-threshold.jpg",
+    image: "/images/photos/soc-team.jpg",
     whatWeDo: [
       "Technical security assessment across infrastructure and applications",
       "Risk scoring aligned to business impact",
@@ -166,7 +179,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Training that turns your people into a security asset.",
     description:
       "Most breaches involve a human decision somewhere along the way. CoreDefense's security awareness training is designed to build genuine judgement, not just tick a compliance box.",
-    image: "/images/illustrations/cybersecurity-security-threshold.jpg",
+    image: "/images/photos/support-headset.jpg",
     whatWeDo: [
       "Phishing simulation and awareness campaigns",
       "Role-specific security training content",
@@ -208,7 +221,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Business analysis that connects security work to business outcomes.",
     description:
       "Security investment is easier to justify — and prioritise — when it's tied to business impact. CoreDefense's business analysis practice bridges security, operations and stakeholders.",
-    image: "/images/illustrations/business-transformation-operating-model.jpg",
+    icon: Users,
     whatWeDo: [
       "Stakeholder analysis and requirements gathering",
       "Business impact analysis for security and IT/OT risk",
@@ -229,7 +242,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Turn optimised processes into automated workflows.",
     description:
       "Once a process is mapped and optimised, automation is where the real efficiency gains happen. CoreDefense helps design and implement workflow automation that fits how your business actually works.",
-    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
+    icon: Workflow,
     whatWeDo: [
       "Automation opportunity assessment",
       "Workflow and integration design",
@@ -250,7 +263,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Enterprise-grade websites engineered for performance and accessibility.",
     description:
       "A website is often the first impression of a technology company. CoreDefense designs and builds websites and UI/UX with the same engineering rigour we bring to cybersecurity work.",
-    image: "/images/illustrations/digital-engineering-digital-foundry.jpg",
+    icon: LayoutTemplate,
     whatWeDo: [
       "UI/UX design and design systems",
       "Modern, accessible frontend engineering",
@@ -271,7 +284,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Custom web applications engineered to scale.",
     description:
       "From internal tools to customer-facing products, CoreDefense builds web applications with clean architecture that can evolve as requirements change.",
-    image: "/images/illustrations/digital-engineering-digital-foundry.jpg",
+    icon: Code2,
     whatWeDo: [
       "Full-stack web application development",
       "API design and integration",
@@ -292,7 +305,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Platform-level engineering for complex digital products.",
     description:
       "Some products need more than a website or a single application — they need a platform. CoreDefense designs and builds digital platforms with the cloud architecture to support them.",
-    image: "/images/illustrations/digital-engineering-digital-foundry.jpg",
+    icon: Boxes,
     whatWeDo: [
       "Digital platform architecture and design",
       "Cloud infrastructure design and deployment",
@@ -313,7 +326,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "A grounded AI roadmap tied to real business outcomes.",
     description:
       "Adopting AI without a strategy leads to scattered pilots that never scale. CoreDefense helps you build an AI roadmap grounded in your actual data, processes and business priorities.",
-    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
+    icon: Sparkles,
     whatWeDo: [
       "AI readiness and opportunity assessment",
       "Use case identification and prioritisation",
@@ -334,7 +347,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Automation that combines AI with your existing workflows.",
     description:
       "CoreDefense combines process automation with AI-driven decision-making to build workflows that handle more than simple rule-based automation ever could.",
-    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
+    icon: Bot,
     whatWeDo: [
       "Intelligent workflow design",
       "Integration with existing systems and tools",
@@ -355,7 +368,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     summary: "Custom AI/ML solutions and analytics for better decisions.",
     description:
       "From predictive analytics to custom machine learning models, CoreDefense builds AI/ML solutions designed around your data and your decisions — not generic off-the-shelf assumptions.",
-    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
+    icon: BrainCircuit,
     whatWeDo: [
       "Custom AI/ML model development",
       "Business intelligence and analytics dashboards",

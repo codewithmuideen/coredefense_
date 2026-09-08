@@ -38,12 +38,22 @@ export default function AboutPage() {
       </section>
 
       <section id="approach" className="bg-surface py-20 sm:py-28">
-        <div className="container-page">
+        <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionHeading
             eyebrow="Our Approach"
             title="Four practices. One way of working."
             description="Cybersecurity, business transformation, digital engineering and AI & automation aren't run as separate businesses at CoreDefense — every engagement draws on the practice that fits, informed by the others."
           />
+          <div className="overflow-hidden rounded-2xl border border-ink-900/8 bg-white shadow-sm">
+            <video
+              src="/video/brand-spinning.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="aspect-[4/5] w-full object-contain"
+            />
+          </div>
         </div>
       </section>
 

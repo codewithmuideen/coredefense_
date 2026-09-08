@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Sparkles, Users, Rocket, HeartHandshake } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -50,8 +49,9 @@ export default function CareersPage() {
             </div>
           </div>
           <div className="relative overflow-hidden rounded-2xl bg-surface p-6">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
-              <Image src="/images/photos/dev-team-screens.jpg" alt="CoreDefense team collaborating" fill className="object-cover" />
+            <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-primary-500 to-ink-900">
+              <div className="absolute inset-0 bg-grid-dark opacity-20" aria-hidden />
+              <Users className="relative h-20 w-20 text-white/90" strokeWidth={1.25} />
             </div>
           </div>
         </div>

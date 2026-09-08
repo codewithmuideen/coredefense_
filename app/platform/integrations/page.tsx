@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Plug } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ConsultationCTA from "@/components/sections/ConsultationCTA";
@@ -28,8 +28,9 @@ export default function IntegrationsPage() {
 
       <section className="bg-white py-20 sm:py-28">
         <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface">
-            <Image src="/images/illustrations/ai-automation-intelligence-loom-2.jpg" alt="Integrations ecosystem" fill className="object-cover" />
+          <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary-500 to-ink-900">
+            <div className="absolute inset-0 bg-grid-dark opacity-20" aria-hidden />
+            <Plug className="relative h-20 w-20 text-white/90" strokeWidth={1.25} />
           </div>
           <div>
             <SectionHeading
