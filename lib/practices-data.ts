@@ -18,7 +18,7 @@ export const practices: Practice[] = [
     summary: "Understand, redesign and optimise how your business operates.",
     description:
       "We map current-state processes, identify inefficiency and risk, and design future-state operating models that are ready for automation.",
-    image: "/images/illustrations/business-transformation-operating-model.jpg",
+    image: "/images/illustrations/modelling.jpg",
     points: [
       "Current-state process discovery",
       "BPMN process modelling",
@@ -48,7 +48,7 @@ export const practices: Practice[] = [
     summary: "Put artificial intelligence and automation to work safely.",
     description:
       "We help organisations use AI, machine learning and automation to improve operations, intelligence, productivity and decision-making.",
-    image: "/images/illustrations/ai-automation-intelligence-loom-2.jpg",
+    image: "/images/illustrations/ai.jpg",
     points: ["AI strategy", "Intelligent workflow automation", "AI/ML solutions", "Business intelligence"],
   },
 ];

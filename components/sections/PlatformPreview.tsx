@@ -12,6 +12,14 @@ const tiles = [
   { label: "Compliance", value: "94%", tone: "ISO / NIST", icon: Activity },
 ];
 
+const sources = [
+  "Cloud & DevOps",
+  "Vulnerability Management",
+  "IT/OT Security",
+  "Compliance & Governance",
+  "AI Threat Triage",
+];
+
 export default function PlatformPreview() {
   return (
     <section className="relative overflow-hidden bg-ink-900 py-24 sm:py-32">
@@ -54,37 +62,79 @@ export default function PlatformPreview() {
             ))}
           </div>
 
-          <div className="grid gap-px bg-white/5 p-px sm:grid-cols-[1.4fr_1fr]">
-            <div className="bg-ink-800 p-6">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">Threats Resolved (30 days)</p>
-              <div className="flex h-32 items-end gap-2">
-                {[38, 52, 41, 63, 58, 71, 66, 80, 74, 91, 85, 96].map((h, i) => (
+          <div className="relative overflow-hidden bg-ink-800 px-6 py-12 sm:px-10">
+            <div className="pointer-events-none absolute inset-0 opacity-[0.15]" style={{ backgroundImage: "radial-gradient(circle, rgba(82,139,255,0.6) 1px, transparent 1px)", backgroundSize: "26px 26px" }} aria-hidden />
+
+            <div className="relative grid items-center gap-10 sm:grid-cols-[1fr_auto_1fr] sm:gap-4">
+              <div className="space-y-3.5">
+                {sources.map((s, i) => (
                   <motion.div
-                    key={i}
-                    initial={{ height: 0 }}
-                    whileInView={{ height: `${h}%` }}
+                    key={s}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.03, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex-1 rounded-t bg-gradient-to-t from-primary-600 to-primary-400"
-                  />
+                    transition={{ duration: 0.5, delay: i * 0.06 }}
+                    className="flex items-center gap-3"
+                  >
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary-400 shadow-[0_0_8px_2px_rgba(82,139,255,0.6)]" />
+                    <span className="whitespace-nowrap text-xs font-medium text-white/60 sm:text-sm">{s}</span>
+                    <span className="hidden h-px flex-1 bg-gradient-to-r from-primary-400/50 to-transparent sm:block" />
+                  </motion.div>
                 ))}
               </div>
-            </div>
-            <div className="bg-ink-800 p-6">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">Remediation Progress</p>
-              <div className="flex items-center justify-center py-2">
-                <div
-                  className="relative flex h-28 w-28 items-center justify-center rounded-full"
-                  style={{
-                    background: "conic-gradient(#1E6AFF 0% 78%, rgba(255,255,255,0.08) 78% 100%)",
-                  }}
-                >
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-ink-800">
-                    <span className="text-lg font-bold text-white">78%</span>
-                  </div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="relative mx-auto flex h-52 w-52 shrink-0 items-center justify-center"
+              >
+                <div className="absolute inset-0 rounded-full bg-primary-500/25 blur-[50px]" aria-hidden />
+                {[0, 1, 2].map((ring) => (
+                  <div
+                    key={ring}
+                    className="absolute rounded-full border border-primary-400/20"
+                    style={{ inset: `${ring * 18}px` }}
+                    aria-hidden
+                  />
+                ))}
+                <div className="absolute inset-6 rounded-full border border-primary-400/40" aria-hidden />
+                <div className="relative text-center">
+                  <p className="text-3xl font-bold text-white">1,248</p>
+                  <p className="mt-1 text-[11px] uppercase tracking-widest text-white/50">Threats Resolved</p>
+                  <p className="text-[11px] uppercase tracking-widest text-white/50">This Quarter</p>
                 </div>
+              </motion.div>
+
+              <div className="space-y-3">
+                <motion.div
+                  initial={{ opacity: 0, x: 12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="flex items-center justify-between gap-3 rounded-xl border border-red-400/20 bg-red-500/[0.06] px-4 py-3"
+                >
+                  <div>
+                    <p className="text-lg font-bold text-white">62</p>
+                    <p className="text-[11px] text-white/50">Critical, Active</p>
+                  </div>
+                  <span className="h-2 w-2 rounded-full bg-red-400 shadow-[0_0_8px_2px_rgba(248,113,113,0.6)]" aria-hidden />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.18 }}
+                  className="flex items-center justify-between gap-3 rounded-xl border border-primary-400/20 bg-primary-500/[0.06] px-4 py-3"
+                >
+                  <div>
+                    <p className="text-lg font-bold text-white">318</p>
+                    <p className="text-[11px] text-white/50">Resolved, This Month</p>
+                  </div>
+                  <span className="h-2 w-2 rounded-full bg-primary-400 shadow-[0_0_8px_2px_rgba(82,139,255,0.6)]" aria-hidden />
+                </motion.div>
               </div>
-              <p className="text-center text-xs text-white/50">1,248 threats resolved this quarter</p>
             </div>
           </div>
         </motion.div>

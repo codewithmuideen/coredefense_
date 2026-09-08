@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Workflow } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTAButton from "@/components/ui/CTAButton";
 
@@ -16,10 +17,9 @@ export default function BusinessTransformationSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary-500 to-ink-900"
+          className="relative aspect-video w-full overflow-hidden rounded-2xl bg-surface"
         >
-          <div className="absolute inset-0 bg-grid-dark opacity-20" aria-hidden />
-          <Workflow className="relative h-24 w-24 text-white/90" strokeWidth={1.25} />
+          <Image src="/images/illustrations/transformation.jpg" alt="Business transformation" fill className="object-cover" />
         </motion.div>
 
         <div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Code2, Boxes, Cloud, LayoutTemplate } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -48,9 +49,8 @@ export default function DigitalEngineeringSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
         >
-          <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary-600 to-ink-800 shadow-2xl">
-            <div className="absolute inset-0 bg-grid-dark opacity-30" aria-hidden />
-            <Boxes className="relative h-24 w-24 text-white/90" strokeWidth={1.25} />
+          <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-ink-800 shadow-2xl">
+            <Image src="/images/illustrations/automation.jpg" alt="AI and automation" fill className="object-cover" />
           </div>
         </motion.div>
       </div>
