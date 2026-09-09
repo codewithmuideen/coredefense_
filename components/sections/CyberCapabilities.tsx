@@ -8,9 +8,14 @@ import { cyberCapabilities } from "@/lib/capabilities-data";
 
 export default function CyberCapabilities() {
   return (
-    <section className="bg-surface py-24 sm:py-32">
-      <div className="container-page">
+    <section className="relative overflow-hidden bg-ink-900 py-24 sm:py-32">
+      <div className="absolute inset-0 bg-grid-dark opacity-30" aria-hidden />
+      <div className="pointer-events-none absolute -left-24 top-0 h-80 w-80 rounded-full bg-primary-500/15 blur-[120px]" aria-hidden />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-primary-400/10 blur-[120px]" aria-hidden />
+
+      <div className="container-page relative">
         <SectionHeading
+          dark
           eyebrow="Capabilities"
           title="Cybersecurity capabilities built for real environments"
           description="Every capability is designed to work together — from first scan to remediation to audit-ready evidence."
@@ -24,20 +29,27 @@ export default function CyberCapabilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
+              className="h-full"
             >
               <Link
                 href={cap.slug}
-                className="focus-ring group flex h-full flex-col rounded-2xl border border-ink-900/8 bg-white p-6 transition-all hover:-translate-y-1 hover:border-primary-200 hover:shadow-lg"
+                className="focus-ring group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-400/40 hover:bg-white/[0.06]"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors group-hover:bg-primary-500 group-hover:text-white">
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{ background: "radial-gradient(160px circle at 30% 0%, rgba(82,139,255,0.18), transparent 70%)" }}
+                  aria-hidden
+                />
+                <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-primary-500/10 text-primary-400 ring-1 ring-inset ring-primary-400/20 transition-all duration-300 group-hover:bg-primary-500/20 group-hover:shadow-[0_0_18px_rgba(82,139,255,0.45)]">
                   <cap.icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-4 text-sm font-bold text-ink-900">{cap.title}</h3>
-                <p className="mt-2 flex-1 text-xs leading-relaxed text-ink-600">{cap.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary-600">
+                <h3 className="relative mt-4 text-sm font-bold text-white">{cap.title}</h3>
+                <p className="relative mt-2 flex-1 text-xs leading-relaxed text-white/55">{cap.description}</p>
+                <span className="relative mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary-400">
                   Learn more
                   <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
+                <div className="pointer-events-none absolute inset-x-4 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-primary-400/60 to-transparent transition-transform duration-300 group-hover:scale-x-100" aria-hidden />
               </Link>
             </motion.div>
           ))}

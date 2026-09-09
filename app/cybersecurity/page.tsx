@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
+import CyberStatsBar from "@/components/sections/CyberStatsBar";
 import CyberCapabilities from "@/components/sections/CyberCapabilities";
 import PlatformPreview from "@/components/sections/PlatformPreview";
 import SIEMVision from "@/components/sections/SIEMVision";
@@ -22,6 +23,7 @@ export default function CybersecurityPage() {
         description="CoreDefense delivers AI-powered, compliance-ready cybersecurity that identifies, prioritises and remediates threats faster — across your entire environment."
         breadcrumbs={[{ label: "Cybersecurity", href: "/cybersecurity" }]}
       />
+      <CyberStatsBar />
       <CyberCapabilities />
       <SecurityProcess />
       <PlatformPreview />

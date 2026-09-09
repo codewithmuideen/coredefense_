@@ -7,9 +7,17 @@ import { industries } from "@/lib/industries-data";
 
 export default function IndustriesSection() {
   return (
-    <section className="bg-surface py-24 sm:py-32">
-      <div className="container-page">
-        <SectionHeading eyebrow="Industries" title="Sector-specific risk, mapped to your business" description="Every industry carries a different risk profile. We tailor cybersecurity and transformation work to yours." />
+    <section className="relative overflow-hidden bg-ink-900 py-24 sm:py-32">
+      <div className="absolute inset-0 bg-grid-dark opacity-30" aria-hidden />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[800px] -translate-x-1/2 rounded-full bg-primary-500/10 blur-[130px]" aria-hidden />
+
+      <div className="container-page relative">
+        <SectionHeading
+          dark
+          eyebrow="Industries"
+          title="Sector-specific risk, mapped to your business"
+          description="Every industry carries a different risk profile. We tailor cybersecurity and transformation work to yours."
+        />
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry, i) => (
@@ -19,14 +27,23 @@ export default function IndustriesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
+              className="h-full"
             >
               <Link
                 href={industry.slug}
-                className="focus-ring group relative block overflow-hidden rounded-2xl border border-ink-900/8 bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="focus-ring group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-400/40 hover:bg-white/[0.06]"
               >
-                <industry.icon className="h-6 w-6 text-primary-500 transition-transform group-hover:scale-110" />
-                <h3 className="mt-4 text-sm font-bold text-ink-900">{industry.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-ink-600">{industry.description}</p>
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{ background: "radial-gradient(160px circle at 30% 0%, rgba(82,139,255,0.18), transparent 70%)" }}
+                  aria-hidden
+                />
+                <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-primary-500/10 text-primary-400 ring-1 ring-inset ring-primary-400/20 transition-all duration-300 group-hover:bg-primary-500/20 group-hover:shadow-[0_0_18px_rgba(82,139,255,0.45)]">
+                  <industry.icon className="h-5 w-5 transition-transform group-hover:scale-110" />
+                </div>
+                <h3 className="relative mt-4 text-sm font-bold text-white">{industry.title}</h3>
+                <p className="relative mt-2 text-xs leading-relaxed text-white/55">{industry.description}</p>
+                <div className="pointer-events-none absolute inset-x-4 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-primary-400/60 to-transparent transition-transform duration-300 group-hover:scale-x-100" aria-hidden />
               </Link>
             </motion.div>
           ))}
