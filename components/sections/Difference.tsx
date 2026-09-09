@@ -97,7 +97,7 @@ export default function Difference() {
         <SectionHeading
           eyebrow="The CoreDefense Difference"
           title="One technology partner. Four connected practices."
-          description="Cybersecurity, transformation, engineering and AI don't operate in isolation at CoreDefense — each practice strengthens the others."
+          description="Cybersecurity, transformation, engineering and AI don't operate in isolation at CoreDefense. Each practice strengthens the others."
         />
 
         <div className="mt-14">

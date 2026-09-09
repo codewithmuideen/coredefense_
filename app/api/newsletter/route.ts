@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       html: `
         <p>Thanks for subscribing to CoreDefense insights. We'll send occasional updates on
         cybersecurity, transformation and AI &amp; automation for UK enterprise.</p>
-        <p>— The CoreDefense Team</p>
+        <p>The CoreDefense Team</p>
       `,
     });
 

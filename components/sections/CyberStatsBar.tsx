@@ -25,7 +25,7 @@ export default function CyberStatsBar() {
           Stay ahead of every cyber threat
         </h2>
         <p className="mt-3 max-w-xl text-balance text-base leading-relaxed text-white/60">
-          Real outcomes from CoreDefense engagements across IT, cloud and OT environments — not projected figures.
+          Real outcomes from CoreDefense engagements across IT, cloud and OT environments, not projected figures.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3 sm:gap-6">

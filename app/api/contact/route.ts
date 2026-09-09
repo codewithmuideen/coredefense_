@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: email,
-      subject: `New enquiry: ${service} — ${company}`,
+      subject: `New enquiry: ${service} (${company})`,
       html: `
         <h2>New CoreDefense enquiry</h2>
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
@@ -49,7 +49,7 @@ export async function POST(request: Request) {
         <p>Hi ${escapeHtml(name)},</p>
         <p>Thanks for getting in touch with CoreDefense. We've received your message about
         <strong>${escapeHtml(service)}</strong> and a member of our team will respond shortly.</p>
-        <p>— The CoreDefense Team</p>
+        <p>The CoreDefense Team</p>
       `,
     });
 

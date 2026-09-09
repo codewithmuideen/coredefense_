@@ -38,7 +38,7 @@ export default function UseCasesPage() {
       <PageHero
         eyebrow="Platform"
         title="Use cases"
-        description="These are illustrative examples of how organisations typically apply CoreDefense's capabilities — not specific client case studies."
+        description="These are illustrative examples of how organisations typically apply CoreDefense's capabilities, not specific client case studies."
         breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Use Cases", href: "/platform/use-cases" }]}
       />
 

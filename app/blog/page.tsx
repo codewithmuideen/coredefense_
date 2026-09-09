@@ -18,7 +18,7 @@ export default async function BlogPage() {
       <PageHero
         eyebrow="Resources"
         title="CoreDefense Blog"
-        description="A live feed of cybersecurity, hacking and business technology news — pulled automatically from trusted sources and refreshed every hour, so you're never reading stale headlines."
+        description="A live feed of cybersecurity, hacking and business technology news, pulled automatically from trusted sources and refreshed every hour, so you're never reading stale headlines."
         breadcrumbs={[{ label: "Blog", href: "/blog" }]}
       />
       <BlogFeed posts={posts} />

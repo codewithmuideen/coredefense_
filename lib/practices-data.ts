@@ -7,7 +7,7 @@ export const practices: Practice[] = [
     slug: "/cybersecurity",
     summary: "Protect infrastructure, cloud, applications, data and OT environments.",
     description:
-      "AI-powered, compliance-ready cybersecurity that detects, prioritises and remediates threats faster — across IT, cloud and operational technology.",
+      "AI-powered, compliance-ready cybersecurity that detects, prioritises and remediates threats faster across IT, cloud and operational technology.",
     image: "/images/illustrations/cybersecurity-security-threshold.jpg",
     points: ["Vulnerability management", "Cloud & DevOps security", "Compliance & governance", "AI-powered threat triage"],
   },
@@ -37,7 +37,7 @@ export const practices: Practice[] = [
     slug: "/digital-engineering",
     summary: "Design and build modern digital products, platforms and websites.",
     description:
-      "From enterprise websites to full digital platforms — engineered with the same rigour as our cybersecurity practice.",
+      "From enterprise websites to full digital platforms, engineered with the same rigour as our cybersecurity practice.",
     image: "/images/illustrations/digital-engineering-digital-foundry.jpg",
     points: ["Website development", "Web applications", "Digital platforms", "Cloud-native engineering"],
   },

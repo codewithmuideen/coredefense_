@@ -26,7 +26,7 @@ export default function SIEMVision() {
           <SectionHeading
             eyebrow="Security Operations Vision"
             title="Toward unified security operations and SIEM"
-            description="CoreDefense is not currently operating a full SIEM platform — this is a technology vision for how AI-assisted security operations will work as our platform matures. Speak to our team about your current SOC and SIEM requirements today."
+            description="CoreDefense is not currently operating a full SIEM platform. This is a technology vision for how AI-assisted security operations will work as our platform matures. Speak to our team about your current SOC and SIEM requirements today."
           />
           <div className="mt-8">
             <CTAButton href="/contact" variant="secondary">

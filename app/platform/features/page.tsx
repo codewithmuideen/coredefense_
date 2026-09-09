@@ -24,8 +24,8 @@ export default function PlatformFeaturesPage() {
     <>
       <PageHero
         eyebrow="Platform"
-        title="Platform features — in development"
-        description="These are the capabilities we're building into the CoreDefense platform. It isn't live yet — this page describes our product direction, not a shipped feature list."
+        title="Platform features (in development)"
+        description="These are the capabilities we're building into the CoreDefense platform. It isn't live yet. This page describes our product direction, not a shipped feature list."
         breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Features", href: "/platform/features" }]}
       />
 

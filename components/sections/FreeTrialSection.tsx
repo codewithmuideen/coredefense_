@@ -20,7 +20,7 @@ export default function FreeTrialSection() {
 
       <div className="container-page relative grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
         <div>
-          <SectionHeading dark eyebrow="Get Started" title="Start your CoreDefense journey" description="Request access to explore CoreDefense's cybersecurity capabilities. Our platform is in active development — this starts a conversation with our team, not an instant login." />
+          <SectionHeading dark eyebrow="Get Started" title="Start your CoreDefense journey" description="Request access to explore CoreDefense's cybersecurity capabilities. Our platform is in active development. This starts a conversation with our team, not an instant login." />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

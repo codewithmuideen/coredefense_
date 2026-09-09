@@ -6,14 +6,14 @@ import CTAButton from "@/components/ui/CTAButton";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join CoreDefense — a UK technology company working across cybersecurity, transformation, engineering and AI & automation.",
+  description: "Join CoreDefense, a UK technology company working across cybersecurity, transformation, engineering and AI & automation.",
 };
 
 const values = [
-  { icon: Sparkles, title: "Curiosity", description: "We work across four disciplines — curiosity about how they connect is part of the job." },
+  { icon: Sparkles, title: "Curiosity", description: "We work across four disciplines, and curiosity about how they connect is part of the job." },
   { icon: Users, title: "Ownership", description: "Small, connected teams that own outcomes rather than tickets." },
   { icon: Rocket, title: "Craft", description: "We care about doing the work properly, not just shipping something that works." },
-  { icon: HeartHandshake, title: "Trust", description: "Clients trust us with sensitive systems and data — we take that seriously." },
+  { icon: HeartHandshake, title: "Trust", description: "Clients trust us with sensitive systems and data, and we take that seriously." },
 ];
 
 export default function CareersPage() {
@@ -22,7 +22,7 @@ export default function CareersPage() {
       <PageHero
         eyebrow="Careers"
         title="Work across cybersecurity, transformation, engineering and AI"
-        description="CoreDefense brings together people who care about doing security, transformation and engineering properly — not just quickly."
+        description="CoreDefense brings together people who care about doing security, transformation and engineering properly, not just quickly."
         breadcrumbs={[{ label: "Careers", href: "/careers" }]}
         primaryLabel="View Talent Hub"
       />

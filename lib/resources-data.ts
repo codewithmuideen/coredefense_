@@ -31,7 +31,7 @@ export const resourceItems: ResourceItem[] = [
   {
     title: "Business process mapping: a starting framework",
     category: "Guide",
-    excerpt: "Current-state, analysis, optimisation, future-state — a practical framework for process discovery.",
+    excerpt: "Current-state, analysis, optimisation, future-state: a practical framework for process discovery.",
     href: "/resources/guides",
     readTime: "10 min read",
   },

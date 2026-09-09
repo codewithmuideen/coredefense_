@@ -115,7 +115,7 @@ export default function TrialModal({ trigger, triggerClassName }: TrialModalProp
             <CheckCircle2 className="h-14 w-14 text-primary-500" />
             <h3 className="text-xl font-bold text-ink-900">Request received</h3>
             <p className="max-w-sm text-sm text-ink-600">
-              Thanks — CoreDefense&apos;s cybersecurity platform is currently in active development. A member
+              Thanks. CoreDefense&apos;s cybersecurity platform is currently in active development. A member
               of our team will be in touch shortly to discuss access and onboarding.
             </p>
             <CTAButton variant="secondary" onClick={closeAndReset} icon={false}>
@@ -203,7 +203,7 @@ export default function TrialModal({ trigger, triggerClassName }: TrialModalProp
                 <div className="space-y-4">
                   <p className="text-sm text-ink-600">
                     CoreDefense&apos;s cybersecurity platform is currently in development. By submitting this
-                    form you&apos;re requesting early access — our team will contact you about onboarding and
+                    form you&apos;re requesting early access. Our team will contact you about onboarding and
                     timelines. This is not an instant sign-up to a live product.
                   </p>
                   <label className="flex items-start gap-3 text-sm text-ink-700">

@@ -52,7 +52,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     title: "Vulnerability Management",
     summary: "Continuous discovery, scanning and prioritisation of vulnerabilities.",
     description:
-      "Knowing you have vulnerabilities isn't enough — you need to know which ones matter. CoreDefense combines scanning, business context and AI-assisted triage to help you focus remediation where it counts.",
+      "Knowing you have vulnerabilities isn't enough. You need to know which ones matter. CoreDefense combines scanning, business context and AI-assisted triage to help you focus remediation where it counts.",
     image: "/images/photos/analyst-desk.jpg",
     whatWeDo: [
       "Continuous vulnerability scanning across IT, cloud and OT assets",
@@ -115,7 +115,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     title: "AI-Powered Threat Triage",
     summary: "AI-assisted investigation, resolution and quarantine of threats.",
     description:
-      "Security teams are drowning in alerts. CoreDefense applies AI to help investigate, prioritise and triage threats faster — augmenting your analysts rather than replacing their judgement.",
+      "Security teams are drowning in alerts. CoreDefense applies AI to help investigate, prioritise and triage threats faster, augmenting your analysts rather than replacing their judgement.",
     image: "/images/photos/night-security-review.jpg",
     whatWeDo: [
       "AI-assisted alert triage and investigation support",
@@ -141,7 +141,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     whatWeDo: [
       "Technical security assessment across infrastructure and applications",
       "Risk scoring aligned to business impact",
-      "Clear, prioritised findings — not just a raw scan output",
+      "Clear, prioritised findings, not just a raw scan output",
       "Executive summary alongside technical detail",
     ],
     outcomes: [
@@ -220,7 +220,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     title: "Cybersecurity Business Analysis",
     summary: "Business analysis that connects security work to business outcomes.",
     description:
-      "Security investment is easier to justify — and prioritise — when it's tied to business impact. CoreDefense's business analysis practice bridges security, operations and stakeholders.",
+      "Security investment is easier to justify and prioritise when it's tied to business impact. CoreDefense's business analysis practice bridges security, operations and stakeholders.",
     icon: Users,
     whatWeDo: [
       "Stakeholder analysis and requirements gathering",
@@ -304,7 +304,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     title: "Digital Platforms & Cloud Solutions",
     summary: "Platform-level engineering for complex digital products.",
     description:
-      "Some products need more than a website or a single application — they need a platform. CoreDefense designs and builds digital platforms with the cloud architecture to support them.",
+      "Some products need more than a website or a single application. They need a platform. CoreDefense designs and builds digital platforms with the cloud architecture to support them.",
     icon: Boxes,
     whatWeDo: [
       "Digital platform architecture and design",
@@ -367,7 +367,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     title: "AI/ML Solutions & Business Intelligence",
     summary: "Custom AI/ML solutions and analytics for better decisions.",
     description:
-      "From predictive analytics to custom machine learning models, CoreDefense builds AI/ML solutions designed around your data and your decisions — not generic off-the-shelf assumptions.",
+      "From predictive analytics to custom machine learning models, CoreDefense builds AI/ML solutions designed around your data and your decisions, not generic off-the-shelf assumptions.",
     icon: BrainCircuit,
     whatWeDo: [
       "Custom AI/ML model development",

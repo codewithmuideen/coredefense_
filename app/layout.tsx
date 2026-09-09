@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "CoreDefense",
     title: "CoreDefense | Cybersecurity, Transformation & AI for UK Enterprise",
     description:
-      "AI-powered cybersecurity, business transformation, digital engineering and AI & automation — one UK technology partner, four connected practices.",
+      "AI-powered cybersecurity, business transformation, digital engineering and AI & automation: one UK technology partner, four connected practices.",
     images: [{ url: "/images/brand/logo-full.png", width: 1200, height: 630 }],
   },
   twitter: {

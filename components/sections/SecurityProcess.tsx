@@ -6,7 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const steps = [
   { number: "01", icon: Search, title: "Discover", description: "Identify assets, vulnerabilities, risks and operational gaps across IT, cloud and OT." },
-  { number: "02", icon: ListOrdered, title: "Prioritise", description: "Use intelligence and business context to identify what matters most — not just CVSS scores." },
+  { number: "02", icon: ListOrdered, title: "Prioritise", description: "Use intelligence and business context to identify what matters most, not just CVSS scores." },
   { number: "03", icon: Zap, title: "Respond", description: "Turn security findings into actionable, tracked remediation with clear ownership." },
   { number: "04", icon: TrendingUp, title: "Strengthen", description: "Improve resilience through continuous monitoring, governance and optimisation." },
 ];
@@ -19,7 +19,7 @@ export default function SecurityProcess() {
           eyebrow="How We Work"
           title="A continuous cycle, not a one-off audit"
           align="center"
-          description="CoreDefense's security process is designed to repeat — because risk isn't static."
+          description="CoreDefense's security process is designed to repeat, because risk isn't static."
         />
 
         <div className="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

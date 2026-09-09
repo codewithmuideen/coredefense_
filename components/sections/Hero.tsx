@@ -59,7 +59,7 @@ export default function Hero() {
             className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-white/65"
           >
             CoreDefense combines AI-powered cybersecurity, business transformation, digital engineering and
-            AI &amp; automation into one connected technology partnership — built for UK enterprise.
+            AI &amp; automation into one connected technology partnership, built for UK enterprise.
           </motion.p>
 
           <motion.div
@@ -109,7 +109,7 @@ export default function Hero() {
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <p className="text-xs font-semibold uppercase tracking-widest text-primary-400">Live risk visibility</p>
               <p className="mt-1 text-sm text-white/70">
-                Connected nodes, cloud infrastructure and endpoint signals — mapped in real time.
+                Connected nodes, cloud infrastructure and endpoint signals, mapped in real time.
               </p>
             </div>
           </div>

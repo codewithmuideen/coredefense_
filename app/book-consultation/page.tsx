@@ -39,7 +39,7 @@ export default function BookConsultationPage() {
               ))}
             </div>
             <p className="mt-6 text-xs text-ink-400">
-              Not sure which fits? Book a general consultation — we&apos;ll help direct the conversation once we know
+              Not sure which fits? Book a general consultation and we&apos;ll help direct the conversation once we know
               more.
             </p>
           </div>

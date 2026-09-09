@@ -30,7 +30,7 @@ export default function PlatformPreview() {
         <SectionHeading
           dark
           eyebrow="Platform Preview"
-          title="A single view of your security posture — coming to CoreDefense"
+          title="A single view of your security posture, coming to CoreDefense"
           description="This is a concept preview of the CoreDefense platform, currently in development. The data shown is illustrative, not live telemetry."
           align="center"
         />
@@ -46,7 +46,7 @@ export default function PlatformPreview() {
             <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-primary-400/70" />
-            <span className="ml-3 text-xs font-medium text-white/40">app.coredefense.co.uk — Security Overview (concept)</span>
+            <span className="ml-3 text-xs font-medium text-white/40">app.coredefense.co.uk / Security Overview (concept)</span>
           </div>
 
           <div className="grid gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">

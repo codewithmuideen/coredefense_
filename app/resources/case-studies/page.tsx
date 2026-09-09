@@ -5,7 +5,7 @@ import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
   title: "Case Studies",
-  description: "CoreDefense case studies — coming soon.",
+  description: "CoreDefense case studies, coming soon.",
 };
 
 export default function CaseStudiesPage() {

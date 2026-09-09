@@ -23,7 +23,7 @@ export default function AISecuritySection() {
         <SectionHeading
           eyebrow="AI & Security"
           title="Where AI, security and the rest of the business meet"
-          description="AI is reshaping cybersecurity, automation, cloud, data and identity together — not as isolated trends. CoreDefense's four practices are built around that convergence, so your security strategy keeps pace with how your business actually uses technology."
+          description="AI is reshaping cybersecurity, automation, cloud, data and identity together, not as isolated trends. CoreDefense's four practices are built around that convergence, so your security strategy keeps pace with how your business actually uses technology."
         />
 
         <div className="mx-auto scale-[0.68] sm:scale-100">

@@ -44,7 +44,7 @@ export const cyberCapabilities: Capability[] = [
   {
     title: "Security Assessment",
     slug: "/cybersecurity/security-assessment",
-    description: "Structured assessments that reveal your real exposure — not just a checklist.",
+    description: "Structured assessments that reveal your real exposure, not just a checklist.",
     icon: FileSearch,
   },
   {

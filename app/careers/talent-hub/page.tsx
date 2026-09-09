@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const points = [
   { icon: Users, title: "One community", description: "Cybersecurity, transformation, engineering and AI talent, in one place." },
-  { icon: Network, title: "Stay connected", description: "We'll reach out when a relevant opportunity comes up — no spam, no noise." },
+  { icon: Network, title: "Stay connected", description: "We'll reach out when a relevant opportunity comes up. No spam, no noise." },
   { icon: Send, title: "Low commitment", description: "Introducing yourself here doesn't commit you to anything." },
 ];
 
@@ -21,7 +21,7 @@ export default function TalentHubPage() {
       <PageHero
         eyebrow="Careers"
         title="CoreDefense Talent Hub"
-        description="A single place to introduce yourself to CoreDefense — whether you're interested in cybersecurity, transformation, engineering or AI & automation."
+        description="A single place to introduce yourself to CoreDefense, whether you're interested in cybersecurity, transformation, engineering or AI & automation."
         breadcrumbs={[{ label: "Careers", href: "/careers" }, { label: "Talent Hub", href: "/careers/talent-hub" }]}
       />
 

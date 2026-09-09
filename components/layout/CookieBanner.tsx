@@ -16,7 +16,7 @@ const TOGGLES: { key: keyof CookiePreferences; label: string; description: strin
   {
     key: "necessary",
     label: "Necessary Cookies",
-    description: "Required for the site to function — always active.",
+    description: "Required for the site to function. Always active.",
     locked: true,
   },
   {

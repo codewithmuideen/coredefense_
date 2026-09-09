@@ -22,7 +22,7 @@ export default function IntegrationsPage() {
       <PageHero
         eyebrow="Platform"
         title="Integrations ecosystem"
-        description="CoreDefense is being designed to fit into the tools you already use — not replace them. Here's the integration ecosystem we're building toward."
+        description="CoreDefense is being designed to fit into the tools you already use, not replace them. Here's the integration ecosystem we're building toward."
         breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Integrations Ecosystem", href: "/platform/integrations" }]}
       />
 

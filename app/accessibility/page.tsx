@@ -24,7 +24,7 @@ export default function AccessibilityPage() {
           },
           {
             heading: "Ongoing work",
-            body: "Accessibility is an ongoing effort. We test key journeys — navigation, search, forms and modals — for keyboard and screen reader support, and continue to improve as the site evolves.",
+            body: "Accessibility is an ongoing effort. We test key journeys (navigation, search, forms and modals) for keyboard and screen reader support, and continue to improve as the site evolves.",
           },
           {
             heading: "Reduced motion",

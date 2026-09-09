@@ -32,7 +32,7 @@ export default function BlogFeed({ posts }: { posts: BlogPost[] }) {
       <div className="container-page">
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3.5 py-1.5 text-xs font-semibold text-primary-700">
           <Radio className="h-3.5 w-3.5 animate-pulse" aria-hidden />
-          Live feed — refreshed automatically from trusted security news sources
+          Live feed, refreshed automatically from trusted security news sources
         </div>
 
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -64,7 +64,7 @@ export default function BlogFeed({ posts }: { posts: BlogPost[] }) {
 
         {filtered.length === 0 && (
           <p className="mt-16 text-center text-sm text-ink-500">
-            No headlines match right now — the feed refreshes hourly, so check back shortly.
+            No headlines match right now. The feed refreshes hourly, so check back shortly.
           </p>
         )}
 

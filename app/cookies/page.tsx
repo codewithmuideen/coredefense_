@@ -21,7 +21,7 @@ export default function CookiesPage() {
         sections={[
           {
             heading: "Necessary cookies",
-            body: "Required for the site to function correctly — such as remembering your cookie preferences. These cannot be disabled.",
+            body: "Required for the site to function correctly, such as remembering your cookie preferences. These cannot be disabled.",
           },
           {
             heading: "Analytics cookies",

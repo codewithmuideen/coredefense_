@@ -35,7 +35,7 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
   if (status === "success") {
     return (
       <p className={cn("flex items-center gap-2 text-sm font-medium", dark ? "text-white" : "text-ink-900")}>
-        <CheckCircle2 className="h-4 w-4 text-primary-400" /> You&apos;re subscribed — thank you.
+        <CheckCircle2 className="h-4 w-4 text-primary-400" /> You&apos;re subscribed, thank you.
       </p>
     );
   }

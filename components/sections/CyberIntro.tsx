@@ -8,7 +8,7 @@ import CTAButton from "@/components/ui/CTAButton";
 
 const pillars = [
   { icon: Radar, title: "See", description: "Full visibility of assets, vulnerabilities and exposure across IT, cloud and OT." },
-  { icon: ShieldCheck, title: "Understand", description: "Risk contextualised against your business — not a generic severity score." },
+  { icon: ShieldCheck, title: "Understand", description: "Risk contextualised against your business, not a generic severity score." },
   { icon: Workflow, title: "Strengthen", description: "Remediation, automation and governance that reduce risk over time." },
 ];
 
@@ -20,7 +20,7 @@ export default function CyberIntro() {
           <SectionHeading
             eyebrow="Cybersecurity"
             title="See your risk. Understand your exposure. Strengthen your defence."
-            description="CoreDefense delivers AI-powered, compliance-ready cybersecurity that identifies, prioritises and remediates vulnerabilities across IT, cloud, OT and compliance — backed by workflow automation that keeps remediation moving."
+            description="CoreDefense delivers AI-powered, compliance-ready cybersecurity that identifies, prioritises and remediates vulnerabilities across IT, cloud, OT and compliance, backed by workflow automation that keeps remediation moving."
           />
 
           <div className="mt-10 space-y-6">

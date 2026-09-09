@@ -23,7 +23,7 @@ export default function DigitalEngineeringSection() {
             dark
             eyebrow="Digital Engineering & Website Development"
             title="Engineered digital products, not just websites"
-            description="We design and build modern websites, web applications and digital platforms — engineered to the same rigour as our cybersecurity practice, from architecture through to deployment."
+            description="We design and build modern websites, web applications and digital platforms, engineered to the same rigour as our cybersecurity practice, from architecture through to deployment."
           />
 
           <div className="mt-8 grid grid-cols-2 gap-4">

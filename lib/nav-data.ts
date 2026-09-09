@@ -226,7 +226,7 @@ export const aboutMenu: MegaMenuSection = {
   featured: {
     title: "One technology partner, four connected practices",
     description:
-      "Cybersecurity, business transformation, digital engineering and AI & automation — working together.",
+      "Cybersecurity, business transformation, digital engineering and AI & automation, working together.",
     href: "/about",
     ctaLabel: "Learn about CoreDefense",
     image: "/images/photos/team-standing-desk.jpg",

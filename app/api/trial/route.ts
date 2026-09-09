@@ -27,7 +27,7 @@ export async function POST(request: Request) {
       from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: workEmail,
-      subject: `New platform access request — ${company}`,
+      subject: `New platform access request from ${company}`,
       html: `
         <h2>New CoreDefense free trial / platform access request</h2>
         <p><strong>Name:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
         touch about onboarding and timelines.</p>
         <p>In the meantime, feel free to <a href="${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/book-consultation">book a consultation</a>
         with our security team.</p>
-        <p>— The CoreDefense Team</p>
+        <p>The CoreDefense Team</p>
       `,
     });
 

@@ -49,7 +49,7 @@ export default function ContactForm() {
         <CheckCircle2 className="h-12 w-12 text-primary-500" />
         <h3 className="text-xl font-bold text-ink-900">Message sent</h3>
         <p className="max-w-sm text-sm text-ink-600">
-          Thanks for reaching out — a member of the CoreDefense team will respond shortly.
+          Thanks for reaching out. A member of the CoreDefense team will respond shortly.
         </p>
         <CTAButton variant="secondary" icon={false} onClick={() => setStatus("idle")}>
           Send another message

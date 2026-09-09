@@ -22,7 +22,7 @@ export default function RequestAccessPage() {
       <PageHero
         eyebrow="Get Started"
         title="Request early access to CoreDefense"
-        description="CoreDefense's cybersecurity platform is currently in active development. Requesting access here begins a conversation with our team — not an instant sign-up — and we'll follow up about onboarding and timelines."
+        description="CoreDefense's cybersecurity platform is currently in active development. Requesting access here begins a conversation with our team, not an instant sign-up, and we'll follow up about onboarding and timelines."
         breadcrumbs={[{ label: "Request Early Access", href: "/request-access" }]}
         primaryCta="request-access"
       />

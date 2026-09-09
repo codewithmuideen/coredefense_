@@ -25,7 +25,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About CoreDefense"
         title="A UK technology partner built around four connected practices"
-        description="CoreDefense simplifies cybersecurity through AI-powered, compliance-ready solutions that detect, prioritise and remediate threats faster — alongside business transformation, digital engineering and AI & automation."
+        description="CoreDefense simplifies cybersecurity through AI-powered, compliance-ready solutions that detect, prioritise and remediate threats faster, alongside business transformation, digital engineering and AI & automation."
         breadcrumbs={[{ label: "About", href: "/about" }]}
       />
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Our Approach"
             title="Four practices. One way of working."
-            description="Cybersecurity, business transformation, digital engineering and AI & automation aren't run as separate businesses at CoreDefense — every engagement draws on the practice that fits, informed by the others."
+            description="Cybersecurity, business transformation, digital engineering and AI & automation aren't run as separate businesses at CoreDefense. Every engagement draws on the practice that fits, informed by the others."
           />
           <div className="overflow-hidden rounded-2xl border border-ink-900/8 bg-white shadow-sm">
             <video

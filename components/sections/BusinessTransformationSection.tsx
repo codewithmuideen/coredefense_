@@ -26,7 +26,7 @@ export default function BusinessTransformationSection() {
           <SectionHeading
             eyebrow="Business Transformation & Process Modelling"
             title="Understand how your business really operates"
-            description="We map current-state processes, surface inefficiency and risk, and design future-state operating models that are ready for automation — grounded in business analysis, not guesswork."
+            description="We map current-state processes, surface inefficiency and risk, and design future-state operating models that are ready for automation, grounded in business analysis, not guesswork."
           />
 
           <div className="mt-8 flex flex-wrap items-center gap-2">

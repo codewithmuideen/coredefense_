@@ -31,7 +31,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     title: "Healthcare",
     summary: "Protecting patient data and clinical systems without slowing down care.",
     description:
-      "Healthcare organisations must protect sensitive patient data and keep clinical systems running — often on infrastructure that can't simply be taken offline for patching. CoreDefense designs security around that reality.",
+      "Healthcare organisations must protect sensitive patient data and keep clinical systems running, often on infrastructure that can't simply be taken offline for patching. CoreDefense designs security around that reality.",
     icon: HeartPulse,
     focusAreas: [
       "Security assessment for clinical and administrative systems",
@@ -59,7 +59,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     title: "Technology",
     summary: "Secure-by-design engineering for fast-moving product and platform teams.",
     description:
-      "Technology companies move fast — and need security and engineering practices that keep pace rather than slowing delivery down. CoreDefense supports product and platform teams with security embedded from day one.",
+      "Technology companies move fast and need security and engineering practices that keep pace rather than slowing delivery down. CoreDefense supports product and platform teams with security embedded from day one.",
     icon: Cpu,
     focusAreas: [
       "Cloud & DevOps security for engineering teams",

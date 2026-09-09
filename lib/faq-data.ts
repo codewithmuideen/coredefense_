@@ -19,7 +19,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Does CoreDefense provide SIEM?",
     answer:
-      "CoreDefense is developing a security operations and SIEM vision as part of our platform roadmap. This is not yet a live product — the visuals on this site are illustrative concepts. Speak to our security team about your current SIEM and security operations requirements.",
+      "CoreDefense is developing a security operations and SIEM vision as part of our platform roadmap. This is not yet a live product. The visuals on this site are illustrative concepts. Speak to our security team about your current SIEM and security operations requirements.",
   },
   {
     question: "Can I access the CoreDefense cybersecurity platform?",
@@ -44,7 +44,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Does CoreDefense provide AI and automation?",
     answer:
-      "Yes. Our AI & Automation practice covers AI strategy, intelligent workflow automation, AI/ML solutions and business intelligence — helping organisations turn intelligence into action.",
+      "Yes. Our AI & Automation practice covers AI strategy, intelligent workflow automation, AI/ML solutions and business intelligence, helping organisations turn intelligence into action.",
   },
   {
     question: "Can CoreDefense build websites and digital platforms?",

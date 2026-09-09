@@ -38,7 +38,7 @@ export default function TrustCenterPage() {
       <PageHero
         eyebrow="Platform"
         title="Security Trust Center"
-        description="Security isn't just what CoreDefense sells — it's how we operate. Here's an overview of our approach to data handling, engineering and disclosure."
+        description="Security isn't just what CoreDefense sells. It's how we operate. Here's an overview of our approach to data handling, engineering and disclosure."
         breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Security Trust Center", href: "/platform/trust-center" }]}
       />
 
@@ -60,7 +60,7 @@ export default function TrustCenterPage() {
           </div>
           <p className="mt-10 max-w-2xl text-sm text-ink-500">
             The CoreDefense cybersecurity platform is currently in development. Formal certifications and audit
-            reports will be published here as they become available — we won&apos;t claim a certification we
+            reports will be published here as they become available. We won&apos;t claim a certification we
             don&apos;t hold.
           </p>
         </div>

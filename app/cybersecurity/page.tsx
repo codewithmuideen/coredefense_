@@ -11,7 +11,7 @@ import ConsultationCTA from "@/components/sections/ConsultationCTA";
 export const metadata: Metadata = {
   title: "Cybersecurity",
   description:
-    "AI-powered, compliance-ready cybersecurity services from CoreDefense — vulnerability management, cloud & DevOps security, IT/OT security, compliance and more.",
+    "AI-powered, compliance-ready cybersecurity services from CoreDefense: vulnerability management, cloud & DevOps security, IT/OT security, compliance and more.",
 };
 
 export default function CybersecurityPage() {
@@ -20,7 +20,7 @@ export default function CybersecurityPage() {
       <PageHero
         eyebrow="Cybersecurity"
         title="Intelligent cybersecurity for IT, cloud and OT"
-        description="CoreDefense delivers AI-powered, compliance-ready cybersecurity that identifies, prioritises and remediates threats faster — across your entire environment."
+        description="CoreDefense delivers AI-powered, compliance-ready cybersecurity that identifies, prioritises and remediates threats faster across your entire environment."
         breadcrumbs={[{ label: "Cybersecurity", href: "/cybersecurity" }]}
       />
       <CyberStatsBar />

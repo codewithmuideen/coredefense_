@@ -14,7 +14,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let's talk"
-        description="Tell us about your organisation and what you're looking to achieve — a member of the CoreDefense team will respond promptly."
+        description="Tell us about your organisation and what you're looking to achieve, and a member of the CoreDefense team will respond promptly."
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
 

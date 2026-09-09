@@ -51,7 +51,7 @@ export const trialSchema = z.object({
   workEmail: z
     .string()
     .email("Please enter a valid work email")
-    .refine(isCompanyEmail, "Please use your company email address — personal email domains aren't accepted"),
+    .refine(isCompanyEmail, "Please use your company email address. Personal email domains aren't accepted"),
   company: z.string().min(2, "Company name is required").max(120),
   jobTitle: z.string().min(2, "Job title is required").max(120),
   phone: z.string().min(5, "Please enter a valid phone number").max(30),

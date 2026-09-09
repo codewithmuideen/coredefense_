@@ -24,11 +24,11 @@ export default function PrivacyPage() {
           },
           {
             heading: "What we collect",
-            body: "We collect information you provide directly — such as your name, company, email address, phone number and message content — when you submit a contact form, request platform access, book a consultation or subscribe to our newsletter. We do not collect payment information through this website.",
+            body: "We collect information you provide directly, such as your name, company, email address, phone number and message content, when you submit a contact form, request platform access, book a consultation or subscribe to our newsletter. We do not collect payment information through this website.",
           },
           {
             heading: "How we use your data",
-            body: "We use your data to respond to enquiries, process free trial / access requests, send confirmation emails, and — where you've consented — send occasional updates. We use Resend as our transactional email provider; your data is processed by Resend solely to deliver these emails on our behalf.",
+            body: "We use your data to respond to enquiries, process free trial / access requests, send confirmation emails, and, where you've consented, send occasional updates. We use Resend as our transactional email provider; your data is processed by Resend solely to deliver these emails on our behalf.",
           },
           {
             heading: "Cookies",
