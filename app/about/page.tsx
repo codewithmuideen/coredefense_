@@ -4,6 +4,8 @@ import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import StatCounter from "@/components/ui/StatCounter";
 import Difference from "@/components/sections/Difference";
+import MissionSection from "@/components/sections/MissionSection";
+import TechStack from "@/components/sections/TechStack";
 import SecurityProcess from "@/components/sections/SecurityProcess";
 import ConsultationCTA from "@/components/sections/ConsultationCTA";
 import { teamPhotos } from "@/lib/team-data";
@@ -57,7 +59,9 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <MissionSection />
       <Difference />
+      <TechStack />
       <SecurityProcess />
 
       <section className="bg-white py-20 sm:py-28">
