@@ -215,7 +215,7 @@ export const aboutMenu: MegaMenuSection = {
       links: [
         { label: "About CoreDefense", href: "/about", icon: Info },
         { label: "Our Approach", href: "/about#approach", icon: Compass },
-        { label: "Leadership Team", href: "/team", icon: UserRound },
+        { label: "Team", href: "/team", icon: UserRound },
         { label: "Careers", href: "/careers", icon: Briefcase },
         { label: "Talent Hub", href: "/careers/talent-hub", icon: Users },
       ],
@@ -272,7 +272,7 @@ export const footerColumns: NavColumn[] = [
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Leadership Team", href: "/team" },
+      { label: "Team", href: "/team" },
       { label: "Careers", href: "/careers" },
       { label: "Talent Hub", href: "/careers/talent-hub" },
       { label: "Contact", href: "/contact" },

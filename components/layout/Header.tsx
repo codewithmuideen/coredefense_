@@ -78,12 +78,12 @@ export default function Header() {
         )}
         onMouseLeave={scheduleClose}
       >
-        <div className="container-page flex h-[72px] items-center justify-between py-3">
+        <div className="container-page flex h-[72px] items-center justify-between gap-3 py-3">
           <Link href="/" className="focus-ring flex shrink-0 items-center rounded-md" aria-label="CoreDefense home">
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-0 lg:flex xl:gap-1" aria-label="Primary">
             {megaMenus.map((menu) => {
               const isOpen = activeMenu === menu.label;
               const isCurrent = currentSection === menu.label;
@@ -98,21 +98,21 @@ export default function Header() {
                     onClick={() => setActiveMenu(null)}
                     onFocus={() => openMenu(menu.label)}
                     className={cn(
-                      "focus-ring relative flex items-center rounded-md py-2 pl-3.5 pr-1 text-sm font-semibold transition-colors",
+                      "focus-ring relative flex items-center whitespace-nowrap rounded-md py-2 pl-2 pr-0.5 text-sm font-semibold transition-colors xl:pl-3.5 xl:pr-1",
                       isOpen || isCurrent ? "text-primary-600" : "text-ink-700 hover:text-primary-600"
                     )}
                     aria-current={isCurrent ? "page" : undefined}
                   >
                     {menu.label}
                     {isCurrent && (
-                      <span className="absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-primary-500" aria-hidden />
+                      <span className="absolute inset-x-2 -bottom-0.5 xl:inset-x-3.5 h-0.5 rounded-full bg-primary-500" aria-hidden />
                     )}
                   </Link>
                   <button
                     type="button"
                     onClick={() => setActiveMenu((cur) => (cur === menu.label ? null : menu.label))}
                     className={cn(
-                      "focus-ring rounded-md py-2 pl-0.5 pr-2.5 transition-colors",
+                      "focus-ring rounded-md py-2 pl-0.5 pr-1.5 transition-colors xl:pr-2.5",
                       isOpen ? "text-primary-600" : "text-ink-400 hover:text-primary-600"
                     )}
                     aria-expanded={isOpen}
@@ -125,7 +125,7 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
@@ -133,7 +133,7 @@ export default function Header() {
               aria-label="Search CoreDefense"
             >
               <Search className="h-4 w-4" />
-              <span className="text-xs text-ink-400">
+              <span className="hidden text-xs text-ink-400 xl:inline">
                 <kbd className="rounded border border-ink-900/10 bg-surface px-1.5 py-0.5 text-[10px]">⌘K</kbd>
               </span>
             </button>
@@ -151,7 +151,7 @@ export default function Header() {
               variant="secondary"
               size="md"
               icon={false}
-              className="hidden xl:inline-flex"
+              className="hidden 2xl:inline-flex"
             >
               Explore Our Capabilities
             </CTAButton>

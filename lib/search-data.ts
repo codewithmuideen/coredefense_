@@ -49,7 +49,7 @@ export const searchIndex: SearchableItem[] = [
 
   // Pages
   { title: "About CoreDefense", href: "/about", category: "Pages" },
-  { title: "Leadership Team", href: "/team", category: "Pages", description: "Meet the people behind CoreDefense" },
+  { title: "Team", href: "/team", category: "Pages", description: "Meet the people behind CoreDefense" },
   { title: "Resource Center", href: "/resources", category: "Resources" },
   { title: "Privacy Policy", href: "/privacy", category: "Pages" },
   { title: "Cookie Policy", href: "/cookies", category: "Pages" },

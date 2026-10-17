@@ -28,7 +28,7 @@ const principles = [
 ];
 
 const companyLinks = [
-  { icon: UserRound, label: "Leadership Team", description: "Meet the people leading CoreDefense.", href: "/team" },
+  { icon: UserRound, label: "Team", description: "Meet the people leading CoreDefense.", href: "/team" },
   { icon: Briefcase, label: "Careers", description: "How we work and who we look for.", href: "/careers" },
   { icon: Users, label: "Talent Hub", description: "Introduce yourself for future roles.", href: "/careers/talent-hub" },
   { icon: Mail, label: "Contact", description: "Talk to us about your organisation.", href: "/contact" },

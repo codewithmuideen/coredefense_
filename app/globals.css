@@ -76,3 +76,9 @@ body {
   background-color: rgba(30, 106, 255, 0.4);
   border-radius: 999px;
 }
+
+/* Guard against any stray element creating a sideways scrollbar. `clip` (not `hidden`) keeps the sticky header working. */
+html,
+body {
+  overflow-x: clip;
+}

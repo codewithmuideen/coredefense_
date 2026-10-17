@@ -5,7 +5,7 @@ import TeamGrid from "@/components/sections/TeamGrid";
 import CTAButton from "@/components/ui/CTAButton";
 
 export const metadata: Metadata = {
-  title: "Leadership Team",
+  title: "Team",
   description: "Meet the people leading CoreDefense across cybersecurity, AI research and technology delivery.",
 };
 
@@ -18,7 +18,7 @@ export default function TeamPage() {
         description="A small, hands-on leadership team bringing together security engineering, analysis and AI research. Hover a profile to connect with any of us on LinkedIn."
         breadcrumbs={[
           { label: "About", href: "/about" },
-          { label: "Leadership Team", href: "/team" },
+          { label: "Team", href: "/team" },
         ]}
       />
 
