@@ -3,6 +3,7 @@ import { faqItems } from "@/lib/faq-data";
 
 export const searchIndex: SearchableItem[] = [
   // Services
+  { title: "All Solutions", href: "/solutions", category: "Services", description: "Every CoreDefense practice and service" },
   { title: "Cybersecurity", href: "/cybersecurity", category: "Services", description: "AI-powered, compliance-ready cybersecurity" },
   { title: "Vulnerability Management", href: "/cybersecurity/vulnerability-management", category: "Services" },
   { title: "Cloud & DevOps Security", href: "/cybersecurity/cloud-devops-security", category: "Services" },
@@ -26,6 +27,7 @@ export const searchIndex: SearchableItem[] = [
   { title: "AI & Machine Learning", href: "/ai-automation/ai-ml", category: "Services" },
 
   // Platform
+  { title: "Platform Overview", href: "/platform", category: "Pages" },
   { title: "Platform Features", href: "/platform/features", category: "Pages" },
   { title: "Integrations Ecosystem", href: "/platform/integrations", category: "Pages" },
   { title: "Security Trust Center", href: "/platform/trust-center", category: "Pages" },
@@ -47,6 +49,12 @@ export const searchIndex: SearchableItem[] = [
 
   // Pages
   { title: "About CoreDefense", href: "/about", category: "Pages" },
+  { title: "Leadership Team", href: "/team", category: "Pages", description: "Meet the people behind CoreDefense" },
+  { title: "Resource Center", href: "/resources", category: "Resources" },
+  { title: "Privacy Policy", href: "/privacy", category: "Pages" },
+  { title: "Cookie Policy", href: "/cookies", category: "Pages" },
+  { title: "Terms of Use", href: "/terms", category: "Pages" },
+  { title: "Accessibility", href: "/accessibility", category: "Pages" },
   { title: "Careers", href: "/careers", category: "Pages" },
   { title: "Talent Hub", href: "/careers/talent-hub", category: "Pages" },
   { title: "Contact", href: "/contact", category: "Pages" },

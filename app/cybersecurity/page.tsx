@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
 import CyberStatsBar from "@/components/sections/CyberStatsBar";
 import CyberCapabilities from "@/components/sections/CyberCapabilities";
-import PlatformPreview from "@/components/sections/PlatformPreview";
 import SIEMVision from "@/components/sections/SIEMVision";
 import SecurityProcess from "@/components/sections/SecurityProcess";
-import FAQSection from "@/components/sections/FAQSection";
 import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
@@ -26,9 +24,7 @@ export default function CybersecurityPage() {
       <CyberStatsBar />
       <CyberCapabilities />
       <SecurityProcess />
-      <PlatformPreview />
       <SIEMVision />
-      <FAQSection compact />
       <ConsultationCTA />
     </>
   );

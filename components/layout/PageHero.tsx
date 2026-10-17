@@ -19,6 +19,8 @@ interface PageHeroProps {
   breadcrumbs?: Crumb[];
   primaryCta?: "consultation" | "request-access";
   primaryLabel?: string;
+  primaryHref?: string;
+  showActions?: boolean;
 }
 
 export default function PageHero({
@@ -28,6 +30,8 @@ export default function PageHero({
   breadcrumbs = [],
   primaryCta = "consultation",
   primaryLabel,
+  primaryHref,
+  showActions = true,
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-ink-900 pb-20 pt-14 sm:pb-24 sm:pt-20">
@@ -76,13 +80,18 @@ export default function PageHero({
         >
           {description}
         </motion.p>
+        {showActions && (
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-8 flex flex-wrap gap-4"
         >
-          {primaryCta === "request-access" ? (
+          {primaryHref ? (
+            <CTAButton href={primaryHref} size="lg">
+              {primaryLabel ?? "Learn more"}
+            </CTAButton>
+          ) : primaryCta === "request-access" ? (
             <TrialModal trigger={<CTAButton size="lg">{primaryLabel ?? "Request Early Access"}</CTAButton>} />
           ) : (
             <BookingModal trigger={<CTAButton size="lg">{primaryLabel ?? "Book a Consultation"}</CTAButton>} />
@@ -91,6 +100,7 @@ export default function PageHero({
             Explore Our Capabilities
           </CTAButton>
         </motion.div>
+        )}
       </div>
     </section>
   );

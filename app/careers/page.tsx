@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Sparkles, Users, Rocket, HeartHandshake } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -25,6 +26,7 @@ export default function CareersPage() {
         description="CoreDefense brings together people who care about doing security, transformation and engineering properly, not just quickly."
         breadcrumbs={[{ label: "Careers", href: "/careers" }]}
         primaryLabel="View Talent Hub"
+        primaryHref="/careers/talent-hub"
       />
 
       <section className="bg-white py-20 sm:py-28">
@@ -48,10 +50,20 @@ export default function CareersPage() {
               </CTAButton>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-2xl bg-surface p-6">
-            <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-primary-500 to-ink-900">
-              <div className="absolute inset-0 bg-grid-dark opacity-20" aria-hidden />
-              <Users className="relative h-20 w-20 text-white/90" strokeWidth={1.25} />
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-surface ring-1 ring-ink-900/5">
+            <div
+              className="absolute inset-0 opacity-60"
+              style={{ backgroundImage: "radial-gradient(circle, rgba(30,106,255,0.18) 1px, transparent 1px)", backgroundSize: "22px 22px" }}
+              aria-hidden
+            />
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
+              <Image
+                src="/images/photos/IMG_9547.PNG"
+                alt="CoreDefense defender character"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-contain mix-blend-multiply"
+              />
             </div>
           </div>
         </div>

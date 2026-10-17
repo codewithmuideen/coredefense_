@@ -24,7 +24,7 @@ export default function ComplianceMappingPage() {
         eyebrow="Platform"
         title="Compliance mapping"
         description="A practical approach to mapping your vulnerabilities and controls against the frameworks that matter to your business."
-        breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Compliance Mapping", href: "/platform/compliance-mapping" }]}
+        breadcrumbs={[{ label: "Platform", href: "/platform" }, { label: "Compliance Mapping", href: "/platform/compliance-mapping" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

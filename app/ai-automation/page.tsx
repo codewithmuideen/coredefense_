@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
-import AIAutomationSection from "@/components/sections/AIAutomationSection";
 import AISecuritySection from "@/components/sections/AISecuritySection";
 import ServiceGrid from "@/components/sections/ServiceGrid";
+import PracticeApproach from "@/components/sections/PracticeApproach";
 import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function AIAutomationPage() {
         description="We help businesses use artificial intelligence, machine learning and automation to improve operations, intelligence, productivity and decision-making."
         breadcrumbs={[{ label: "AI & Automation", href: "/ai-automation" }]}
       />
-      <AIAutomationSection />
+      <PracticeApproach practice="ai-automation" />
       <ServiceGrid category="AI & Automation" />
       <AISecuritySection />
       <ConsultationCTA />

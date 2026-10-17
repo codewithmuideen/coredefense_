@@ -26,7 +26,7 @@ export default function PlatformFeaturesPage() {
         eyebrow="Platform"
         title="Platform features (in development)"
         description="These are the capabilities we're building into the CoreDefense platform. It isn't live yet. This page describes our product direction, not a shipped feature list."
-        breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Features", href: "/platform/features" }]}
+        breadcrumbs={[{ label: "Platform", href: "/platform" }, { label: "Features", href: "/platform/features" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

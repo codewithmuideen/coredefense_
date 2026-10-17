@@ -1,14 +1,40 @@
-// Team photography used across About/Careers. Deliberately unlabelled with invented
-// names or job titles — we only attach specific identity claims to people we can verify.
-export const teamPhotos: string[] = [
-  "/images/team/headshot-05.jpg",
-  "/images/team/headshot-01.jpg",
-  "/images/team/headshot-02.jpg",
-  "/images/team/headshot-03.png",
-  "/images/team/headshot-04.jpg",
-  "/images/team/headshot-06.jpg",
-  "/images/team/headshot-07.png",
-  "/images/team/headshot-08.jpg",
-  "/images/team/headshot-10.jpg",
-  "/images/team/headshot-09.jpg",
+// Leadership team shown on /team. Photos live in public/images/team, saved under each person's name,
+// and are used on the team page only so no headshot is repeated elsewhere on the site.
+export interface TeamMember {
+  name: string;
+  role: string;
+  focus: string;
+  photo: string;
+  linkedin: string;
+}
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: "Innocent Paul Ojo",
+    role: "Founder",
+    focus: "Sets CoreDefense's direction across cybersecurity, transformation, engineering and AI.",
+    photo: "/images/team/Innocent Paul Ojo.PNG",
+    linkedin: "https://www.linkedin.com/in/innocentpaul/",
+  },
+  {
+    name: "Rohith Shankar",
+    role: "Cybersecurity Expert",
+    focus: "Shapes how we assess, harden and defend client environments.",
+    photo: "/images/team/Rohith Shankar.PNG",
+    linkedin: "https://www.linkedin.com/in/rohith-shankar-223139350/",
+  },
+  {
+    name: "Yogisha Paneru",
+    role: "Cybersecurity Analyst",
+    focus: "Turns security findings into clear, prioritised action for clients.",
+    photo: "/images/team/Yogisha Paneru.PNG",
+    linkedin: "https://www.linkedin.com/in/yogisha-paneru-cybersecurity/",
+  },
+  {
+    name: "Ritik R. Mohapatra",
+    role: "AI Research Affiliate",
+    focus: "Explores where AI can make security operations faster and smarter.",
+    photo: "/images/team/Ritik R. Mohapatra.PNG",
+    linkedin: "https://www.linkedin.com/in/ritik-r-mohapatra/",
+  },
 ];

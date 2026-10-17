@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
-import DigitalEngineeringSection from "@/components/sections/DigitalEngineeringSection";
 import ServiceGrid from "@/components/sections/ServiceGrid";
+import PracticeApproach from "@/components/sections/PracticeApproach";
 import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function DigitalEngineeringPage() {
         description="We design and build modern digital products, websites, platforms and engineering solutions, with the same rigour we bring to cybersecurity work."
         breadcrumbs={[{ label: "Digital Engineering", href: "/digital-engineering" }]}
       />
-      <DigitalEngineeringSection />
+      <PracticeApproach practice="digital-engineering" />
       <ServiceGrid category="Digital Engineering" />
       <ConsultationCTA />
     </>

@@ -41,12 +41,13 @@ import {
   Compass,
   Mail,
   Rss,
+  UserRound,
 } from "lucide-react";
 import type { MegaMenuSection, NavColumn } from "@/types";
 
 export const solutionsMenu: MegaMenuSection = {
   label: "Solutions",
-  href: "/cybersecurity",
+  href: "/solutions",
   columns: [
     {
       heading: "Cybersecurity",
@@ -110,10 +111,11 @@ export const solutionsMenu: MegaMenuSection = {
 
 export const platformMenu: MegaMenuSection = {
   label: "Platform",
-  href: "/platform/features",
+  href: "/platform",
   columns: [
     {
       heading: "The CoreDefense Platform",
+      href: "/platform",
       links: [
         { label: "Features", href: "/platform/features", icon: Puzzle },
         { label: "Integrations Ecosystem", href: "/platform/integrations", icon: Plug },
@@ -144,6 +146,7 @@ export const industriesMenu: MegaMenuSection = {
   columns: [
     {
       heading: "Industries We Serve",
+      href: "/industries",
       links: [
         { label: "Financial Services", href: "/industries/financial-services", icon: Landmark },
         { label: "Healthcare", href: "/industries/healthcare", icon: HeartPulse },
@@ -177,6 +180,7 @@ export const resourcesMenu: MegaMenuSection = {
   columns: [
     {
       heading: "Resource Center",
+      href: "/resources",
       links: [
         { label: "Blog", href: "/blog", icon: Rss },
         { label: "Insights", href: "/resources/insights", icon: Newspaper },
@@ -211,6 +215,7 @@ export const aboutMenu: MegaMenuSection = {
       links: [
         { label: "About CoreDefense", href: "/about", icon: Info },
         { label: "Our Approach", href: "/about#approach", icon: Compass },
+        { label: "Leadership Team", href: "/team", icon: UserRound },
         { label: "Careers", href: "/careers", icon: Briefcase },
         { label: "Talent Hub", href: "/careers/talent-hub", icon: Users },
       ],
@@ -245,6 +250,7 @@ export const footerColumns: NavColumn[] = [
   {
     heading: "Solutions",
     links: [
+      { label: "All Solutions", href: "/solutions" },
       { label: "Cybersecurity", href: "/cybersecurity" },
       { label: "Business Transformation", href: "/business-transformation" },
       { label: "Digital Engineering", href: "/digital-engineering" },
@@ -254,6 +260,7 @@ export const footerColumns: NavColumn[] = [
   {
     heading: "Platform",
     links: [
+      { label: "Platform Overview", href: "/platform" },
       { label: "Features", href: "/platform/features" },
       { label: "Integrations Ecosystem", href: "/platform/integrations" },
       { label: "Security Trust Center", href: "/platform/trust-center" },
@@ -265,7 +272,7 @@ export const footerColumns: NavColumn[] = [
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Our Approach", href: "/about#approach" },
+      { label: "Leadership Team", href: "/team" },
       { label: "Careers", href: "/careers" },
       { label: "Talent Hub", href: "/careers/talent-hub" },
       { label: "Contact", href: "/contact" },

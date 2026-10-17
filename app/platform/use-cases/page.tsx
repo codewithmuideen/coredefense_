@@ -39,7 +39,7 @@ export default function UseCasesPage() {
         eyebrow="Platform"
         title="Use cases"
         description="These are illustrative examples of how organisations typically apply CoreDefense's capabilities, not specific client case studies."
-        breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Use Cases", href: "/platform/use-cases" }]}
+        breadcrumbs={[{ label: "Platform", href: "/platform" }, { label: "Use Cases", href: "/platform/use-cases" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

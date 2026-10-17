@@ -4,7 +4,7 @@ import LegalContent from "@/components/templates/LegalContent";
 
 export const metadata: Metadata = {
   title: "Accessibility",
-  description: "CoreDefense's commitment to web accessibility.",
+  description: "CoreDefense's commitment to making this website accessible to everyone.",
 };
 
 export default function AccessibilityPage() {
@@ -12,27 +12,41 @@ export default function AccessibilityPage() {
     <>
       <PageHero
         eyebrow="Legal"
-        title="Accessibility"
-        description="Our commitment to making this website usable by everyone."
+        title="Accessibility Statement"
+        description="We want everyone to be able to use this website, whatever device, browser or assistive technology they rely on."
         breadcrumbs={[{ label: "Accessibility", href: "/accessibility" }]}
+        showActions={false}
       />
       <LegalContent
+        updated="October 2026"
         sections={[
           {
             heading: "Our commitment",
-            body: "We aim to meet WCAG 2.2 AA standards across this website, including keyboard navigation, semantic HTML, accessible forms and focus states, and support for reduced motion preferences.",
+            body: "We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA across this website.",
           },
           {
-            heading: "Ongoing work",
-            body: "Accessibility is an ongoing effort. We test key journeys (navigation, search, forms and modals) for keyboard and screen reader support, and continue to improve as the site evolves.",
+            heading: "What we've built in",
+            body: "Accessibility features you can expect across the site:",
+            list: [
+              "Keyboard navigation for menus, search, modals and forms.",
+              "A \"Skip to main content\" link at the top of every page.",
+              "Visible focus states on interactive elements.",
+              "Semantic headings and landmarks for screen reader navigation.",
+              "Labels on form fields and icon-only buttons.",
+              "Responsive layouts that adapt to small screens and browser zoom.",
+            ],
           },
           {
             heading: "Reduced motion",
-            body: "If your device is set to reduce motion, animations across this site are automatically minimised.",
+            body: "If your device is set to reduce motion, we aim to keep animation across the site to a minimum.",
           },
           {
-            heading: "Get in touch",
-            body: "If you encounter an accessibility barrier on this site, please let us know at hello@coredefense.co.uk so we can address it.",
+            heading: "Known limitations",
+            body: "Some third-party content, such as images in our live news feed, comes from external publishers and may not include descriptive alternative text. Video on the site is decorative and has no audio.",
+          },
+          {
+            heading: "Reporting a problem",
+            body: "If you find an accessibility barrier, email hello@coredefense.co.uk with the page address and a short description. We'll aim to fix it or provide the information in another format.",
           },
         ]}
       />

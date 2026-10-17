@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
-import BusinessTransformationSection from "@/components/sections/BusinessTransformationSection";
 import ServiceGrid from "@/components/sections/ServiceGrid";
-import IndustriesSection from "@/components/sections/IndustriesSection";
+import PracticeApproach from "@/components/sections/PracticeApproach";
 import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
@@ -20,9 +19,8 @@ export default function BusinessTransformationPage() {
         description="We help organisations understand, redesign, optimise and automate business processes, grounded in real process mapping and business analysis."
         breadcrumbs={[{ label: "Business Transformation", href: "/business-transformation" }]}
       />
-      <BusinessTransformationSection />
+      <PracticeApproach practice="business-transformation" />
       <ServiceGrid category="Business Transformation" />
-      <IndustriesSection />
       <ConsultationCTA />
     </>
   );

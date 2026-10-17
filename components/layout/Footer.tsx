@@ -57,7 +57,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col items-center justify-between gap-4 py-6 text-xs text-white/50 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} CoreDefense Limited. United Kingdom.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left">
             <span>
               Cybersecurity platform features described on this site are in development.{" "}
               <Link href="/faq" className="underline hover:text-primary-400">

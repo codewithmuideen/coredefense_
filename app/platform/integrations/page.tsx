@@ -23,7 +23,7 @@ export default function IntegrationsPage() {
         eyebrow="Platform"
         title="Integrations ecosystem"
         description="CoreDefense is being designed to fit into the tools you already use, not replace them. Here's the integration ecosystem we're building toward."
-        breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Integrations Ecosystem", href: "/platform/integrations" }]}
+        breadcrumbs={[{ label: "Platform", href: "/platform" }, { label: "Integrations Ecosystem", href: "/platform/integrations" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

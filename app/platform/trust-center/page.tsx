@@ -39,7 +39,7 @@ export default function TrustCenterPage() {
         eyebrow="Platform"
         title="Security Trust Center"
         description="Security isn't just what CoreDefense sells. It's how we operate. Here's an overview of our approach to data handling, engineering and disclosure."
-        breadcrumbs={[{ label: "Platform", href: "/platform/features" }, { label: "Security Trust Center", href: "/platform/trust-center" }]}
+        breadcrumbs={[{ label: "Platform", href: "/platform" }, { label: "Security Trust Center", href: "/platform/trust-center" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

@@ -20,19 +20,36 @@ export default function MegaMenuPanel({ menu, onNavigate }: MegaMenuPanelProps) 
       transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
       className="absolute left-0 top-full w-full border-t border-ink-900/5 bg-white shadow-2xl"
     >
+      <div className="container-page flex items-center justify-between border-b border-ink-900/5 py-4">
+        <p className="text-sm text-ink-500">
+          Explore everything in <span className="font-semibold text-ink-900">{menu.label}</span>
+        </p>
+        <Link
+          href={menu.href}
+          onClick={onNavigate}
+          className="focus-ring group inline-flex items-center gap-1.5 rounded-md text-sm font-semibold text-primary-600 hover:text-primary-700"
+        >
+          View all {menu.label.toLowerCase()}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </div>
       <div
         className="container-page grid gap-10 py-10"
         style={{ gridTemplateColumns: `repeat(${menu.columns.length}, minmax(0, 1fr)) 320px` }}
       >
         {menu.columns.map((column) => (
           <div key={column.heading}>
-            <Link
-              href={column.href ?? "#"}
-              onClick={onNavigate}
-              className="focus-ring mb-4 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-ink-500 hover:text-primary-500"
-            >
-              {column.heading}
-            </Link>
+            {column.href ? (
+              <Link
+                href={column.href}
+                onClick={onNavigate}
+                className="focus-ring mb-4 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-ink-500 hover:text-primary-500"
+              >
+                {column.heading}
+              </Link>
+            ) : (
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-ink-500">{column.heading}</p>
+            )}
             <ul className="space-y-1">
               {column.links.map((link) => {
                 const Icon = link.icon;

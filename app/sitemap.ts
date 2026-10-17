@@ -5,6 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.coredefense.co.
 const routes = [
   "",
   "/about",
+  "/team",
+  "/solutions",
+  "/platform",
   "/contact",
   "/careers",
   "/careers/talent-hub",

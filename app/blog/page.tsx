@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const posts = await getLatestSecurityNews();
+  const posts = await getLatestSecurityNews(30);
 
   return (
     <>
       <PageHero
         eyebrow="Resources"
         title="CoreDefense Blog"
-        description="A live feed of cybersecurity, hacking and business technology news, pulled automatically from trusted sources and refreshed every hour, so you're never reading stale headlines."
+        description="The latest cybersecurity, hacking and business technology stories, with images, pulled automatically from trusted sources and refreshed every hour."
         breadcrumbs={[{ label: "Blog", href: "/blog" }]}
       />
       <BlogFeed posts={posts} />

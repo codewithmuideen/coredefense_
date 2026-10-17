@@ -59,7 +59,8 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               {[
                 { label: "Home", href: "/" },
                 { label: "Cybersecurity", href: "/cybersecurity" },
-                { label: "About", href: "/about" },
+                { label: "Blog", href: "/blog" },
+                { label: "Our Team", href: "/team" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <Link
@@ -77,17 +78,26 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             <div className="flex flex-col divide-y divide-ink-900/5">
               {megaMenus.map((menu) => (
                 <div key={menu.label}>
-                  <button
-                    type="button"
-                    onClick={() => setExpanded((cur) => (cur === menu.label ? null : menu.label))}
-                    className="focus-ring flex w-full items-center justify-between py-3 text-left text-base font-semibold text-ink-900"
-                    aria-expanded={expanded === menu.label}
-                  >
-                    {menu.label}
-                    <ChevronDown
-                      className={cn("h-4 w-4 text-ink-400 transition-transform", expanded === menu.label && "rotate-180")}
-                    />
-                  </button>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={menu.href}
+                      onClick={onClose}
+                      className="focus-ring flex-1 py-3 text-base font-semibold text-ink-900 hover:text-primary-600"
+                    >
+                      {menu.label}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => setExpanded((cur) => (cur === menu.label ? null : menu.label))}
+                      className="focus-ring -mr-2 rounded-md p-3 text-ink-400"
+                      aria-expanded={expanded === menu.label}
+                      aria-label={`Show ${menu.label} links`}
+                    >
+                      <ChevronDown
+                        className={cn("h-4 w-4 transition-transform", expanded === menu.label && "rotate-180")}
+                      />
+                    </button>
+                  </div>
                   <AnimatePresence>
                     {expanded === menu.label && (
                       <motion.div

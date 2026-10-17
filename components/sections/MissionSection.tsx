@@ -7,8 +7,8 @@ import CTAButton from "@/components/ui/CTAButton";
 const pillars = [
   {
     icon: Layers,
-    title: "One partner, four practices",
-    description: "Cybersecurity, transformation, engineering and AI don't operate in isolation. Each practice strengthens the others.",
+    title: "Led by practitioners",
+    description: "The people who scope your engagement are the people who do the work, with no hand-off to an anonymous delivery team.",
   },
   {
     icon: ShieldCheck,
