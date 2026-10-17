@@ -30,7 +30,6 @@ export interface Article {
   date: string;
   readTime: string;
   icon: LucideIcon;
-  image?: string;
   takeaways: string[];
   sections: ArticleSection[];
 }
@@ -47,7 +46,6 @@ export const articles: Article[] = [
     date: "2026-10-08",
     readTime: "8 min read",
     icon: Factory,
-    image: "/images/illustrations/image_20261017_125543.jpg",
     takeaways: [
       "IT optimises for confidentiality; OT optimises for safety and availability. Both are right, and both must be stated openly.",
       "A shared asset inventory is the single most useful artefact for joint IT/OT security work.",
@@ -110,7 +108,6 @@ export const articles: Article[] = [
     date: "2026-09-29",
     readTime: "7 min read",
     icon: BrainCircuit,
-    image: "/images/illustrations/ai0.jpg",
     takeaways: [
       "AI is strongest at enrichment, clustering and summarisation, the repetitive work that consumes analyst time.",
       "Keep humans in the loop for containment decisions and anything with business impact.",
@@ -171,7 +168,6 @@ export const articles: Article[] = [
     date: "2026-09-17",
     readTime: "6 min read",
     icon: ShieldAlert,
-    image: "/images/illustrations/modelling0.jpg",
     takeaways: [
       "Recovery capability, not just prevention, determines how bad a ransomware incident gets.",
       "Backups only count if they are isolated from the main network and regularly test-restored.",
@@ -235,7 +231,6 @@ export const articles: Article[] = [
     date: "2026-09-04",
     readTime: "7 min read",
     icon: Workflow,
-    image: "/images/illustrations/automation0.jpg",
     takeaways: [
       "A process is ready to automate when it is stable, well understood and measured.",
       "Exceptions, not the happy path, determine automation effort and value.",
@@ -464,7 +459,6 @@ export const articles: Article[] = [
     date: "2026-09-10",
     readTime: "9 min read",
     icon: Network,
-    image: "/images/illustrations/aut.jpg",
     takeaways: [
       "Map how work really happens, not how the policy says it happens.",
       "Use a consistent notation such as BPMN so maps can be compared and reused.",
@@ -518,7 +512,6 @@ export const articles: Article[] = [
     date: "2026-08-28",
     readTime: "8 min read",
     icon: CreditCard,
-    image: "/images/photos/shield_protecting_credit_card_FINAL.png",
     takeaways: [
       "Reducing cardholder data scope is still the most effective compliance strategy.",
       "v4.0 places more emphasis on targeted risk analysis and continuous controls.",

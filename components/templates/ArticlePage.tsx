@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CalendarDays, Clock, Lightbulb, Quote, ChevronRight } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
@@ -33,6 +32,9 @@ export default function ArticlePage({ article }: { article: Article }) {
             <ChevronRight className="h-3 w-3" />
             <Link href={listHref} className="hover:text-white/70">{listLabel}</Link>
           </nav>
+          <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-500/15 text-primary-400 ring-1 ring-inset ring-primary-400/30">
+            <article.icon className="h-8 w-8" strokeWidth={1.5} />
+          </div>
           <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-full bg-primary-500 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
               {article.category}
@@ -50,16 +52,6 @@ export default function ArticlePage({ article }: { article: Article }) {
           </div>
         </div>
       </header>
-
-      {article.image && (
-        <div className="bg-gradient-to-b from-ink-900 from-50% to-white to-50%">
-          <div className="container-page max-w-5xl">
-            <div className="overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-ink-900/10">
-              <Image src={article.image} alt="" width={0} height={0} sizes="(min-width: 1024px) 1024px, 100vw" className="h-auto w-full" priority />
-            </div>
-          </div>
-        </div>
-      )}
 
       <div className="bg-white py-16 sm:py-20">
         <div className="container-page grid gap-12 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Search, ArrowUpRight, Clock, CalendarDays } from "lucide-react";
 import { articles, articleHref, type Article, type ArticleCategory } from "@/lib/articles-data";
@@ -16,16 +15,10 @@ function formatDate(iso: string): string {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric" }).format(new Date(iso));
 }
 
-export function ArticleCover({ article, className, sizes }: { article: Article; className?: string; sizes: string }) {
-  if (article.image) {
-    return (
-      <div className={cn("relative overflow-hidden bg-white", className)}>
-        <Image src={article.image} alt="" width={0} height={0} sizes={sizes} className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]" />
-      </div>
-    );
-  }
+// Articles use icon covers rather than photos.
+export function ArticleCover({ article, className, fill = false }: { article: Article; className?: string; fill?: boolean }) {
   return (
-    <div className={cn("relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-gradient-to-br from-primary-500 via-primary-700 to-ink-900", className)}>
+    <div className={cn("relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-500 via-primary-700 to-ink-900", fill ? "min-h-[260px]" : "aspect-[16/9]", className)}>
       <div className="absolute inset-0 bg-grid-dark opacity-50" aria-hidden />
       <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary-300/30 blur-3xl" aria-hidden />
       <article.icon className="relative h-14 w-14 text-white/90 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.25} />
@@ -110,7 +103,7 @@ export default function ResourceListPage({ defaultCategory }: { defaultCategory?
             href={articleHref(featured)}
             className="focus-ring group mt-10 grid overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-primary-400/40 lg:grid-cols-2"
           >
-            <ArticleCover article={featured} sizes="(min-width: 1024px) 50vw, 100vw" className="self-center" />
+            <ArticleCover article={featured} fill />
             <div className="flex flex-col justify-center p-8 sm:p-10">
               <span className="inline-flex w-fit rounded-full bg-primary-500 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
                 Featured · {featured.category}
@@ -147,7 +140,7 @@ export default function ResourceListPage({ defaultCategory }: { defaultCategory?
                 href={articleHref(article)}
                 className="focus-ring group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-primary-400/40 hover:bg-white/[0.06]"
               >
-                <ArticleCover article={article} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+                <ArticleCover article={article} />
                 <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-center gap-2">
                     <span className="rounded-full bg-primary-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-primary-400 ring-1 ring-inset ring-primary-400/20">
