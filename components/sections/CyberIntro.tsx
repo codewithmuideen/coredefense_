@@ -58,8 +58,8 @@ export default function CyberIntro() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
         >
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-ink-900">
-            <Image src="/images/illustrations/cybersecurity-monolith-sculpture.jpg" alt="CoreDefense protecting connected infrastructure" fill className="object-cover" />
+          <div className="relative w-full overflow-hidden rounded-2xl bg-ink-900">
+            <Image src="/images/illustrations/cybersecurity-monolith-sculpture.jpg" alt="CoreDefense protecting connected infrastructure" width={0} height={0} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
           </div>
         </motion.div>
       </div>

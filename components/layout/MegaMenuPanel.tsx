@@ -79,15 +79,9 @@ export default function MegaMenuPanel({ menu, onNavigate }: MegaMenuPanelProps) 
           <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden />
           <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary-500/30 blur-3xl" aria-hidden />
           <div className="relative">
-            <div className="relative mb-4 h-28 w-full overflow-hidden rounded-lg bg-white/5">
+            <div className={`relative mb-4 w-full overflow-hidden rounded-lg bg-white/5 ${menu.featured.image ? "" : "h-28"}`}>
               {menu.featured.image ? (
-                <Image
-                  src={menu.featured.image}
-                  alt=""
-                  fill
-                  sizes="320px"
-                  className="object-cover"
-                />
+                <Image src={menu.featured.image} alt="" width={0} height={0} sizes="320px" className="h-auto w-full" />
               ) : (
                 menu.featured.icon && (
                   <div className="flex h-full w-full items-center justify-center">

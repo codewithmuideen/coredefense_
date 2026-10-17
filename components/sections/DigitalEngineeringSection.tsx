@@ -49,8 +49,8 @@ export default function DigitalEngineeringSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
         >
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-ink-800 shadow-2xl">
-            <Image src="/images/illustrations/automation.jpg" alt="AI and automation" fill className="object-cover" />
+          <div className="relative w-full overflow-hidden rounded-2xl bg-ink-800 shadow-2xl">
+            <Image src="/images/illustrations/automation.jpg" alt="AI and automation" width={0} height={0} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
           </div>
         </motion.div>
       </div>

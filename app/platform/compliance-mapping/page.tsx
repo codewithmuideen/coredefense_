@@ -46,8 +46,8 @@ export default function ComplianceMappingPage() {
               ))}
             </div>
           </div>
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface">
-            <Image src="/images/illustrations/compliance-mapping.jpg" alt="Compliance mapping" fill className="object-cover" />
+          <div className="relative w-full overflow-hidden rounded-2xl bg-surface">
+            <Image src="/images/illustrations/compliance-mapping.jpg" alt="Compliance mapping" width={0} height={0} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { articles, articleHref } from "@/lib/articles-data";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.coredefense.co.uk";
 
@@ -57,7 +58,7 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
+  return [...routes, ...articles.map(articleHref)].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",

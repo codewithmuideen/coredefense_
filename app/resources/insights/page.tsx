@@ -12,8 +12,8 @@ export default function InsightsPage() {
     <>
       <PageHero
         eyebrow="Resources"
-        title="Insights"
-        description="Practical thinking on cybersecurity, transformation, engineering and AI & automation."
+        title="Insights from the front line of security and transformation"
+        description="In-depth articles on IT/OT security, AI in the SOC, ransomware resilience, cloud risk, automation and security culture, written by the CoreDefense team."
         breadcrumbs={[{ label: "Resources", href: "/resources" }, { label: "Insights", href: "/resources/insights" }]}
       />
       <ResourceListPage defaultCategory="Insight" />

@@ -28,14 +28,24 @@ function Thumbnail({ post, className, sizes = "md" }: { post: BlogPost; classNam
   return (
     <div className={cn("relative overflow-hidden bg-ink-900", className)}>
       {showImage ? (
-        <img
-          src={post.image}
-          alt=""
-          loading={sizes === "lg" ? "eager" : "lazy"}
-          referrerPolicy="no-referrer"
-          onError={() => setFailed(true)}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
+        <>
+          {/* Blurred copy fills any letterbox space so the full, uncropped image sits on a matching backdrop */}
+          <img
+            src={post.image}
+            alt=""
+            aria-hidden
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 h-full w-full scale-110 object-cover opacity-60 blur-2xl"
+          />
+          <img
+            src={post.image}
+            alt=""
+            loading={sizes === "lg" ? "eager" : "lazy"}
+            referrerPolicy="no-referrer"
+            onError={() => setFailed(true)}
+            className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+        </>
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary-600 via-primary-800 to-ink-900">
           <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden />

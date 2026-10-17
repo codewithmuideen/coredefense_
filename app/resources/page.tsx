@@ -30,13 +30,13 @@ const groups: OverviewGroup[] = [
       {
         label: "Insights",
         href: "/resources/insights",
-        description: `${count("Insight")} articles on where security, OT and AI meet real business constraints.`,
+        description: `${count("Insight")} in-depth articles on IT/OT security, AI triage, ransomware, cloud risk, automation and security culture.`,
         icon: Newspaper,
       },
       {
         label: "Guides",
         href: "/resources/guides",
-        description: `${count("Guide")} step-by-step guides on compliance mapping and process discovery.`,
+        description: `${count("Guide")} step-by-step guides on compliance mapping, PCI DSS v4.0, process discovery and incident response.`,
         icon: BookOpenText,
       },
       {

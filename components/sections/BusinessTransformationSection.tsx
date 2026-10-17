@@ -17,9 +17,9 @@ export default function BusinessTransformationSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-video w-full overflow-hidden rounded-2xl bg-surface"
+          className="relative w-full overflow-hidden rounded-2xl bg-surface"
         >
-          <Image src="/images/illustrations/transformation.jpg" alt="Business transformation" fill className="object-cover" />
+          <Image src="/images/illustrations/transformation.jpg" alt="Business transformation" width={0} height={0} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
         </motion.div>
 
         <div>

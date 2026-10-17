@@ -12,8 +12,8 @@ export default function GuidesPage() {
     <>
       <PageHero
         eyebrow="Resources"
-        title="Guides"
-        description="Step-by-step thinking on how to approach cybersecurity, compliance and transformation work."
+        title="Practical guides you can put to work"
+        description="Step-by-step guides on compliance mapping, process discovery, PCI DSS v4.0 readiness and incident response, with checklists you can use straight away."
         breadcrumbs={[{ label: "Resources", href: "/resources" }, { label: "Guides", href: "/resources/guides" }]}
       />
       <ResourceListPage defaultCategory="Guide" />

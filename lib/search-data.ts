@@ -1,5 +1,6 @@
 import type { SearchableItem } from "@/types";
 import { faqItems } from "@/lib/faq-data";
+import { articles, articleHref } from "@/lib/articles-data";
 
 export const searchIndex: SearchableItem[] = [
   // Services
@@ -60,6 +61,14 @@ export const searchIndex: SearchableItem[] = [
   { title: "Contact", href: "/contact", category: "Pages" },
   { title: "Request Early Access", href: "/request-access", category: "Pages" },
   { title: "Book a Consultation", href: "/book-consultation", category: "Pages" },
+
+  // Articles
+  ...articles.map((a) => ({
+    title: a.title,
+    href: articleHref(a),
+    category: "Resources" as const,
+    description: a.excerpt,
+  })),
 
   // FAQs
   ...faqItems.map((f) => ({

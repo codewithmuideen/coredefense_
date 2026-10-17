@@ -13,6 +13,12 @@ const categoryIcon: Record<ResourceItem["category"], typeof Lightbulb> = {
   "Case Study": FileBarChart2,
 };
 
+// Home-page teaser: the two newest insights and two newest guides.
+const featuredResources = [
+  ...resourceItems.filter((r) => r.category === "Insight").slice(0, 2),
+  ...resourceItems.filter((r) => r.category === "Guide").slice(0, 2),
+];
+
 export default function ResourcesSection() {
   return (
     <section className="relative overflow-hidden bg-ink-900 py-24 sm:py-32">
@@ -28,7 +34,7 @@ export default function ResourcesSection() {
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {resourceItems.map((item, i) => {
+          {featuredResources.map((item, i) => {
             const Icon = categoryIcon[item.category];
             return (
               <motion.div

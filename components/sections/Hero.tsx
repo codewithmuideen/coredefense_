@@ -103,31 +103,32 @@ export default function Hero() {
               loop
               playsInline
               aria-hidden
-              className="aspect-[4/3] w-full object-cover opacity-90"
+              className="h-auto w-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-primary-400">Live risk visibility</p>
-              <p className="mt-1 text-sm text-white/70">
-                Connected nodes, cloud infrastructure and endpoint signals, mapped in real time.
-              </p>
+            {/* Caption and risk score sit below the video so none of the footage is covered */}
+            <div className="flex flex-col gap-4 border-t border-white/10 p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary-400">Live risk visibility</p>
+                <p className="mt-1 text-sm text-white/70">
+                  Connected nodes, cloud infrastructure and endpoint signals, mapped in real time.
+                </p>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="w-full shrink-0 rounded-xl border border-white/10 bg-ink-800/90 p-4 sm:w-44"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-white/40">Risk Score</p>
+                <p className="mt-1 text-2xl font-bold text-white">
+                  24 <span className="text-xs font-medium text-primary-400">Low</span>
+                </p>
+                <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-1/4 rounded-full bg-primary-400" />
+                </div>
+              </motion.div>
             </div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="absolute -bottom-8 -left-8 hidden w-52 rounded-xl border border-white/10 bg-ink-800/90 p-4 shadow-xl backdrop-blur sm:block"
-          >
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-white/40">Risk Score</p>
-            <p className="mt-1 text-2xl font-bold text-white">
-              24 <span className="text-xs font-medium text-primary-400">Low</span>
-            </p>
-            <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-              <div className="h-full w-1/4 rounded-full bg-primary-400" />
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
