@@ -29,8 +29,8 @@ export default function TermsPage() {
             body: "References to a CoreDefense cybersecurity platform describe capabilities in development. No live platform access, SIEM functionality or security telemetry is provided through this website unless explicitly stated. Dashboards and figures shown in platform previews are illustrative.",
           },
           {
-            heading: "Third-party news content",
-            body: "Our blog displays headlines, summaries and images from external publishers via their public RSS feeds. That content belongs to the respective publishers, links to their original articles, and doesn't necessarily reflect the views of CoreDefense.",
+            heading: "Blog and insight content",
+            body: "Our daily blog briefs and insights are CoreDefense's own analysis of current security news, prepared with the help of AI and published for general information. Where a post draws on reporting by other publishers, those sources are credited and linked; their content remains theirs. Posts are not professional advice for your specific situation.",
           },
           {
             heading: "Use of content",

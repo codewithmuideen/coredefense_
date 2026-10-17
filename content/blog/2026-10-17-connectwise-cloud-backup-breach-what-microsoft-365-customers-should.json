@@ -1,0 +1,65 @@
+{
+  "slug": "2026-10-17-connectwise-cloud-backup-breach-what-microsoft-365-customers-should",
+  "category": "Blog",
+  "title": "ConnectWise Cloud Backup breach: what Microsoft 365 customers should check",
+  "excerpt": "Attackers abused a compromised credential belonging to ConnectWise Cloud Backup to sign in to customers' Microsoft 365 tenants. If a third-party app can read your mail and files, its security is now part of yours.",
+  "topic": "Supply Chain",
+  "date": "2026-10-17",
+  "readTime": "3 min read",
+  "icon": "cloud",
+  "takeaways": [
+    "A compromised ConnectWise Cloud Backup credential was used to access 173 Microsoft 365 tenants, according to researchers.",
+    "ConnectWise has shut down customer access to the service while it responds.",
+    "Organisations that used the service, directly or through an MSP, should review its app permissions and recent sign-ins.",
+    "Third-party apps with broad Microsoft 365 access should be inventoried and reviewed regularly."
+  ],
+  "sections": [
+    {
+      "heading": "What happened",
+      "paragraphs": [
+        "ConnectWise has shut down customer access to its Cloud Backup service, formerly SkyKick Cloud Backup, after attackers accessed application identities and compromised customers' Microsoft 365 tenants. Researchers report that the attackers used a compromised Microsoft 365 credential belonging to the service to sign in to 173 tenants.",
+        "The service is a cloud backup and recovery product used widely by managed service providers (MSPs) to protect their clients' Microsoft 365 data."
+      ]
+    },
+    {
+      "heading": "Why it matters",
+      "paragraphs": [
+        "Backup services need broad, persistent access to mailboxes, OneDrive and SharePoint to do their job. That access is granted to the vendor's application, not to an individual user, so it can bypass the controls organisations rely on for people, such as multi-factor prompts.",
+        "When that application identity is compromised, an attacker can inherit the same reach across every customer that trusted it. Because many customers connect through an MSP, some may not even know the service had access to their tenant."
+      ],
+      "callout": "Every third-party app you consent to in Microsoft 365 effectively becomes part of your attack surface."
+    },
+    {
+      "heading": "What to do now",
+      "paragraphs": [
+        "Whether you used the service directly or through a provider, these checks are worthwhile."
+      ],
+      "list": [
+        "Ask your MSP whether ConnectWise Cloud Backup or SkyKick was connected to your tenant.",
+        "In Entra ID, review enterprise applications and their permissions; remove or disable any you no longer need.",
+        "Check sign-in and audit logs for the backup application's identity and for unusual mailbox or file access.",
+        "Follow ConnectWise's guidance and your provider's instructions before re-enabling the service.",
+        "Make sure you have another recent backup of critical Microsoft 365 data while the service is unavailable."
+      ]
+    },
+    {
+      "heading": "Building resilience",
+      "paragraphs": [
+        "Third-party app governance is easy to overlook. A quarterly review of which applications hold tenant-wide permissions, who approved them and whether they are still needed is one of the most effective controls for Microsoft 365 environments.",
+        "CoreDefense's cloud security reviews include exactly this kind of identity and app-permission audit."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Hackers breach Microsoft 365 tenants via ConnectWise supply-chain attack",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
+      "publisher": "BleepingComputer"
+    },
+    {
+      "title": "Hackers Use Compromised ConnectWise Credential to Sign In to 173 Microsoft 365 Tenants",
+      "url": "https://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html",
+      "publisher": "The Hacker News"
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, CalendarDays, Clock, Lightbulb, Quote, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CalendarDays, Clock, Lightbulb, Quote, ChevronRight, ExternalLink } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-import { articles, articleHref, type Article } from "@/lib/articles-data";
+import { articleHref, type Article } from "@/lib/articles-data";
+import { articleIcon } from "@/lib/article-icons";
+import { getArticles, getBlogPosts } from "@/lib/daily-content";
 
 function slugify(text: string): string {
   return text
@@ -10,14 +12,23 @@ function slugify(text: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+function IconFor({ name, className }: { name: string; className?: string }) {
+  const Icon = articleIcon(name);
+  return <Icon className={className} />;
+}
+
 function formatDate(iso: string): string {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric" }).format(new Date(iso));
 }
 
 export default function ArticlePage({ article }: { article: Article }) {
-  const listHref = article.category === "Guide" ? "/resources/guides" : "/resources/insights";
-  const listLabel = article.category === "Guide" ? "Guides" : "Insights";
-  const related = articles.filter((a) => a.slug !== article.slug && a.category === article.category).slice(0, 3);
+  const isBlog = article.category === "Blog";
+  const listHref = isBlog ? "/blog" : article.category === "Guide" ? "/resources/guides" : "/resources/insights";
+  const listLabel = isBlog ? "Blog" : article.category === "Guide" ? "Guides" : "Insights";
+  const kind = isBlog ? "post" : article.category.toLowerCase();
+  const pool = isBlog ? getBlogPosts() : getArticles(article.category as "Insight" | "Guide");
+  const related = pool.filter((a) => a.slug !== article.slug).slice(0, 3);
+  const Icon = articleIcon(article.icon);
 
   return (
     <article>
@@ -28,16 +39,20 @@ export default function ArticlePage({ article }: { article: Article }) {
           <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-1.5 text-xs text-white/40">
             <Link href="/" className="hover:text-white/70">Home</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link href="/resources" className="hover:text-white/70">Resources</Link>
-            <ChevronRight className="h-3 w-3" />
+            {!isBlog && (
+              <>
+                <Link href="/resources" className="hover:text-white/70">Resources</Link>
+                <ChevronRight className="h-3 w-3" />
+              </>
+            )}
             <Link href={listHref} className="hover:text-white/70">{listLabel}</Link>
           </nav>
           <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-500/15 text-primary-400 ring-1 ring-inset ring-primary-400/30">
-            <article.icon className="h-8 w-8" strokeWidth={1.5} />
+            <Icon className="h-8 w-8" strokeWidth={1.5} />
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-full bg-primary-500 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
-              {article.category}
+              {isBlog ? "Daily Brief" : article.category}
             </span>
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-400">{article.topic}</span>
           </div>
@@ -56,7 +71,7 @@ export default function ArticlePage({ article }: { article: Article }) {
       <div className="bg-white py-16 sm:py-20">
         <div className="container-page grid gap-12 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
           <aside className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-400">In this {article.category.toLowerCase()}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-400">In this {kind}</p>
             <ol className="mt-3 space-y-1 border-l border-ink-900/10">
               {article.sections.map((s) => (
                 <li key={s.heading}>
@@ -113,6 +128,32 @@ export default function ArticlePage({ article }: { article: Article }) {
               ))}
             </div>
 
+            {article.sources && article.sources.length > 0 && (
+              <div className="mt-14 rounded-2xl border border-ink-900/10 p-6 sm:p-8">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-ink-500">Sources and further reading</h2>
+                <p className="mt-2 text-sm text-ink-500">
+                  This {kind} is CoreDefense&apos;s own analysis. The original reporting it draws on is credited below.
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {article.sources.map((src) => (
+                    <li key={src.url}>
+                      <a
+                        href={src.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-start gap-2 text-sm text-ink-700 hover:text-primary-600"
+                      >
+                        <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-ink-400 group-hover:text-primary-500" />
+                        <span>
+                          {src.title} <span className="text-ink-400">· {src.publisher}</span>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <div className="mt-16 overflow-hidden rounded-2xl bg-ink-900 p-8 sm:p-10">
               <h2 className="text-xl font-bold text-white sm:text-2xl">Want help applying this to your organisation?</h2>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
@@ -130,7 +171,7 @@ export default function ArticlePage({ article }: { article: Article }) {
       {related.length > 0 && (
         <section className="border-t border-ink-900/8 bg-surface py-16 sm:py-20">
           <div className="container-page">
-            <h2 className="text-2xl font-bold tracking-tight text-ink-900">More {listLabel.toLowerCase()}</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-ink-900">More from the {listLabel.toLowerCase()}</h2>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
                 <Link
@@ -139,7 +180,7 @@ export default function ArticlePage({ article }: { article: Article }) {
                   className="focus-ring group flex h-full flex-col rounded-2xl border border-ink-900/8 bg-white p-6 transition-all hover:-translate-y-1 hover:border-primary-200 hover:shadow-lg"
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors group-hover:bg-primary-500 group-hover:text-white">
-                    <r.icon className="h-5 w-5" />
+                    <IconFor name={r.icon} className="h-5 w-5" />
                   </div>
                   <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-primary-600">{r.topic}</p>
                   <h3 className="mt-1.5 font-bold leading-snug text-ink-900">{r.title}</h3>

@@ -50,8 +50,8 @@ export default function CookiesPage() {
             ],
           },
           {
-            heading: "Third-party content",
-            body: "Our blog shows headlines and images from external news publishers. When you click a story you leave our site and that publisher's own cookie policy applies. Thumbnail images are requested without sending our page address to the publisher.",
+            heading: "Links to other sites",
+            body: "Our blog and insight posts credit and link to the original reporting they draw on. When you follow one of those links you leave our site, and that publisher's own cookie policy applies.",
           },
           {
             heading: "Managing your preferences",

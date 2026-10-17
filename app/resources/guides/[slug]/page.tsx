@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ArticlePage from "@/components/templates/ArticlePage";
-import { articles, getArticle } from "@/lib/articles-data";
+import { findArticle, getArticles } from "@/lib/daily-content";
 
 type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return articles.filter((a) => a.category === "Guide").map((a) => ({ slug: a.slug }));
+  return getArticles("Guide").map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const article = getArticle("Guide", (await params).slug);
+  const article = findArticle("Guide", (await params).slug);
   if (!article) return {};
   return { title: article.title, description: article.excerpt };
 }
 
 export default async function Page({ params }: Params) {
-  const article = getArticle("Guide", (await params).slug);
+  const article = findArticle("Guide", (await params).slug);
   if (!article) notFound();
   return <ArticlePage article={article} />;
 }

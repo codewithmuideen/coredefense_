@@ -1,0 +1,75 @@
+{
+  "slug": "2026-10-17-beyondtrust-remote-support-zero-day-patch-now-and-check-for-intruders",
+  "category": "Blog",
+  "title": "BeyondTrust Remote Support zero-day: patch now and check for intruders",
+  "excerpt": "A critical flaw in BeyondTrust Remote Support has been exploited by a China-linked espionage group since late August. Patching closes the door, but anyone running the product should also look for signs that someone already walked through it.",
+  "topic": "Vulnerabilities",
+  "date": "2026-10-17",
+  "readTime": "3 min read",
+  "icon": "shield-alert",
+  "takeaways": [
+    "BeyondTrust Remote Support customers should apply the vendor's fix for CVE-2026-102764 immediately.",
+    "The flaw was exploited as a zero-day from late August, so patching alone does not prove you are clean.",
+    "The attackers reportedly deleted logs and artefacts, so look beyond the appliance's own logs when hunting.",
+    "Remote support tools hold privileged access by design and deserve the same scrutiny as VPNs and firewalls."
+  ],
+  "sections": [
+    {
+      "heading": "What happened",
+      "paragraphs": [
+        "BeyondTrust has told customers to patch a critical vulnerability in its Remote Support product, tracked as CVE-2026-102764 with a CVSS score of 9.3. Researchers report that the flaw, an improper origin validation issue in an internal messaging component, has been exploited in the wild since late August 2026.",
+        "Google's threat intelligence teams attribute the activity to a China-nexus espionage group tracked as Armory Castle, previously known as UNC5221 or Warp Panda. Reporting describes the group using the flaw for initial access, deploying custom tools, and deleting logs and other artefacts to cover its tracks."
+      ]
+    },
+    {
+      "heading": "Why it matters",
+      "paragraphs": [
+        "Remote support platforms are built to give technicians privileged, interactive access to many machines at once. That makes them an exceptionally valuable foothold: an attacker who controls the support server can potentially reach every system it manages, often through connections that look legitimate.",
+        "This incident also fits a wider pattern. In the same week, vulnerabilities in edge and access products from several major vendors came under attack. Internet-facing management tools have become one of the most reliable ways into an organisation."
+      ],
+      "callout": "A remote access tool is only as trustworthy as the server that controls it."
+    },
+    {
+      "heading": "What to do now",
+      "paragraphs": [
+        "If you run BeyondTrust Remote Support, whether self-hosted or as a service, work through these steps today."
+      ],
+      "list": [
+        "Apply BeyondTrust's fix for CVE-2026-102764 and confirm the version on every instance.",
+        "Restrict who can reach the management interface; it should not be open to the whole internet.",
+        "Review support session history since late August for unfamiliar technicians, unusual hours or unexpected targets.",
+        "Because logs may have been deleted, cross-check with endpoint, identity and network telemetry from the systems the tool can reach.",
+        "Rotate credentials and secrets stored in or used by the platform if you find anything suspicious."
+      ]
+    },
+    {
+      "heading": "The longer-term lesson",
+      "paragraphs": [
+        "Treat remote support, remote access and IT management platforms as tier-zero assets. That means a current inventory of where they run, rapid patching, strong authentication for technicians, and monitoring that would notice if the tool itself started behaving unusually.",
+        "If you are unsure whether your environment was exposed, an incident readiness review can help you scope the risk quickly and calmly."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "BeyondTrust patches zero-day exploited in attacks since August",
+      "url": "https://www.bleepingcomputer.com/news/security/beyondtrust-patches-zero-day-exploited-in-attacks-since-august/",
+      "publisher": "BleepingComputer"
+    },
+    {
+      "title": "China-Linked Hackers Exploited BeyondTrust Zero-Day to Take Over Remote Support Servers",
+      "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited.html",
+      "publisher": "The Hacker News"
+    },
+    {
+      "title": "Chinese APT Exploited BeyondTrust Vulnerability as Zero-Day",
+      "url": "https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/",
+      "publisher": "SecurityWeek"
+    },
+    {
+      "title": "BeyondTrust Remote Support Zero-Day Continues Trend of Exploited Edge Bugs",
+      "url": "https://www.darkreading.com/endpoint-security/beyondtrust-remote-support-exploited-edge-bugs",
+      "publisher": "Dark Reading"
+    }
+  ]
+}

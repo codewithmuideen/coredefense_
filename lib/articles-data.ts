@@ -1,24 +1,18 @@
-import {
-  Factory,
-  BrainCircuit,
-  ShieldAlert,
-  Workflow,
-  Cloud,
-  GraduationCap,
-  MapPinned,
-  Network,
-  CreditCard,
-  Siren,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import type { ArticleIconName } from "@/lib/article-icons";
 
-export type ArticleCategory = "Insight" | "Guide";
+export type ArticleCategory = "Insight" | "Guide" | "Blog";
 
 export interface ArticleSection {
   heading: string;
   paragraphs: string[];
   list?: string[];
   callout?: string;
+}
+
+export interface ArticleSource {
+  title: string;
+  url: string;
+  publisher: string;
 }
 
 export interface Article {
@@ -29,9 +23,11 @@ export interface Article {
   topic: string;
   date: string;
   readTime: string;
-  icon: LucideIcon;
+  icon: ArticleIconName;
   takeaways: string[];
   sections: ArticleSection[];
+  /** News reports a daily post was based on; credited at the end of the article. */
+  sources?: ArticleSource[];
 }
 
 export const articles: Article[] = [
@@ -45,7 +41,7 @@ export const articles: Article[] = [
     topic: "IT/OT Security",
     date: "2026-10-08",
     readTime: "8 min read",
-    icon: Factory,
+    icon: "factory",
     takeaways: [
       "IT optimises for confidentiality; OT optimises for safety and availability. Both are right, and both must be stated openly.",
       "A shared asset inventory is the single most useful artefact for joint IT/OT security work.",
@@ -107,7 +103,7 @@ export const articles: Article[] = [
     topic: "AI & Security Operations",
     date: "2026-09-29",
     readTime: "7 min read",
-    icon: BrainCircuit,
+    icon: "brain",
     takeaways: [
       "AI is strongest at enrichment, clustering and summarisation, the repetitive work that consumes analyst time.",
       "Keep humans in the loop for containment decisions and anything with business impact.",
@@ -167,7 +163,7 @@ export const articles: Article[] = [
     topic: "Incident Readiness",
     date: "2026-09-17",
     readTime: "6 min read",
-    icon: ShieldAlert,
+    icon: "shield-alert",
     takeaways: [
       "Recovery capability, not just prevention, determines how bad a ransomware incident gets.",
       "Backups only count if they are isolated from the main network and regularly test-restored.",
@@ -230,7 +226,7 @@ export const articles: Article[] = [
     topic: "Business Transformation",
     date: "2026-09-04",
     readTime: "7 min read",
-    icon: Workflow,
+    icon: "workflow",
     takeaways: [
       "A process is ready to automate when it is stable, well understood and measured.",
       "Exceptions, not the happy path, determine automation effort and value.",
@@ -287,7 +283,7 @@ export const articles: Article[] = [
     topic: "Cloud Security",
     date: "2026-08-21",
     readTime: "6 min read",
-    icon: Cloud,
+    icon: "cloud",
     takeaways: [
       "Misconfiguration, not zero-days, drives most cloud exposure.",
       "Guardrails in infrastructure-as-code catch issues before they reach production.",
@@ -344,7 +340,7 @@ export const articles: Article[] = [
     topic: "Security Awareness",
     date: "2026-08-07",
     readTime: "6 min read",
-    icon: GraduationCap,
+    icon: "graduation",
     takeaways: [
       "Short, frequent and relevant beats long and annual.",
       "Make reporting easy and celebrate it; never shame people who click.",
@@ -395,7 +391,7 @@ export const articles: Article[] = [
     topic: "Compliance & Governance",
     date: "2026-10-01",
     readTime: "10 min read",
-    icon: MapPinned,
+    icon: "map",
     takeaways: [
       "Map findings to controls once, then reuse that mapping across every framework.",
       "A single control library prevents duplicate work across ISO, NIST and PCI DSS.",
@@ -458,7 +454,7 @@ export const articles: Article[] = [
     topic: "Business Transformation",
     date: "2026-09-10",
     readTime: "9 min read",
-    icon: Network,
+    icon: "network",
     takeaways: [
       "Map how work really happens, not how the policy says it happens.",
       "Use a consistent notation such as BPMN so maps can be compared and reused.",
@@ -511,7 +507,7 @@ export const articles: Article[] = [
     topic: "Compliance & Governance",
     date: "2026-08-28",
     readTime: "8 min read",
-    icon: CreditCard,
+    icon: "credit-card",
     takeaways: [
       "Reducing cardholder data scope is still the most effective compliance strategy.",
       "v4.0 places more emphasis on targeted risk analysis and continuous controls.",
@@ -562,7 +558,7 @@ export const articles: Article[] = [
     topic: "Incident Readiness",
     date: "2026-08-14",
     readTime: "10 min read",
-    icon: Siren,
+    icon: "siren",
     takeaways: [
       "Contain first, but preserve evidence while you do it.",
       "Under UK GDPR, notifiable personal data breaches must be reported to the ICO within 72 hours of awareness.",
@@ -615,9 +611,6 @@ export const articles: Article[] = [
 ];
 
 export function articleHref(article: Pick<Article, "category" | "slug">): string {
+  if (article.category === "Blog") return `/blog/${article.slug}`;
   return `/resources/${article.category === "Guide" ? "guides" : "insights"}/${article.slug}`;
-}
-
-export function getArticle(category: ArticleCategory, slug: string): Article | undefined {
-  return articles.find((a) => a.category === category && a.slug === slug);
 }

@@ -1,0 +1,88 @@
+{
+  "slug": "2026-10-17-when-trusted-channels-become-the-attack-lessons-from-this-week-s",
+  "category": "Insight",
+  "title": "When trusted channels become the attack: lessons from this week's breaches",
+  "excerpt": "Backup services, software updates, remote support tools, online ads and code packages: this week's incidents all abused something organisations are designed to trust. Here is how to defend the channels you cannot simply block.",
+  "topic": "Supply Chain Security",
+  "date": "2026-10-17",
+  "readTime": "3 min read",
+  "icon": "network",
+  "takeaways": [
+    "Several of this week's incidents abused trusted channels: a backup service, update servers, a remote support platform, ads and an npm package.",
+    "Trust should be scoped and monitored, not granted once and forgotten.",
+    "Inventory every third party and tool that holds privileged or automatic access to your environment.",
+    "Detection must watch what trusted tools actually do, because their traffic will always look legitimate at first glance."
+  ],
+  "sections": [
+    {
+      "heading": "A week of borrowed trust",
+      "paragraphs": [
+        "Look across this week's security news and a clear pattern emerges. Attackers increasingly avoid breaking down the front door. Instead they borrow the keys that organisations willingly hand to their suppliers and tools.",
+        "A compromised credential belonging to ConnectWise Cloud Backup was used to sign in to 173 Microsoft 365 tenants. Attackers repeatedly altered files on AOMEI Backupper's own update servers, in windows of five to ten minutes between May and July 2026, so that copies checking for updates at the wrong moment downloaded a backdoor. A China-linked espionage group exploited a zero-day in BeyondTrust Remote Support. Citizen Lab traced zero-click Candiru spyware infections at Al Jazeera to ordinary-looking online adverts. And a malicious npm package called imgdecode, part of a campaign dubbed MALFEX, hid a shellcode loader inside a Windows native add-on."
+      ]
+    },
+    {
+      "heading": "Why trusted channels are so attractive",
+      "paragraphs": [
+        "Each of these channels is trusted by design. Backup services need wide access to your data. Update mechanisms are expected to download and run new code. Remote support tools exist to take control of machines. Developers install packages to save time. Users expect web pages to show adverts.",
+        "That trust is what makes them efficient for attackers. Activity arriving through an approved supplier, a signed update path or a sanctioned tool rarely triggers the alarms reserved for unknown intruders, and a single compromise can reach many organisations at once."
+      ],
+      "callout": "Attackers no longer need to look suspicious when they can arrive through a door you have already approved."
+    },
+    {
+      "heading": "Scope trust instead of granting it wholesale",
+      "paragraphs": [
+        "The answer is not to stop using suppliers, updates or remote tools. It is to make trust specific, limited and revocable.",
+        "For each third party or tool with privileged access, ask what it genuinely needs, where it can connect from, and how quickly you could cut it off."
+      ],
+      "list": [
+        "Grant applications the narrowest permissions that still let them work, and review consents regularly.",
+        "Restrict management and support interfaces to known networks and require strong authentication.",
+        "Pin or verify software sources, and stage updates for critical systems where practical.",
+        "Use private package registries or allow-lists for development dependencies.",
+        "Apply ad and script controls on devices used by high-risk staff, such as executives and journalists."
+      ]
+    },
+    {
+      "heading": "Watch what trusted tools actually do",
+      "paragraphs": [
+        "Because trusted channels look legitimate, detection has to focus on behaviour rather than origin. A backup application suddenly reading mail outside its normal schedule, a support tool opening sessions at 3am, or a build server fetching an unfamiliar package are all signals worth surfacing.",
+        "Building baselines for your most powerful tools, and alerting on deviations from them, gives you a chance to spot an abused channel before the damage spreads. In the BeyondTrust case, reporting says the attackers deleted logs, which is a reminder to collect evidence from more than one place."
+      ]
+    },
+    {
+      "heading": "Know your trusted channels",
+      "paragraphs": [
+        "None of this works without visibility. Many organisations cannot quickly answer which suppliers hold tenant-wide permissions, which tools can push code to endpoints, or which developers can add new dependencies.",
+        "Start with an inventory of every channel that carries automatic or privileged trust into your environment, assign an owner to each, and agree how you would revoke it in an emergency. That single exercise turns a week of alarming headlines into a manageable, prioritised plan."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Hackers Use Compromised ConnectWise Credential to Sign In to 173 Microsoft 365 Tenants",
+      "url": "https://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html",
+      "publisher": "The Hacker News"
+    },
+    {
+      "title": "Attackers Tampered with AOMEI Backupper's Update Servers for Minutes to Deliver a Backdoor",
+      "url": "https://thehackernews.com/2026/10/attackers-tampered-with-aomei.html",
+      "publisher": "The Hacker News"
+    },
+    {
+      "title": "Suspected Chinese espionage attackers abusing BeyondTrust IT support zero-day",
+      "url": "https://therecord.media/beyond-trust-cyberattack-china",
+      "publisher": "The Record"
+    },
+    {
+      "title": "Citizen Lab Traces Zero-Click Candiru Spyware Infections at Al Jazeera to Targeted Online Ads",
+      "url": "https://thehackernews.com/2026/10/citizen-lab-traces-zero-click-candiru.html",
+      "publisher": "The Hacker News"
+    },
+    {
+      "title": "MALFEX npm Package 'imgdecode' Hides Shellcode Loader in Windows Native Addon",
+      "url": "https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html",
+      "publisher": "The Hacker News"
+    }
+  ]
+}

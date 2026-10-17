@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
 import ResourceListPage from "@/components/templates/ResourceListPage";
+import { getArticles, todayInUK } from "@/lib/daily-content";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -16,7 +17,7 @@ export default function InsightsPage() {
         description="In-depth articles on IT/OT security, AI in the SOC, ransomware resilience, cloud risk, automation and security culture, written by the CoreDefense team."
         breadcrumbs={[{ label: "Resources", href: "/resources" }, { label: "Insights", href: "/resources/insights" }]}
       />
-      <ResourceListPage defaultCategory="Insight" />
+      <ResourceListPage items={getArticles("Insight")} today={todayInUK()} noun="Insight" />
     </>
   );
 }

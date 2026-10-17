@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
 import ResourceListPage from "@/components/templates/ResourceListPage";
+import { getArticles, todayInUK } from "@/lib/daily-content";
 
 export const metadata: Metadata = {
   title: "Guides",
@@ -16,7 +17,7 @@ export default function GuidesPage() {
         description="Step-by-step guides on compliance mapping, process discovery, PCI DSS v4.0 readiness and incident response, with checklists you can use straight away."
         breadcrumbs={[{ label: "Resources", href: "/resources" }, { label: "Guides", href: "/resources/guides" }]}
       />
-      <ResourceListPage defaultCategory="Guide" />
+      <ResourceListPage items={getArticles("Guide")} today={todayInUK()} noun="Guide" />
     </>
   );
 }

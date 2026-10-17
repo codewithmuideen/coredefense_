@@ -1,27 +1,24 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
 import BlogFeed from "@/components/templates/BlogFeed";
-import { getLatestSecurityNews } from "@/lib/rss";
-
-export const revalidate = 3600;
+import { getBlogPosts, todayInUK } from "@/lib/daily-content";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Live cybersecurity, hacking and business technology news, curated automatically from trusted sources.",
+  description:
+    "Daily CoreDefense briefs: our own analysis of the latest cybersecurity and technology news, with practical advice for UK organisations.",
 };
 
-export default async function BlogPage() {
-  const posts = await getLatestSecurityNews(30);
-
+export default function BlogPage() {
   return (
     <>
       <PageHero
         eyebrow="Resources"
-        title="CoreDefense Blog"
-        description="The latest cybersecurity, hacking and business technology stories, with images, pulled automatically from trusted sources and refreshed every hour."
+        title="The CoreDefense Daily Brief"
+        description="Every morning our team reviews the day's cybersecurity and technology news and publishes original analysis: what happened, why it matters and what to do about it."
         breadcrumbs={[{ label: "Blog", href: "/blog" }]}
       />
-      <BlogFeed posts={posts} />
+      <BlogFeed posts={getBlogPosts()} today={todayInUK()} />
     </>
   );
 }

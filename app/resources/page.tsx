@@ -17,14 +17,14 @@ const groups: OverviewGroup[] = [
     heading: "Read & Learn",
     href: "/blog",
     description:
-      "Live security headlines from trusted sources, plus our own thinking on cybersecurity, transformation and AI.",
+      "Fresh analysis of the day's security news every morning, plus in-depth thinking on cybersecurity, transformation and AI.",
     image: "/images/photos/secure_cloud_lock_icon_FINAL.png",
     ctaLabel: "Open the live blog",
     items: [
       {
         label: "Blog",
         href: "/blog",
-        description: "A live, hourly-refreshed feed of cybersecurity and hacking news with images, from trusted security outlets.",
+        description: "Daily CoreDefense briefs: our own analysis of the latest security news, with practical steps and credited sources.",
         icon: Rss,
       },
       {

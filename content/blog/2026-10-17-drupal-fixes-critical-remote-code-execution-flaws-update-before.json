@@ -1,0 +1,65 @@
+{
+  "slug": "2026-10-17-drupal-fixes-critical-remote-code-execution-flaws-update-before",
+  "category": "Blog",
+  "title": "Drupal fixes critical remote code execution flaws: update before exploits appear",
+  "excerpt": "Drupal has shipped fixes for critical flaws that could let attackers run code on web servers, and warns that exploits may emerge soon. Sites using contributed modules face the most risk.",
+  "topic": "Patch Management",
+  "date": "2026-10-17",
+  "readTime": "3 min read",
+  "icon": "bug",
+  "takeaways": [
+    "Drupal 11.4.10, 11.3.19 and 10.6.19, released on 14 October, fix a critical flaw in the Field UI module.",
+    "Exploitation depends on contributed modules, and at least one known path requires no login.",
+    "Drupal warns that working exploits may emerge soon, so patch this week rather than at the next scheduled window.",
+    "Keep an accurate list of every site you run, including old microsites and campaign pages."
+  ],
+  "sections": [
+    {
+      "heading": "What happened",
+      "paragraphs": [
+        "Drupal has patched critical vulnerabilities that could allow attackers to execute code on websites running supported versions of the content management system. The core issue sits in the Field UI module, and fixes were released on 14 October in Drupal 11.4.10, 11.3.19 and 10.6.19.",
+        "According to the Drupal Security Team's advisory, the flaw cannot be reached through core alone. Several exploit paths exist through contributed modules, and at least one known path does not require the attacker to log in. The project has warned that exploits may emerge soon."
+      ]
+    },
+    {
+      "heading": "Why it matters",
+      "paragraphs": [
+        "Remote code execution on a web server is about as serious as website vulnerabilities get. It can lead to defacement, data theft, malware hosted on your domain, or a foothold into the wider network if the server is not properly isolated.",
+        "Contributed modules are what make Drupal flexible, but they also mean the real exposure differs from site to site. Assuming you are safe because you only use core is risky."
+      ],
+      "callout": "When a vendor warns that exploits may emerge soon, the safe assumption is that attackers are already working on them."
+    },
+    {
+      "heading": "What to do now",
+      "paragraphs": [
+        "Work through these steps for every Drupal site you own or manage."
+      ],
+      "list": [
+        "Upgrade every Drupal site to 11.4.10, 11.3.19 or 10.6.19 as appropriate.",
+        "Inventory contributed modules on each site and check the advisory for those named as exploit paths.",
+        "Put a web application firewall in front of public sites that cannot be patched immediately.",
+        "Review web server logs for unusual requests to administrative and field-related endpoints since the advisory.",
+        "Retire unused or forgotten Drupal sites rather than patching them indefinitely."
+      ]
+    },
+    {
+      "heading": "Making patching routine",
+      "paragraphs": [
+        "Content management systems are easy to forget once they are live. A simple ownership register for every website, with a named person responsible for updates, turns emergency patch days like this one into a routine task.",
+        "CoreDefense's digital engineering team builds and maintains sites with security updates designed into the support model from day one."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Drupal patches critical RCE flaws, warns exploits may emerge soon",
+      "url": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaws-warns-exploits-may-emerge-soon/",
+      "publisher": "BleepingComputer"
+    },
+    {
+      "title": "Drupal Patches Critical Field UI Flaw With Unauthenticated RCE Path via Contributed Modules",
+      "url": "https://thehackernews.com/2026/10/drupal-patches-critical-core-rce-flaw.html",
+      "publisher": "The Hacker News"
+    }
+  ]
+}
