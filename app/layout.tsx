@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -93,8 +94,11 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Header />
-        <main id="main-content">{children}</main>
+        <main id="main-content" tabIndex={-1} className="outline-none">
+          {children}
+        </main>
         <Footer />
+        <ScrollToTop />
         <CookieBanner />
       </body>
     </html>
