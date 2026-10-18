@@ -6,6 +6,8 @@ export interface TeamMember {
   role: string;
   focus: string;
   photo: string;
+  /** "bottom" shows the whole photo resting on the card's bottom edge (for wider cut-outs). */
+  photoFit?: "cover" | "bottom";
   linkedin: string;
 }
 
@@ -15,6 +17,8 @@ export const teamMembers: TeamMember[] = [
     role: "Founder",
     focus: "Sets CoreDefense's direction across cybersecurity, transformation, engineering and AI.",
     photo: "/images/team/cutouts/Innocent Paul Ojo.png",
+    // Wider photo than the others: show it whole, resting on the bottom edge, so the head sits lower.
+    photoFit: "bottom",
     linkedin: "https://www.linkedin.com/in/innocentpaul/",
   },
   {

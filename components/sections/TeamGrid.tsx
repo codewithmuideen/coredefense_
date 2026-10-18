@@ -5,6 +5,13 @@ import { motion } from "framer-motion";
 import { Linkedin, Plus } from "lucide-react";
 import { teamMembers } from "@/lib/team-data";
 
+// Framing per photo. "bottom" is for wider cut-outs: the whole photo rests on the bottom edge,
+// leaving the same headroom as the taller photos instead of cropping the shoulders.
+const PHOTO_FIT = {
+  cover: "object-cover object-top",
+  bottom: "object-contain object-bottom origin-bottom",
+} as const;
+
 export default function TeamGrid() {
   return (
     <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -39,7 +46,7 @@ export default function TeamGrid() {
                   alt={`${member.name}, ${member.role} at CoreDefense`}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                  className={`${PHOTO_FIT[member.photoFit ?? "cover"]} transition-transform duration-700 ease-out group-hover:scale-[1.05]`}
                   priority={i < 2}
                 />
               </div>
