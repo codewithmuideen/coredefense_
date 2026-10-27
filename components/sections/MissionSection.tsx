@@ -12,13 +12,13 @@ const pillars = [
   },
   {
     icon: ShieldCheck,
-    title: "Security that keeps pace",
-    description: "AI-powered and compliance-ready, built to run continuously rather than as a once-a-year scramble.",
+    title: "Honest about what's live",
+    description: "We tell you plainly what we deliver today and what is still on our roadmap. No vapourware in a sales deck.",
   },
   {
     icon: FileCheck2,
-    title: "Compliance as a by-product",
-    description: "Not a separate project. Governance and control mapping built into everyday security operations.",
+    title: "Two audiences, one report",
+    description: "Findings written twice: once in plain English for the board, once in technical detail for the engineers.",
   },
 ];
 
@@ -42,12 +42,12 @@ export default function MissionSection() {
                 Our Mission
               </p>
               <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                One technology partner, built for how businesses actually run
+                Why we built CoreDefense
               </h2>
               <p className="mt-4 max-w-md text-balance text-base leading-relaxed text-white/60">
-                CoreDefense exists because cybersecurity, transformation, engineering and AI are usually sold as
-                separate products from separate vendors. We connect them into one partnership, so your security
-                strategy keeps pace with how your business actually operates.
+                Security reviews that ignore how work gets done produce reports nobody acts on. Process projects that
+                ignore security open new holes. We started CoreDefense to keep risk, operations and engineering in the
+                same conversation from day one.
               </p>
               <div className="mt-8">
                 <CTAButton href="/about#approach" variant="ghost">

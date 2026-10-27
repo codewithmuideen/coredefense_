@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, X } from "lucide-react";
+import { ChevronDown, MessageCircle, X } from "lucide-react";
 import { megaMenus } from "@/lib/nav-data";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
-import BookingModal from "@/components/forms/BookingModal";
+import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 interface MobileMenuProps {
@@ -58,9 +58,6 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             <nav className="mb-6 flex flex-col divide-y divide-ink-900/5">
               {[
                 { label: "Home", href: "/" },
-                { label: "Cybersecurity", href: "/cybersecurity" },
-                { label: "Blog", href: "/blog" },
-                { label: "Our Team", href: "/team" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <Link
@@ -135,16 +132,18 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </div>
 
             <div className="mt-8 flex flex-col gap-3">
-              <BookingModal
-                trigger={
-                  <CTAButton className="w-full justify-center" icon={false}>
-                    Book a Consultation
-                  </CTAButton>
-                }
-              />
-              <CTAButton href="/platform/features" variant="secondary" className="w-full justify-center" icon={false} onClick={onClose}>
-                Explore Our Capabilities
+              <CTAButton href="/contact" className="w-full justify-center" icon={false} onClick={onClose}>
+                Talk to an Expert
               </CTAButton>
+              <a
+                href={CONTACT.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-lg border border-emerald-500/30 px-5 py-2.5 text-sm font-semibold text-emerald-700 hover:bg-emerald-50"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp {CONTACT.phoneDisplay}
+              </a>
             </div>
           </div>
         </motion.div>

@@ -59,12 +59,12 @@ export default function BlogFeed({ posts, today }: { posts: Article[]; today: st
   const grid = filtered.slice(5);
 
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section id="briefs" className="border-t border-ink-900/8 bg-surface py-16 sm:py-24">
       <div className="container-page">
         <div className="flex flex-col gap-5 border-b border-ink-900/8 pb-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3.5 py-1.5 text-xs font-semibold text-primary-700">
             <Sparkles className="h-3.5 w-3.5" aria-hidden />
-            New CoreDefense analysis of the day&apos;s security news, every morning
+            CoreDefense briefs: our own take on the stories that matter
           </div>
           <div className="relative w-full lg:max-w-sm">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400" />

@@ -3,6 +3,7 @@ import PageHero from "@/components/layout/PageHero";
 import LegalContent from "@/components/templates/LegalContent";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms of Use",
   description: "Terms of use for the CoreDefense website.",
 };
@@ -15,7 +16,6 @@ export default function TermsPage() {
         title="Terms of Use"
         description="The rules for using www.coredefense.co.uk. Please read them before using the site."
         breadcrumbs={[{ label: "Terms", href: "/terms" }]}
-        showActions={false}
       />
       <LegalContent
         updated="October 2026"
@@ -30,7 +30,7 @@ export default function TermsPage() {
           },
           {
             heading: "Blog and insight content",
-            body: "Our daily blog briefs and insights are CoreDefense's own analysis of current security news, prepared with the help of AI and published for general information. Where a post draws on reporting by other publishers, those sources are credited and linked; their content remains theirs. Posts are not professional advice for your specific situation.",
+            body: "Our daily blog briefs and insights are CoreDefense's own analysis of current security news, prepared with the help of AI and published for general information. Where a post draws on reporting by other publishers, those sources are credited and linked; their content remains theirs. The blog also shows headlines, short summaries and thumbnail images taken automatically from publishers' public RSS feeds; each item links to and remains the property of its publisher. Posts are not professional advice for your specific situation.",
           },
           {
             heading: "Use of content",

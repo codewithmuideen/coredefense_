@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ConsultationCTA from "@/components/sections/ConsultationCTA";
 import type { IndustryDetail } from "@/lib/industry-detail-data";
 
 export default function IndustryDetailPage({ industry }: { industry: IndustryDetail }) {
@@ -31,7 +30,7 @@ export default function IndustryDetailPage({ industry }: { industry: IndustryDet
             )}
           </div>
           <div className="lg:order-1">
-            <SectionHeading title="How CoreDefense helps" description={industry.description} />
+            <SectionHeading title="How CoreDefense helps" description={industry.approach} />
             <ul className="mt-8 space-y-3">
               {industry.focusAreas.map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-ink-700">
@@ -43,8 +42,6 @@ export default function IndustryDetailPage({ industry }: { industry: IndustryDet
           </div>
         </div>
       </section>
-
-      <ConsultationCTA />
     </>
   );
 }

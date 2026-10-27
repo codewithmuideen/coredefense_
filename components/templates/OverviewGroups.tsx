@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export interface OverviewItem {
   label: string;
   href: string;
-  description: string;
+  description?: string;
   icon?: LucideIcon;
 }
 
@@ -70,12 +70,12 @@ export default function OverviewGroups({ groups }: { groups: OverviewGroup[] }) 
                         <item.icon className="h-5 w-5" />
                       </div>
                     )}
-                    <div className="flex-1">
+                    <div className="flex flex-1 flex-col justify-center">
                       <h3 className="flex items-start justify-between gap-2 text-sm font-bold text-ink-900 sm:text-base">
                         {item.label}
                         <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-ink-300 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary-500" />
                       </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{item.description}</p>
+                      {item.description && <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{item.description}</p>}
                     </div>
                   </Link>
                 ))}

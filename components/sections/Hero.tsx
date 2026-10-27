@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck, Cpu, Workflow, Sparkles } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-import BookingModal from "@/components/forms/BookingModal";
 
 const badges = [
   { icon: ShieldCheck, label: "Cybersecurity" },
@@ -58,8 +57,8 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-white/65"
           >
-            CoreDefense combines AI-powered cybersecurity, business transformation, digital engineering and
-            AI &amp; automation into one connected technology partnership, built for UK enterprise.
+            Find the security gaps worth fixing, redesign the processes that hold you back, and ship software and AI
+            your auditors can sign off. One senior UK team, start to finish.
           </motion.p>
 
           <motion.div
@@ -68,9 +67,11 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <BookingModal trigger={<CTAButton size="lg">Book a Consultation</CTAButton>} />
-            <CTAButton href="/platform/features" variant="ghost" size="lg" icon={false}>
-              Explore Our Capabilities
+            <CTAButton href="/solutions" size="lg">
+              Explore our services
+            </CTAButton>
+            <CTAButton href="/platform" variant="ghost" size="lg" icon={false}>
+              See the platform
             </CTAButton>
           </motion.div>
 

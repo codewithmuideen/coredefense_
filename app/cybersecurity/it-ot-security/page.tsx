@@ -5,6 +5,7 @@ import { serviceDetails } from "@/lib/service-detail-data";
 const service = serviceDetails["it-ot-security"];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cybersecurity/it-ot-security" },
   title: service.title,
   description: service.summary,
 };

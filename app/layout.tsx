@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import { CONTACT } from "@/lib/contact";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
     template: "%s | CoreDefense",
   },
   description:
-    "CoreDefense is a UK technology company delivering AI-powered cybersecurity, business transformation, digital engineering and AI & automation for enterprise organisations.",
+    "UK cybersecurity consultancy for IT, cloud and OT, with BPMN process transformation, secure software engineering and governed AI under one roof.",
+  applicationName: "CoreDefense",
+  category: "technology",
   keywords: [
     "CoreDefense",
     "Cybersecurity UK",
@@ -35,8 +38,21 @@ export const metadata: Metadata = {
     "Digital Engineering",
     "AI Automation",
     "Cybersecurity Consulting",
+    "Penetration Testing UK",
+    "ISO 27001 Consultancy",
+    "Cyber Essentials Plus",
+    "IEC 62443",
+    "BPMN Process Mapping",
   ],
-  authors: [{ name: "CoreDefense" }],
+  authors: [{ name: "CoreDefense", url: siteUrl }],
+  creator: "CoreDefense",
+  publisher: "CoreDefense",
+  formatDetection: { telephone: true, email: true, address: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
@@ -44,35 +60,60 @@ export const metadata: Metadata = {
     siteName: "CoreDefense",
     title: "CoreDefense | Cybersecurity, Transformation & AI for UK Enterprise",
     description:
-      "AI-powered cybersecurity, business transformation, digital engineering and AI & automation: one UK technology partner, four connected practices.",
-    images: [{ url: "/images/brand/logo-full.png", width: 1200, height: 630 }],
+      "Security testing, process redesign, software engineering and AI from one senior UK team.",
   },
   twitter: {
     card: "summary_large_image",
     title: "CoreDefense | Cybersecurity, Transformation & AI for UK Enterprise",
     description:
-      "AI-powered cybersecurity, business transformation, digital engineering and AI & automation for UK enterprise.",
-    images: ["/images/brand/logo-full.png"],
-  },
-  alternates: {
-    canonical: siteUrl,
+      "Find the security gaps worth fixing, redesign slow processes and ship software and AI that pass audit.",
   },
 };
 
-const organizationSchema = {
+export const viewport: Viewport = {
+  themeColor: "#0B1220",
+  colorScheme: "light",
+};
+
+const telephone = CONTACT.phoneHref.replace("tel:", "");
+
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "CoreDefense",
-  url: siteUrl,
-  logo: `${siteUrl}/images/brand/logo-full.png`,
-  description:
-    "CoreDefense is a UK technology company delivering AI-powered cybersecurity, business transformation, digital engineering and AI & automation.",
-  areaServed: "GB",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "GB",
-  },
-  sameAs: [],
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#organization`,
+      name: "CoreDefense",
+      url: siteUrl,
+      logo: `${siteUrl}/images/brand/logo-full.png`,
+      image: `${siteUrl}/opengraph-image`,
+      description:
+        "Cybersecurity, process transformation, digital engineering and AI services for UK organisations.",
+      email: CONTACT.email,
+      telephone,
+      areaServed: "GB",
+      address: { "@type": "PostalAddress", addressCountry: "GB" },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          email: CONTACT.email,
+          telephone,
+          availableLanguage: ["English"],
+        },
+      ],
+      knowsAbout: ["Cybersecurity", "Vulnerability management", "ISO 27001", "IEC 62443", "BPMN", "Workflow automation", "Machine learning"],
+      sameAs: [],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "CoreDefense",
+      inLanguage: "en-GB",
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -85,7 +126,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-white font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <a
           href="#main-content"

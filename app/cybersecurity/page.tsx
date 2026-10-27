@@ -4,12 +4,12 @@ import CyberStatsBar from "@/components/sections/CyberStatsBar";
 import CyberCapabilities from "@/components/sections/CyberCapabilities";
 import SIEMVision from "@/components/sections/SIEMVision";
 import SecurityProcess from "@/components/sections/SecurityProcess";
-import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cybersecurity" },
   title: "Cybersecurity",
   description:
-    "AI-powered, compliance-ready cybersecurity services from CoreDefense: vulnerability management, cloud & DevOps security, IT/OT security, compliance and more.",
+    "UK cybersecurity services for IT, cloud and OT: risk-ranked vulnerability management, assessments, ISO 27001 readiness, incident planning and staff training.",
 };
 
 export default function CybersecurityPage() {
@@ -18,14 +18,14 @@ export default function CybersecurityPage() {
       <PageHero
         eyebrow="Cybersecurity"
         title="Intelligent cybersecurity for IT, cloud and OT"
-        description="CoreDefense delivers AI-powered, compliance-ready cybersecurity that identifies, prioritises and remediates threats faster across your entire environment."
+        description="Find your weaknesses, fix the ones that matter first, prove it to auditors and be ready for the day something goes wrong."
+        image="/images/illustrations/cybersecurity-monolith-sculpture.jpg"
         breadcrumbs={[{ label: "Cybersecurity", href: "/cybersecurity" }]}
       />
       <CyberStatsBar />
       <CyberCapabilities />
       <SecurityProcess />
       <SIEMVision />
-      <ConsultationCTA />
     </>
   );
 }

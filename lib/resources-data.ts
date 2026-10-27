@@ -17,9 +17,3 @@ export const resourceItems: ResourceItem[] = articles.map((a) => ({
   href: articleHref(a),
   readTime: a.readTime,
 }));
-
-export const caseStudyPlaceholders = [
-  { title: "Financial Services", status: "Case Study Coming Soon" },
-  { title: "Manufacturing", status: "Case Study Coming Soon" },
-  { title: "Technology", status: "Case Study Coming Soon" },
-];

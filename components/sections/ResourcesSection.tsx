@@ -27,7 +27,7 @@ export default function ResourcesSection() {
 
       <div className="container-page relative">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading dark eyebrow="Resource Center" title="Insights, guides and case studies" className="max-w-2xl" />
+          <SectionHeading dark eyebrow="Resource Center" title="Latest thinking from the team" className="max-w-2xl" />
           <CTAButton href="/resources" variant="ghost">
             View all resources
           </CTAButton>

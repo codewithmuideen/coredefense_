@@ -1,0 +1,19 @@
+# CoreDefense
+
+> UK technology company offering cybersecurity (IT, cloud and OT), business process transformation, digital engineering and AI & automation. Contact: info@coredefense.co.uk, WhatsApp +44 7460 082168.
+
+## Services
+- [Solutions overview](https://www.coredefense.co.uk/solutions): every service, grouped by practice
+- [Cybersecurity](https://www.coredefense.co.uk/cybersecurity)
+- [Business Transformation](https://www.coredefense.co.uk/business-transformation)
+- [Digital Engineering](https://www.coredefense.co.uk/digital-engineering)
+- [AI & Automation](https://www.coredefense.co.uk/ai-automation)
+
+## Platform
+- [Platform overview](https://www.coredefense.co.uk/platform): security platform in development
+- [Compliance mapping](https://www.coredefense.co.uk/platform/compliance-mapping)
+
+## Company
+- [About](https://www.coredefense.co.uk/about)
+- [FAQ](https://www.coredefense.co.uk/faq)
+- [Contact](https://www.coredefense.co.uk/contact)

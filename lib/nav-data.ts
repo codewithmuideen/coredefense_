@@ -1,5 +1,4 @@
 import {
-  ShieldCheck,
   Cloud,
   Factory,
   FileCheck2,
@@ -9,42 +8,32 @@ import {
   ShieldAlert,
   GraduationCap,
   Workflow,
-  LineChart,
   Users,
-  Globe2,
   LayoutDashboard,
   Code2,
-  Cpu,
   Boxes,
   Sparkles,
   Bot,
   BarChart3,
-  Settings2,
   Puzzle,
   Plug,
   LockKeyhole,
   ListChecks,
   MapPinned,
-  Briefcase,
-  Building2,
   Landmark,
   HeartPulse,
-  Factory as FactoryIcon,
-  Cpu as TechIcon,
-  Store,
-  School,
+  Cpu,
   Newspaper,
   BookOpenText,
-  FileBarChart2,
   HelpCircle,
   Info,
-  Compass,
   Mail,
   Rss,
   UserRound,
 } from "lucide-react";
 import type { MegaMenuSection, NavColumn } from "@/types";
 
+// Every link points to a different page: no two labels share a destination.
 export const solutionsMenu: MegaMenuSection = {
   label: "Solutions",
   href: "/solutions",
@@ -67,23 +56,17 @@ export const solutionsMenu: MegaMenuSection = {
       heading: "Business Transformation",
       href: "/business-transformation",
       links: [
-        { label: "Business Process Mapping", href: "/business-transformation/process-modelling", icon: Workflow },
-        { label: "Process Optimisation", href: "/business-transformation/process-modelling", icon: LineChart },
+        { label: "Process Mapping & Optimisation", href: "/business-transformation/process-modelling", icon: Workflow },
         { label: "Cybersecurity Business Analysis", href: "/business-transformation/business-analysis", icon: Users },
-        { label: "Digital Transformation", href: "/business-transformation", icon: Globe2 },
-        { label: "Workflow Automation", href: "/business-transformation/workflow-automation", icon: Settings2 },
       ],
     },
     {
       heading: "Digital Engineering",
       href: "/digital-engineering",
       links: [
-        { label: "Website Development", href: "/digital-engineering/web-development", icon: LayoutDashboard },
-        { label: "Web Applications", href: "/digital-engineering/software-engineering", icon: Code2 },
-        { label: "Digital Platforms", href: "/digital-engineering/digital-platforms", icon: Boxes },
-        { label: "UI/UX Engineering", href: "/digital-engineering/web-development", icon: Sparkles },
-        { label: "Software Engineering", href: "/digital-engineering/software-engineering", icon: Cpu },
-        { label: "Cloud Solutions", href: "/digital-engineering/digital-platforms", icon: Cloud },
+        { label: "Websites & UI/UX", href: "/digital-engineering/web-development", icon: LayoutDashboard },
+        { label: "Web Apps & Software", href: "/digital-engineering/software-engineering", icon: Code2 },
+        { label: "Digital Platforms & Cloud", href: "/digital-engineering/digital-platforms", icon: Boxes },
       ],
     },
     {
@@ -91,18 +74,14 @@ export const solutionsMenu: MegaMenuSection = {
       href: "/ai-automation",
       links: [
         { label: "AI Strategy", href: "/ai-automation/ai-strategy", icon: Sparkles },
-        { label: "AI Automation", href: "/ai-automation/intelligent-automation", icon: Bot },
-        { label: "Intelligent Workflows", href: "/ai-automation/intelligent-automation", icon: Workflow },
-        { label: "AI/ML Solutions", href: "/ai-automation/ai-ml", icon: BrainCircuit },
-        { label: "Business Intelligence", href: "/ai-automation/ai-ml", icon: BarChart3 },
-        { label: "Process Automation", href: "/ai-automation/intelligent-automation", icon: Settings2 },
+        { label: "Workflow & Intelligent Automation", href: "/ai-automation/intelligent-automation", icon: Bot },
+        { label: "AI/ML & Business Intelligence", href: "/ai-automation/ai-ml", icon: BarChart3 },
       ],
     },
   ],
   featured: {
     title: "AI-Powered Threat Triage",
-    description:
-      "See how CoreDefense combines AI and human expertise to detect, prioritise and remediate threats faster.",
+    description: "Machine speed on the noise, human judgement on the decisions that matter.",
     href: "/cybersecurity/ai-threat-triage",
     ctaLabel: "Explore the capability",
     image: "/images/illustrations/single-black-cube-monolith.jpg",
@@ -132,11 +111,10 @@ export const platformMenu: MegaMenuSection = {
   ],
   featured: {
     title: "Request Platform Access",
-    description:
-      "CoreDefense's cybersecurity platform is in active development. Request early access and we'll be in touch about onboarding.",
+    description: "Be among the first organisations to pilot the platform and shape what we build next.",
     href: "/request-access",
     ctaLabel: "Request Early Access",
-    image: "/images/illustrations/floating-cube-data-stream.jpg",
+    image: "/images/illustrations/image_20261017_125543.jpg",
   },
 };
 
@@ -150,24 +128,14 @@ export const industriesMenu: MegaMenuSection = {
       links: [
         { label: "Financial Services", href: "/industries/financial-services", icon: Landmark },
         { label: "Healthcare", href: "/industries/healthcare", icon: HeartPulse },
-        { label: "Manufacturing", href: "/industries/manufacturing", icon: FactoryIcon },
-        { label: "Technology", href: "/industries/technology", icon: TechIcon },
-      ],
-    },
-    {
-      heading: "Also Supported",
-      links: [
-        { label: "Professional Services", href: "/industries", icon: Briefcase },
-        { label: "Critical Infrastructure", href: "/industries", icon: Building2 },
-        { label: "Retail", href: "/industries", icon: Store },
-        { label: "Education", href: "/industries", icon: School },
+        { label: "Manufacturing", href: "/industries/manufacturing", icon: Factory },
+        { label: "Technology", href: "/industries/technology", icon: Cpu },
       ],
     },
   ],
   featured: {
-    title: "Sector-specific risk, mapped to your business",
-    description:
-      "Every industry carries a different risk profile. See how CoreDefense tailors cybersecurity and transformation to yours.",
+    title: "Regulation-ready by sector",
+    description: "From FCA operational resilience to the NHS DSPT and IEC 62443, we work to your rulebook.",
     href: "/industries",
     ctaLabel: "View all industries",
     image: "/images/illustrations/networking-security.jpg",
@@ -185,24 +153,19 @@ export const resourcesMenu: MegaMenuSection = {
         { label: "Blog", href: "/blog", icon: Rss },
         { label: "Insights", href: "/resources/insights", icon: Newspaper },
         { label: "Guides", href: "/resources/guides", icon: BookOpenText },
-        { label: "Case Studies", href: "/resources/case-studies", icon: FileBarChart2 },
       ],
     },
     {
       heading: "Support",
-      links: [
-        { label: "FAQ", href: "/faq", icon: HelpCircle },
-        { label: "Security Trust Center", href: "/platform/trust-center", icon: LockKeyhole },
-      ],
+      links: [{ label: "FAQ", href: "/faq", icon: HelpCircle }],
     },
   ],
   featured: {
-    title: "Compliance Mapping Guide",
-    description:
-      "A practical look at how CoreDefense maps vulnerabilities and controls against ISO, NIST, PCI DSS and GDPR.",
-    href: "/platform/compliance-mapping",
-    ctaLabel: "Read the guide",
-    icon: MapPinned,
+    title: "Today's security news",
+    description: "Headlines from leading security newsrooms, refreshed every hour.",
+    href: "/blog",
+    ctaLabel: "Read the blog",
+    icon: Rss,
   },
 };
 
@@ -214,24 +177,18 @@ export const aboutMenu: MegaMenuSection = {
       heading: "Company",
       links: [
         { label: "About CoreDefense", href: "/about", icon: Info },
-        { label: "Our Approach", href: "/about#approach", icon: Compass },
         { label: "Team", href: "/team", icon: UserRound },
-        { label: "Careers", href: "/careers", icon: Briefcase },
-        { label: "Talent Hub", href: "/careers/talent-hub", icon: Users },
+        { label: "Talent Hub", href: "/careers", icon: Users },
       ],
     },
     {
       heading: "Get in Touch",
-      links: [
-        { label: "Contact Us", href: "/contact", icon: Mail },
-        { label: "Book a Consultation", href: "/book-consultation", icon: ShieldCheck },
-      ],
+      links: [{ label: "Contact Us", href: "/contact", icon: Mail }],
     },
   ],
   featured: {
-    title: "One technology partner, four connected practices",
-    description:
-      "Cybersecurity, business transformation, digital engineering and AI & automation, working together.",
+    title: "The people behind the work",
+    description: "Meet the team, see how we work and find out where you might fit.",
     href: "/about",
     ctaLabel: "Learn about CoreDefense",
     image: "/images/photos/team-standing-desk.jpg",
@@ -250,7 +207,7 @@ export const footerColumns: NavColumn[] = [
   {
     heading: "Solutions",
     links: [
-      { label: "All Solutions", href: "/solutions" },
+      { label: "Solutions Overview", href: "/solutions" },
       { label: "Cybersecurity", href: "/cybersecurity" },
       { label: "Business Transformation", href: "/business-transformation" },
       { label: "Digital Engineering", href: "/digital-engineering" },
@@ -273,18 +230,17 @@ export const footerColumns: NavColumn[] = [
     links: [
       { label: "About", href: "/about" },
       { label: "Team", href: "/team" },
-      { label: "Careers", href: "/careers" },
-      { label: "Talent Hub", href: "/careers/talent-hub" },
+      { label: "Talent Hub", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
   },
   {
     heading: "Resources",
     links: [
+      { label: "Resource Center", href: "/resources" },
       { label: "Blog", href: "/blog" },
       { label: "Insights", href: "/resources/insights" },
       { label: "Guides", href: "/resources/guides" },
-      { label: "Case Studies", href: "/resources/case-studies" },
       { label: "FAQ", href: "/faq" },
     ],
   },

@@ -59,11 +59,17 @@ const config: Config = {
           "0%, 100%": { opacity: "0.5" },
           "50%": { opacity: "1" },
         },
+        scan: {
+          "0%": { transform: "translateY(-20%)", opacity: "0" },
+          "15%, 85%": { opacity: "1" },
+          "100%": { transform: "translateY(520%)", opacity: "0" },
+        },
       },
       animation: {
         marquee: "marquee 30s linear infinite",
         "fade-up": "fade-up 0.6s ease-out forwards",
         glow: "glow 3s ease-in-out infinite",
+        scan: "scan 3.2s ease-in-out infinite",
       },
     },
   },

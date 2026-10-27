@@ -5,6 +5,7 @@ import TeamGrid from "@/components/sections/TeamGrid";
 import CTAButton from "@/components/ui/CTAButton";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/team" },
   title: "Team",
   description: "Meet the people leading CoreDefense across cybersecurity, AI research and technology delivery.",
 };
@@ -58,8 +59,8 @@ export default function TeamPage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <CTAButton href="/careers" size="lg">
-                  View careers
+                <CTAButton href="/careers#join" size="lg">
+                  Join the Talent Hub
                 </CTAButton>
                 <CTAButton href="/contact" variant="ghost" size="lg" icon={false}>
                   Contact the team

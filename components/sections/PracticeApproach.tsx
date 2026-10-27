@@ -29,7 +29,7 @@ const content: Record<"business-transformation" | "digital-engineering" | "ai-au
     ],
     deliverablesTitle: "What you walk away with",
     deliverables: [
-      "Current- and future-state BPMN process maps",
+      "Benefits tracking for 90 days after go-live",
       "Gap analysis with prioritised improvement backlog",
       "Target operating model and RACI matrix",
       "Automation candidate shortlist with business cases",
@@ -52,7 +52,7 @@ const content: Record<"business-transformation" | "digital-engineering" | "ai-au
     deliverables: [
       "Responsive, accessible (WCAG 2.2 AA) front ends",
       "CI/CD pipelines with security scanning",
-      "Infrastructure as code for repeatable environments",
+      "A living threat model kept alongside the code",
       "Performance budgets and Core Web Vitals monitoring",
       "Documentation and handover for your team",
       "Post-launch support and iteration options",

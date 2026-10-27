@@ -13,5 +13,5 @@ export function getResendClient(): Resend {
 }
 
 export const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ?? "CoreDefense <hello@coredefense.co.uk>";
-export const TO_EMAIL = process.env.RESEND_TO_EMAIL ?? "hello@coredefense.co.uk";
+  process.env.RESEND_FROM_EMAIL ?? "CoreDefense <info@coredefense.co.uk>";
+export const TO_EMAIL = process.env.RESEND_TO_EMAIL ?? "info@coredefense.co.uk";

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Lock, ShieldCheck, FileText, Mail } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/platform/trust-center" },
   title: "Security Trust Center",
   description: "How CoreDefense approaches security, data handling and responsible disclosure.",
 };
@@ -22,8 +22,8 @@ const commitments = [
   },
   {
     icon: FileText,
-    title: "Compliance alignment",
-    description: "Our compliance & governance practice works to ISO 27001, NIST, PCI DSS and GDPR frameworks when supporting client engagements.",
+    title: "Supplier security",
+    description: "We vet the third-party services this site relies on, such as hosting and email delivery, and share only the data each one needs.",
   },
   {
     icon: Mail,
@@ -38,7 +38,7 @@ export default function TrustCenterPage() {
       <PageHero
         eyebrow="Platform"
         title="Security Trust Center"
-        description="Security isn't just what CoreDefense sells. It's how we operate. Here's an overview of our approach to data handling, engineering and disclosure."
+        description="Security isn't just what CoreDefense sells. It's how we run our own business, starting with the information you share with us."
         breadcrumbs={[{ label: "Platform", href: "/platform" }, { label: "Security Trust Center", href: "/platform/trust-center" }]}
       />
 
@@ -65,8 +65,6 @@ export default function TrustCenterPage() {
           </p>
         </div>
       </section>
-
-      <ConsultationCTA />
     </>
   );
 }

@@ -3,9 +3,9 @@ import { ShieldCheck, Radar, BrainCircuit, FileCheck2, Activity, Server } from "
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PlatformPreview from "@/components/sections/PlatformPreview";
-import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/platform/features" },
   title: "Platform Features",
   description: "A preview of the features planned for the CoreDefense cybersecurity platform, currently in development.",
 };
@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 const features = [
   { icon: Radar, title: "Unified Asset & Vulnerability View", description: "A single view of assets and vulnerabilities across IT, cloud and OT." },
   { icon: BrainCircuit, title: "AI-Assisted Triage", description: "AI models to help prioritise and investigate security events faster." },
-  { icon: FileCheck2, title: "Compliance Mapping", description: "Controls and findings mapped against ISO, NIST, PCI DSS and GDPR." },
-  { icon: ShieldCheck, title: "Risk Scoring", description: "Business-contextualised risk scoring, not just raw severity ratings." },
+  { icon: FileCheck2, title: "Compliance Mapping", description: "Findings linked to the framework clauses they affect, with evidence attached." },
+  { icon: ShieldCheck, title: "Risk Scoring", description: "Risk scores that weigh asset value and exposure alongside severity." },
   { icon: Activity, title: "Remediation Tracking", description: "Workflow automation to move findings from discovery to resolution." },
-  { icon: Server, title: "IT/OT Visibility", description: "Extending visibility into operational technology environments." },
+  { icon: Server, title: "IT/OT Visibility", description: "Passive monitoring of PLCs, HMIs and industrial protocols next to your IT assets." },
 ];
 
 export default function PlatformFeaturesPage() {
@@ -47,7 +47,6 @@ export default function PlatformFeaturesPage() {
       </section>
 
       <PlatformPreview />
-      <ConsultationCTA />
     </>
   );
 }

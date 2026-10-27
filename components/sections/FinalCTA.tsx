@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import CTAButton from "@/components/ui/CTAButton";
-import BookingModal from "@/components/forms/BookingModal";
+import { MessageCircle } from "lucide-react";
+import { CONTACT } from "@/lib/contact";
 
 export default function FinalCTA() {
   return (
@@ -27,7 +28,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-5 max-w-xl text-balance text-base text-white/60 sm:text-lg"
         >
-          Secure your organisation. Transform your operations. Engineer better digital experiences. Automate what matters.
+          Got a question that doesn&apos;t need a meeting? Message the team on WhatsApp and get a straight answer, usually the same day.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,9 +37,11 @@ export default function FinalCTA() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <BookingModal trigger={<CTAButton size="lg">Book a Consultation</CTAButton>} />
-          <CTAButton href="/platform/features" variant="ghost" size="lg" icon={false}>
-            Explore Our Capabilities
+          <CTAButton href={CONTACT.whatsappHref} size="lg" icon={false} className="!bg-emerald-500 hover:!bg-emerald-600">
+            <MessageCircle className="h-5 w-5" /> Chat on WhatsApp
+          </CTAButton>
+          <CTAButton href="/contact" variant="ghost" size="lg">
+            Other ways to reach us
           </CTAButton>
         </motion.div>
       </div>

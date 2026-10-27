@@ -20,7 +20,7 @@ export const cyberCapabilities: Capability[] = [
   {
     title: "Cloud & DevOps Security",
     slug: "/cybersecurity/cloud-devops-security",
-    description: "Secure cloud configuration, workload protection and DevSecOps across AWS, Azure and GCP.",
+    description: "Locks down AWS, Azure and Google Cloud accounts and the pipelines that deploy to them.",
     icon: Cloud,
   },
   {
@@ -32,7 +32,7 @@ export const cyberCapabilities: Capability[] = [
   {
     title: "Compliance & Governance",
     slug: "/cybersecurity/compliance-governance",
-    description: "Map controls and vulnerabilities against ISO 27001, NIST, PCI DSS and GDPR.",
+    description: "Policies, gap analysis and hands-on audit support for ISO 27001 and Cyber Essentials.",
     icon: FileCheck2,
   },
   {
@@ -56,7 +56,7 @@ export const cyberCapabilities: Capability[] = [
   {
     title: "Security Awareness",
     slug: "/cybersecurity/security-awareness",
-    description: "Training that turns your people into a security asset rather than the weakest link.",
+    description: "Phishing simulations and short, role-based lessons that change everyday behaviour.",
     icon: GraduationCap,
   },
 ];

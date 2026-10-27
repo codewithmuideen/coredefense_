@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, Search } from "lucide-react";
+import { ChevronDown, Menu, MessageCircle, Search } from "lucide-react";
 import { megaMenus } from "@/lib/nav-data";
 import MegaMenuPanel from "@/components/layout/MegaMenuPanel";
 import MobileMenu from "@/components/layout/MobileMenu";
 import GlobalSearch from "@/components/layout/GlobalSearch";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
-import BookingModal from "@/components/forms/BookingModal";
+import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import type { MegaMenuSection } from "@/types";
 
@@ -146,22 +146,19 @@ export default function Header() {
               <Search className="h-5 w-5" />
             </button>
 
-            <CTAButton
-              href="/platform/features"
-              variant="secondary"
-              size="md"
-              icon={false}
-              className="hidden 2xl:inline-flex"
+            <a
+              href={CONTACT.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring hidden items-center gap-2 rounded-md border border-ink-900/10 px-3 py-2 text-sm font-semibold text-ink-700 transition-colors hover:border-emerald-300 hover:text-emerald-600 md:inline-flex"
+              aria-label="Chat with CoreDefense on WhatsApp"
             >
-              Explore Our Capabilities
+              <MessageCircle className="h-4 w-4 text-emerald-500" />
+              <span className="hidden xl:inline">WhatsApp</span>
+            </a>
+            <CTAButton href="/contact" variant="primary" size="md" icon={false} className="hidden sm:inline-flex">
+              Talk to an Expert
             </CTAButton>
-            <BookingModal
-              trigger={
-                <CTAButton variant="primary" size="md" icon={false} className="hidden sm:inline-flex">
-                  Book a Consultation
-                </CTAButton>
-              }
-            />
 
             <button
               type="button"

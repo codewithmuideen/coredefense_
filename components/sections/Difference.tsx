@@ -85,8 +85,8 @@ export default function Difference() {
       <div className="container-page">
         <SectionHeading
           eyebrow="The CoreDefense Difference"
-          title="One technology partner. Four connected practices."
-          description="Cybersecurity, transformation, engineering and AI don't operate in isolation at CoreDefense. Each practice strengthens the others."
+          title="Four disciplines, one shared playbook"
+          description="A vulnerability finding can trigger a process fix; an automation project is threat-modelled before go-live. Here's what each practice covers."
         />
 
         <div className="mt-14">

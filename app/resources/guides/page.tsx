@@ -4,6 +4,7 @@ import ResourceListPage from "@/components/templates/ResourceListPage";
 import { getArticles, todayInUK } from "@/lib/daily-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/guides" },
   title: "Guides",
   description: "Practical guides from CoreDefense on cybersecurity, compliance, transformation and automation.",
 };

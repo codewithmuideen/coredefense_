@@ -17,7 +17,7 @@ const steps = [
     icon: ListOrdered,
     title: "Prioritise",
     duration: "3–5 Days",
-    description: "Use intelligence and business context to identify what matters most, not just CVSS scores.",
+    description: "Rank issues by exploitability and business impact so effort goes where it counts.",
   },
   {
     number: "03",

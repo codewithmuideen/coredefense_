@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Rss, Newspaper, BookOpenText, FileBarChart2, HelpCircle, LockKeyhole } from "lucide-react";
+import { Rss, Newspaper, BookOpenText, HelpCircle } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import OverviewGroups, { type OverviewGroup } from "@/components/templates/OverviewGroups";
-import ConsultationCTA from "@/components/sections/ConsultationCTA";
 import { resourceItems } from "@/lib/resources-data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources" },
   title: "Resources",
-  description: "News, insights, guides, case studies and answers from CoreDefense on cybersecurity, transformation, engineering and AI & automation.",
+  description: "Daily security headlines, CoreDefense analysis, practical guides and straight answers on cyber risk, process change, engineering and AI.",
 };
 
 const count = (category: string) => resourceItems.filter((r) => r.category === category).length;
@@ -17,54 +17,42 @@ const groups: OverviewGroup[] = [
     heading: "Read & Learn",
     href: "/blog",
     description:
-      "Fresh analysis of the day's security news every morning, plus in-depth thinking on cybersecurity, transformation and AI.",
+      "Headlines from the security press, our own take on what they mean, and longer reads to share with your team.",
     image: "/images/photos/secure_cloud_lock_icon_FINAL.png",
-    ctaLabel: "Open the live blog",
+    ctaLabel: "Open the blog",
     items: [
       {
         label: "Blog",
         href: "/blog",
-        description: "Daily CoreDefense briefs: our own analysis of the latest security news, with practical steps and credited sources.",
+        description: "Live headlines with thumbnails from the major security newsrooms, alongside our own briefs.",
         icon: Rss,
       },
       {
         label: "Insights",
         href: "/resources/insights",
-        description: `${count("Insight")} in-depth articles on IT/OT security, AI triage, ransomware, cloud risk, automation and security culture.`,
+        description: `${count("Insight")} long-form pieces written by our practitioners.`,
         icon: Newspaper,
       },
       {
         label: "Guides",
         href: "/resources/guides",
-        description: `${count("Guide")} step-by-step guides on compliance mapping, PCI DSS v4.0, process discovery and incident response.`,
+        description: `${count("Guide")} checklists and walkthroughs you can apply this week.`,
         icon: BookOpenText,
-      },
-      {
-        label: "Case Studies",
-        href: "/resources/case-studies",
-        description: "Engagement write-ups across financial services, manufacturing and technology, in preparation.",
-        icon: FileBarChart2,
       },
     ],
   },
   {
-    heading: "Answers & Assurance",
+    heading: "Answers",
     href: "/faq",
-    description: "Straight answers about what CoreDefense does today, what's in development, and how we protect your data.",
+    description: "What we do today, what's still on the roadmap and how to reach us.",
     image: "/images/photos/futuristic_neon_padlock_FINAL.png",
     ctaLabel: "Read the FAQ",
     items: [
       {
         label: "FAQ",
         href: "/faq",
-        description: "Common questions on services, the platform roadmap, pricing conversations and onboarding.",
+        description: "Quick answers on scope, standards, timelines and the platform.",
         icon: HelpCircle,
-      },
-      {
-        label: "Security Trust Center",
-        href: "/platform/trust-center",
-        description: "How we handle data, engineer securely and manage responsible disclosure.",
-        icon: LockKeyhole,
       },
     ],
   },
@@ -80,7 +68,6 @@ export default function ResourcesPage() {
         breadcrumbs={[{ label: "Resources", href: "/resources" }]}
       />
       <OverviewGroups groups={groups} />
-      <ConsultationCTA />
     </>
   );
 }

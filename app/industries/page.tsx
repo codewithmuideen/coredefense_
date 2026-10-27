@@ -3,11 +3,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import ConsultationCTA from "@/components/sections/ConsultationCTA";
 import { industryDetails } from "@/lib/industry-detail-data";
 import { industries } from "@/lib/industries-data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/industries" },
   title: "Industries",
   description:
     "CoreDefense supports financial services, healthcare, manufacturing, technology and more with cybersecurity and technology built for sector-specific risk.",
@@ -74,8 +74,6 @@ export default function IndustriesPage() {
           </div>
         </div>
       </section>
-
-      <ConsultationCTA />
     </>
   );
 }

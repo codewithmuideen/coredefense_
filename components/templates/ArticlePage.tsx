@@ -4,6 +4,7 @@ import CTAButton from "@/components/ui/CTAButton";
 import { articleHref, type Article } from "@/lib/articles-data";
 import { articleIcon } from "@/lib/article-icons";
 import { getArticles, getBlogPosts } from "@/lib/daily-content";
+import JsonLd, { SITE_URL, breadcrumbSchema } from "@/components/seo/JsonLd";
 
 function slugify(text: string): string {
   return text
@@ -32,6 +33,22 @@ export default function ArticlePage({ article }: { article: Article }) {
 
   return (
     <article>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": isBlog ? "BlogPosting" : "Article",
+          headline: article.title,
+          description: article.excerpt,
+          datePublished: article.date,
+          dateModified: article.date,
+          mainEntityOfPage: `${SITE_URL}${articleHref(article)}`,
+          image: `${SITE_URL}/opengraph-image`,
+          author: { "@type": "Organization", name: "CoreDefense", url: SITE_URL },
+          publisher: { "@type": "Organization", name: "CoreDefense", logo: { "@type": "ImageObject", url: `${SITE_URL}/images/brand/logo-full.png` } },
+          articleSection: article.topic,
+        }}
+      />
+      <JsonLd data={breadcrumbSchema([{ label: listLabel, href: listHref }, { label: article.title, href: articleHref(article) }])} />
       <header className="relative overflow-hidden bg-ink-900 pb-16 pt-14 sm:pb-20 sm:pt-20">
         <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden />
         <div className="pointer-events-none absolute -left-24 top-0 h-80 w-80 rounded-full bg-primary-500/20 blur-[110px]" aria-hidden />
@@ -160,8 +177,7 @@ export default function ArticlePage({ article }: { article: Article }) {
                 Talk to CoreDefense about {article.topic}. We&apos;ll give you a practical view of where you stand and what to do next.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <CTAButton href="/book-consultation">Book a Consultation</CTAButton>
-                <CTAButton href="/contact" variant="ghost" icon={false}>Contact us</CTAButton>
+                <CTAButton href="/contact">Talk to an Expert</CTAButton>
               </div>
             </div>
           </div>

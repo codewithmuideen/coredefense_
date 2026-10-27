@@ -17,14 +17,13 @@ export const searchIndex: SearchableItem[] = [
   { title: "Business Transformation", href: "/business-transformation", category: "Services" },
   { title: "Business Process Mapping", href: "/business-transformation/process-modelling", category: "Services" },
   { title: "Cybersecurity Business Analysis", href: "/business-transformation/business-analysis", category: "Services" },
-  { title: "Workflow Automation", href: "/business-transformation/workflow-automation", category: "Services" },
   { title: "Digital Engineering", href: "/digital-engineering", category: "Services" },
   { title: "Website Development", href: "/digital-engineering/web-development", category: "Services" },
   { title: "Software Engineering", href: "/digital-engineering/software-engineering", category: "Services" },
   { title: "Digital Platforms", href: "/digital-engineering/digital-platforms", category: "Services" },
   { title: "AI & Automation", href: "/ai-automation", category: "Services" },
   { title: "AI Strategy", href: "/ai-automation/ai-strategy", category: "Services" },
-  { title: "Intelligent Automation", href: "/ai-automation/intelligent-automation", category: "Services" },
+  { title: "Workflow & Intelligent Automation", href: "/ai-automation/intelligent-automation", category: "Services" },
   { title: "AI & Machine Learning", href: "/ai-automation/ai-ml", category: "Services" },
 
   // Platform
@@ -43,10 +42,9 @@ export const searchIndex: SearchableItem[] = [
   { title: "All Industries", href: "/industries", category: "Industries" },
 
   // Resources
-  { title: "Blog", href: "/blog", category: "Resources", description: "Live cybersecurity and hacking news" },
+  { title: "Blog", href: "/blog", category: "Resources", description: "Live security news and CoreDefense daily briefs" },
   { title: "Insights", href: "/resources/insights", category: "Resources" },
   { title: "Guides", href: "/resources/guides", category: "Resources" },
-  { title: "Case Studies", href: "/resources/case-studies", category: "Resources" },
 
   // Pages
   { title: "About CoreDefense", href: "/about", category: "Pages" },
@@ -56,11 +54,9 @@ export const searchIndex: SearchableItem[] = [
   { title: "Cookie Policy", href: "/cookies", category: "Pages" },
   { title: "Terms of Use", href: "/terms", category: "Pages" },
   { title: "Accessibility", href: "/accessibility", category: "Pages" },
-  { title: "Careers", href: "/careers", category: "Pages" },
-  { title: "Talent Hub", href: "/careers/talent-hub", category: "Pages" },
-  { title: "Contact", href: "/contact", category: "Pages" },
+  { title: "Talent Hub", href: "/careers", category: "Pages", description: "Careers and introducing yourself to CoreDefense" },
+  { title: "Contact", href: "/contact", category: "Pages", description: "Email, phone, WhatsApp and consultation booking" },
   { title: "Request Early Access", href: "/request-access", category: "Pages" },
-  { title: "Book a Consultation", href: "/book-consultation", category: "Pages" },
 
   // Articles
   ...articles.map((a) => ({

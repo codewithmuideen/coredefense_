@@ -3,6 +3,7 @@ import PageHero from "@/components/layout/PageHero";
 import LegalContent from "@/components/templates/LegalContent";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy",
   description: "How CoreDefense collects, uses and protects your personal data under UK GDPR.",
 };
@@ -15,7 +16,6 @@ export default function PrivacyPage() {
         title="Privacy Policy"
         description="How CoreDefense Limited collects, uses and protects personal data submitted through this website, and the rights you have over it."
         breadcrumbs={[{ label: "Privacy Policy", href: "/privacy" }]}
-        showActions={false}
       />
       <LegalContent
         updated="October 2026"

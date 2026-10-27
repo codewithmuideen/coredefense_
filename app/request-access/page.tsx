@@ -5,8 +5,9 @@ import CTAButton from "@/components/ui/CTAButton";
 import TrialModal from "@/components/forms/TrialModal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/request-access" },
   title: "Request Early Access",
-  description: "Request early access to the CoreDefense cybersecurity platform, currently in development.",
+  description: "Apply for a pilot place on the CoreDefense security platform and help shape its roadmap.",
 };
 
 const steps = [
@@ -22,7 +23,7 @@ export default function RequestAccessPage() {
       <PageHero
         eyebrow="Get Started"
         title="Request early access to CoreDefense"
-        description="CoreDefense's cybersecurity platform is currently in active development. Requesting access here begins a conversation with our team, not an instant sign-up, and we'll follow up about onboarding and timelines."
+        description="Pilot places are limited while the platform is being built. Tell us about your environment and a member of the team will arrange a conversation; there's no automatic sign-up."
         breadcrumbs={[{ label: "Request Early Access", href: "/request-access" }]}
         primaryCta="request-access"
       />

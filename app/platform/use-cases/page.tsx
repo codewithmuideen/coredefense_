@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ConsultationCTA from "@/components/sections/ConsultationCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/platform/use-cases" },
   title: "Use Cases",
   description: "Illustrative use cases for how CoreDefense's cybersecurity and technology practices are typically applied.",
 };
@@ -13,7 +13,7 @@ const useCases = [
     title: "Prioritising vulnerabilities across a hybrid estate",
     scenario:
       "A mid-sized organisation with on-premise and cloud infrastructure needs to know which of its hundreds of open vulnerabilities to fix first.",
-    approach: "CoreDefense combines scanning data with business context to rank remediation by real risk, not raw severity.",
+    approach: "We join scan results to an asset register, so the fix list reflects what each system is worth to the business.",
   },
   {
     title: "Mapping controls ahead of an audit",
@@ -21,7 +21,7 @@ const useCases = [
     approach: "Our compliance & governance practice maps existing controls and vulnerabilities against the relevant frameworks.",
   },
   {
-    title: "Extending visibility into OT environments",
+    title: "Bringing the plant floor into view",
     scenario: "A manufacturer's security team has strong IT visibility but limited insight into production-floor systems.",
     approach: "CoreDefense's IT/OT security capability builds a shared risk view across both environments.",
   },
@@ -58,8 +58,6 @@ export default function UseCasesPage() {
           </div>
         </div>
       </section>
-
-      <ConsultationCTA />
     </>
   );
 }

@@ -107,8 +107,8 @@ export default function LegalContent({ sections, updated, children }: LegalConte
                 <p className="font-semibold text-ink-900">Questions about this policy?</p>
                 <p className="mt-0.5 text-sm text-ink-600">
                   Email{" "}
-                  <a href="mailto:hello@coredefense.co.uk" className="font-semibold text-primary-600 underline-offset-2 hover:underline">
-                    hello@coredefense.co.uk
+                  <a href="mailto:info@coredefense.co.uk" className="font-semibold text-primary-600 underline-offset-2 hover:underline">
+                    info@coredefense.co.uk
                   </a>{" "}
                   and we&apos;ll get back to you.
                 </p>

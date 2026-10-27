@@ -2,13 +2,12 @@
 
 import { Zap } from "lucide-react";
 import StatCounter from "@/components/ui/StatCounter";
-import CTAButton from "@/components/ui/CTAButton";
 
 // Scope of the cybersecurity practice. Outcome figures (threats resolved, uptime) live on the home page only.
 const stats = [
   { value: 8, suffix: "", label: "Specialist Security Services" },
   { value: 3, suffix: "", label: "Environments Covered: IT, Cloud & OT" },
-  { value: 4, suffix: "", label: "Frameworks Mapped: ISO, NIST, PCI DSS, GDPR" },
+  { value: 5, suffix: "", label: "Frameworks Covered, from ISO 27001 to Cyber Essentials" },
 ];
 
 export default function CyberStatsBar() {
@@ -26,7 +25,7 @@ export default function CyberStatsBar() {
           One practice, every layer of your estate
         </h2>
         <p className="mt-3 max-w-xl text-balance text-base leading-relaxed text-white/60">
-          From the first scan to audit-ready evidence, our cybersecurity practice spans the services, environments and standards that UK organisations are measured against.
+          The scope of our security practice at a glance: the services we run, the environments we work in and the standards UK organisations are measured against.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3 sm:gap-6">
@@ -40,11 +39,6 @@ export default function CyberStatsBar() {
           ))}
         </div>
 
-        <div className="mt-10">
-          <CTAButton href="/book-consultation" size="lg">
-            Book a Consultation
-          </CTAButton>
-        </div>
       </div>
     </section>
   );

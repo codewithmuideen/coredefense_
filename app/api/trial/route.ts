@@ -49,7 +49,7 @@ export async function POST(request: Request) {
         <p>Thanks for your interest in CoreDefense. Our cybersecurity platform is currently in active
         development, and your request for early access has been received. A member of our team will be in
         touch about onboarding and timelines.</p>
-        <p>In the meantime, feel free to <a href="${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/book-consultation">book a consultation</a>
+        <p>In the meantime, feel free to <a href="${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/contact">get in touch</a>
         with our security team.</p>
         <p>The CoreDefense Team</p>
       `,

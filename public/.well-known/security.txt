@@ -1,0 +1,6 @@
+Contact: mailto:info@coredefense.co.uk
+Contact: https://wa.me/447460082168
+Expires: 2027-10-27T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.coredefense.co.uk/.well-known/security.txt
+Policy: https://www.coredefense.co.uk/platform/trust-center

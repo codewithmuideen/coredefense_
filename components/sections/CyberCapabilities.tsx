@@ -18,7 +18,7 @@ export default function CyberCapabilities() {
           dark
           eyebrow="Capabilities"
           title="Cybersecurity capabilities built for real environments"
-          description="Every capability is designed to work together, from first scan to remediation to audit-ready evidence."
+          description="Start with a single service or combine several; findings from one feed straight into the next."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

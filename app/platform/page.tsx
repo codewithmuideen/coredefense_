@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Puzzle, Plug, ListChecks, LockKeyhole, MapPinned, KeyRound } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import OverviewGroups, { type OverviewGroup } from "@/components/templates/OverviewGroups";
-import FreeTrialSection from "@/components/sections/FreeTrialSection";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/platform" },
   title: "Platform",
   description:
     "An overview of the CoreDefense cybersecurity platform: features, integrations, use cases, trust and compliance mapping.",
@@ -15,7 +15,7 @@ const groups: OverviewGroup[] = [
     heading: "The CoreDefense Platform",
     href: "/platform/features",
     description:
-      "A single place to see assets, vulnerabilities and risk across IT, cloud and OT. The platform is in active development; these pages describe where it's heading.",
+      "One console for your security posture, from discovery to remediation. The platform is in active development; these pages describe where it's heading.",
     image: "/images/photos/hexagonal_firewall_shield_icon_FINAL.png",
     ctaLabel: "See the feature roadmap",
     items: [
@@ -50,19 +50,19 @@ const groups: OverviewGroup[] = [
     href: "/platform/trust-center",
     description:
       "How we handle your data, how we engineer securely and how findings line up against the frameworks auditors ask about.",
-    image: "/images/photos/double_shield_icon_FINAL.png",
+    image: "/images/photos/shield_protecting_credit_card_FINAL.png",
     ctaLabel: "Visit the Trust Center",
     items: [
       {
         label: "Security Trust Center",
         href: "/platform/trust-center",
-        description: "Our approach to data handling, secure engineering and responsible disclosure.",
+        description: "What we promise about your data, and how to report a vulnerability to us.",
         icon: LockKeyhole,
       },
       {
         label: "Compliance Mapping",
         href: "/platform/compliance-mapping",
-        description: "Mapping vulnerabilities and controls against ISO 27001, NIST, PCI DSS and GDPR.",
+        description: "One evidence trail that serves several auditors at once.",
         icon: MapPinned,
       },
     ],
@@ -80,7 +80,6 @@ export default function PlatformPage() {
         primaryCta="request-access"
       />
       <OverviewGroups groups={groups} />
-      <FreeTrialSection />
     </>
   );
 }

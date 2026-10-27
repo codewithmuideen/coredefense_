@@ -3,6 +3,7 @@ import PageHero from "@/components/layout/PageHero";
 import LegalContent from "@/components/templates/LegalContent";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/accessibility" },
   title: "Accessibility",
   description: "CoreDefense's commitment to making this website accessible to everyone.",
 };
@@ -15,7 +16,6 @@ export default function AccessibilityPage() {
         title="Accessibility Statement"
         description="We want everyone to be able to use this website, whatever device, browser or assistive technology they rely on."
         breadcrumbs={[{ label: "Accessibility", href: "/accessibility" }]}
-        showActions={false}
       />
       <LegalContent
         updated="October 2026"
@@ -46,7 +46,7 @@ export default function AccessibilityPage() {
           },
           {
             heading: "Reporting a problem",
-            body: "If you find an accessibility barrier, email hello@coredefense.co.uk with the page address and a short description. We'll aim to fix it or provide the information in another format.",
+            body: "If you find an accessibility barrier, email info@coredefense.co.uk with the page address and a short description. We'll aim to fix it or provide the information in another format.",
           },
         ]}
       />

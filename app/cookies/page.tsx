@@ -4,6 +4,7 @@ import LegalContent from "@/components/templates/LegalContent";
 import CookieSettingsButton from "@/components/layout/CookieSettingsButton";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cookies" },
   title: "Cookie Policy",
   description: "How CoreDefense uses cookies and similar technologies, and how to manage your preferences.",
 };
@@ -16,7 +17,6 @@ export default function CookiesPage() {
         title="Cookie Policy"
         description="What we store in your browser when you visit www.coredefense.co.uk, why, and how you stay in control."
         breadcrumbs={[{ label: "Cookie Policy", href: "/cookies" }]}
-        showActions={false}
       />
       <LegalContent
         updated="October 2026"
@@ -51,7 +51,7 @@ export default function CookiesPage() {
           },
           {
             heading: "Links to other sites",
-            body: "Our blog and insight posts credit and link to the original reporting they draw on. When you follow one of those links you leave our site, and that publisher's own cookie policy applies.",
+            body: "Our blog shows headlines and thumbnails from other publishers, and our own posts credit and link to the reporting they draw on. Thumbnail images load directly from the publisher's servers. When you follow one of those links you leave our site, and that publisher's own cookie policy applies.",
           },
           {
             heading: "Managing your preferences",
