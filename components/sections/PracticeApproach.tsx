@@ -22,7 +22,7 @@ const content: Record<"business-transformation" | "digital-engineering" | "ai-au
     description:
       "Transformation stalls when it stays on whiteboards. Our engagements are built to end with a process your teams actually run.",
     steps: [
-      { title: "Discover", description: "Stakeholder interviews and shadowing to capture how work really flows today, including the workarounds." },
+      { title: "Uncover", description: "Stakeholder interviews and shadowing to capture how work really flows today, including the workarounds." },
       { title: "Model", description: "BPMN current-state maps that expose hand-offs, delays, duplicated effort and control gaps." },
       { title: "Redesign", description: "Future-state options scored on effort, risk and value, agreed with the people who'll operate them." },
       { title: "Embed", description: "Roadmaps, RACI, training and automation-ready requirements so the change sticks." },

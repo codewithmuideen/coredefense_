@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, MessageCircle, X } from "lucide-react";
+import { ChevronDown, LogIn, MessageCircle, X } from "lucide-react";
 import { megaMenus } from "@/lib/nav-data";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
@@ -135,6 +135,14 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               <CTAButton href="/contact" className="w-full justify-center" icon={false} onClick={onClose}>
                 Talk to an Expert
               </CTAButton>
+              <Link
+                href="/login"
+                onClick={onClose}
+                className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-900/15 px-5 py-2.5 text-sm font-semibold text-ink-800 hover:border-primary-300 hover:text-primary-600"
+              >
+                <LogIn className="h-4 w-4" />
+                Log in
+              </Link>
               <a
                 href={CONTACT.whatsappHref}
                 target="_blank"

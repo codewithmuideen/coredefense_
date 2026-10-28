@@ -1,74 +1,62 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { BookOpenCheck, Crosshair, Gauge } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import { industryDetails } from "@/lib/industry-detail-data";
-import { industries } from "@/lib/industries-data";
+import IndustryExplorer from "@/components/sections/IndustryExplorer";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/industries" },
   title: "Industries",
   description:
-    "CoreDefense supports financial services, healthcare, manufacturing, technology and more with cybersecurity and technology built for sector-specific risk.",
+    "Sector briefs for financial services, healthcare, manufacturing, technology, professional services, critical infrastructure, retail and education.",
 };
 
-const alsoSupported = industries.filter((i) => i.slug === "/industries");
+const tailoring = [
+  {
+    icon: BookOpenCheck,
+    title: "We speak your regulator's language",
+    detail: "Findings are mapped to the framework your supervisor already uses, whether that's the CAF, the DSPT or PS21/3, so evidence drops straight into your next return.",
+  },
+  {
+    icon: Crosshair,
+    title: "We test against the attackers who target you",
+    detail: "A retailer's help desk and a water company's telemetry face very different adversaries. Test plans start from the techniques seen in your sector this year.",
+  },
+  {
+    icon: Gauge,
+    title: "We work inside your operating limits",
+    detail: "Change freezes, clinical windows, peak trading and plant shutdowns are planned in from the first week, not discovered halfway through.",
+  },
+];
 
 export default function IndustriesPage() {
   return (
     <>
       <PageHero
         eyebrow="Industries"
-        title="Built around the risks your sector actually faces"
-        description="Regulators, attackers and operating constraints differ by industry. Here's how CoreDefense adapts its four practices to each one."
+        title="Built around the risks your sector faces"
+        description="Pick your sector to see the rules you answer to, the services we usually lead with and a link to the full brief."
         breadcrumbs={[{ label: "Industries", href: "/industries" }]}
       />
 
-      <section className="bg-white py-20 sm:py-28">
-        <div className="container-page grid gap-6 lg:grid-cols-2">
-          {Object.values(industryDetails).map((industry, i) => (
-            <ScrollReveal key={industry.slug} delay={(i % 2) * 0.08} className="h-full">
-              <article className="group flex h-full flex-col rounded-3xl border border-ink-900/8 bg-surface-near p-8 transition-all duration-300 hover:border-primary-200 hover:shadow-xl sm:p-10">
-                <div className="flex items-center gap-4">
-                  {industry.icon && (
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ink-900 text-primary-400 transition-colors duration-300 group-hover:bg-primary-500 group-hover:text-white">
-                      <industry.icon className="h-6 w-6" />
-                    </div>
-                  )}
-                  <div>
-                    <h2 className="text-xl font-bold text-ink-900 sm:text-2xl">{industry.title}</h2>
-                  </div>
-                </div>
-                <p className="mt-6 text-sm leading-relaxed text-ink-600">{industry.description}</p>
-                <p className="mt-4 flex-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink-400">
-                  {industry.focusAreas.length} focus areas
-                </p>
-                <Link
-                  href={industry.slug}
-                  className="focus-ring mt-8 inline-flex w-fit items-center gap-1.5 rounded-md text-sm font-semibold text-primary-600 hover:text-primary-700"
-                >
-                  See how we help
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              </article>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
+      <IndustryExplorer />
 
-      <section className="bg-surface py-20 sm:py-24">
+      <section className="border-t border-ink-900/8 bg-surface py-20 sm:py-24">
         <div className="container-page">
-          <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">Also supported</h2>
-          <p className="mt-2 max-w-2xl text-sm text-ink-600">
-            We regularly work with organisations in these sectors too. Talk to us about your specific requirements.
-          </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {alsoSupported.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-ink-900/8 bg-white p-6">
-                <item.icon className="h-6 w-6 text-primary-500" />
-                <h3 className="mt-4 font-bold text-ink-900">{item.title}</h3>
-                <p className="mt-1.5 text-sm text-ink-600">{item.description}</p>
+          <SectionHeading
+            eyebrow="Sector fit"
+            title="Three ways we adapt to your industry"
+            description="The practices stay the same; how we apply them changes with the sector."
+          />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {tailoring.map((t, i) => (
+              <div key={t.title} className="relative overflow-hidden rounded-2xl border border-ink-900/8 bg-white p-7">
+                <span className="absolute right-6 top-5 text-5xl font-bold text-ink-900/[0.05]">0{i + 1}</span>
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                  <t.icon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-ink-900">{t.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-600">{t.detail}</p>
               </div>
             ))}
           </div>

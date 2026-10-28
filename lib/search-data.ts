@@ -39,6 +39,10 @@ export const searchIndex: SearchableItem[] = [
   { title: "Healthcare", href: "/industries/healthcare", category: "Industries" },
   { title: "Manufacturing", href: "/industries/manufacturing", category: "Industries" },
   { title: "Technology", href: "/industries/technology", category: "Industries" },
+  { title: "Professional Services", href: "/industries/professional-services", category: "Industries" },
+  { title: "Critical Infrastructure", href: "/industries/critical-infrastructure", category: "Industries" },
+  { title: "Retail", href: "/industries/retail", category: "Industries" },
+  { title: "Education", href: "/industries/education", category: "Industries" },
   { title: "All Industries", href: "/industries", category: "Industries" },
 
   // Resources
