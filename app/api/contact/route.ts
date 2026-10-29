@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations";
-import { getResendClient, FROM_EMAIL, TO_EMAIL } from "@/lib/resend";
+import { TO_EMAIL } from "@/lib/resend";
+import { sendEmailOrThrow } from "@/lib/email/send";
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -22,10 +23,7 @@ export async function POST(request: Request) {
   const { name, company, email, phone, service, message } = parsed.data;
 
   try {
-    const resend = getResendClient();
-
-    await resend.emails.send({
-      from: FROM_EMAIL,
+    await sendEmailOrThrow({
       to: TO_EMAIL,
       replyTo: email,
       subject: `New enquiry: ${service} (${company})`,
@@ -41,8 +39,7 @@ export async function POST(request: Request) {
       `,
     });
 
-    await resend.emails.send({
-      from: FROM_EMAIL,
+    await sendEmailOrThrow({
       to: email,
       subject: "Thanks for contacting CoreDefense",
       html: `

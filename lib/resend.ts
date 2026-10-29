@@ -12,6 +12,6 @@ export function getResendClient(): Resend {
   return client;
 }
 
-export const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ?? "CoreDefense <info@coredefense.co.uk>";
-export const TO_EMAIL = process.env.RESEND_TO_EMAIL ?? "info@coredefense.co.uk";
+// Until coredefense.co.uk is verified in Resend, only Resend's shared sender works.
+export const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "CoreDefense <onboarding@resend.dev>";
+export const TO_EMAIL = process.env.RESEND_TO_EMAIL || process.env.RESEND_TEST_INBOX || "info@coredefense.co.uk";

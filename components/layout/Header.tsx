@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
-import { ChevronDown, LogIn, Menu, Search } from "lucide-react";
+import { ChevronDown, LayoutDashboard, LogIn, Menu, Search } from "lucide-react";
 import { megaMenus } from "@/lib/nav-data";
 import MegaMenuPanel from "@/components/layout/MegaMenuPanel";
 import MobileMenu from "@/components/layout/MobileMenu";
@@ -12,6 +12,7 @@ import GlobalSearch from "@/components/layout/GlobalSearch";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
+import { useSignedIn } from "@/lib/supabase/useSignedIn";
 import type { MegaMenuSection } from "@/types";
 
 // A top-level item is "current" when the page lives under its landing page or any link in its menu.
@@ -29,6 +30,7 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+  const signedIn = useSignedIn();
 
   useEffect(() => {
     setActiveMenu(null);
@@ -146,17 +148,17 @@ export default function Header() {
             </button>
 
             <Link
-              href="/login"
+              href={signedIn ? "/dashboard" : "/login"}
               className={cn(
                 "focus-ring hidden items-center gap-2 rounded-md border px-3 py-2 text-sm font-semibold transition-colors md:inline-flex",
                 pathname === "/login" || pathname === "/signup"
                   ? "border-primary-300 text-primary-600"
                   : "border-ink-900/10 text-ink-700 hover:border-primary-300 hover:text-primary-600"
               )}
-              aria-label="Log in to CoreDefense"
+              aria-label={signedIn ? "Open your dashboard" : "Log in to CoreDefense"}
             >
-              <LogIn className="h-4 w-4" />
-              <span className="hidden xl:inline">Log in</span>
+              {signedIn ? <LayoutDashboard className="h-4 w-4" /> : <LogIn className="h-4 w-4" />}
+              <span className="hidden xl:inline">{signedIn ? "Dashboard" : "Log in"}</span>
             </Link>
             <CTAButton href="/contact" variant="primary" size="md" icon={false} className="hidden sm:inline-flex">
               Talk to an Expert

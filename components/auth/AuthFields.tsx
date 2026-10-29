@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useState } from "react";
-import { AlertCircle, Eye, EyeOff, Info } from "lucide-react";
+import { AlertCircle, CheckCircle2, Eye, EyeOff, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const inputClass =
@@ -49,12 +49,75 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
   );
 });
 
-/** Shown instead of submitting: accounts go live once the platform backend is ready. */
-export function NotLiveNotice({ children }: { children: React.ReactNode }) {
+const NOTICE_TONES = {
+  info: { box: "border-primary-200 bg-primary-50 text-primary-800", icon: Info },
+  error: { box: "border-red-200 bg-red-50 text-red-800", icon: AlertCircle },
+  success: { box: "border-emerald-200 bg-emerald-50 text-emerald-800", icon: CheckCircle2 },
+};
+
+/** Inline message on the auth forms: server errors, test-mode hints and confirmations. */
+export function AuthNotice({ children, tone = "info" }: { children: React.ReactNode; tone?: keyof typeof NOTICE_TONES }) {
+  const t = NOTICE_TONES[tone];
   return (
-    <div role="status" className="flex gap-3 rounded-xl border border-primary-200 bg-primary-50 p-4 text-sm leading-relaxed text-primary-800">
-      <Info className="mt-0.5 h-4 w-4 shrink-0" />
-      <div>{children}</div>
+    <div role={tone === "error" ? "alert" : "status"} className={cn("flex gap-3 rounded-xl border p-4 text-sm leading-relaxed", t.box)}>
+      <t.icon className="mt-0.5 h-4 w-4 shrink-0" />
+      <div className="min-w-0">{children}</div>
+    </div>
+  );
+}
+
+export const submitClass =
+  "focus-ring inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-500 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-600 hover:shadow-[0_8px_24px_-8px_rgba(30,106,255,0.6)] disabled:opacity-70";
+
+/** Six single-digit boxes that behave like one field: paste, backspace and arrow keys all work. */
+export function CodeInput({ value, onChange, disabled, autoFocus = true }: { value: string; onChange: (v: string) => void; disabled?: boolean; autoFocus?: boolean }) {
+  const digits = Array.from({ length: 6 }, (_, i) => value[i] ?? "");
+  const focus = (i: number) => (document.getElementById(`code-${Math.max(0, Math.min(5, i))}`) as HTMLInputElement | null)?.focus();
+  return (
+    <div className="flex justify-between gap-2 sm:gap-3" role="group" aria-label="6-digit code">
+      {digits.map((d, i) => (
+        <input
+          key={i}
+          id={`code-${i}`}
+          value={d}
+          disabled={disabled}
+          autoFocus={autoFocus && i === 0}
+          inputMode="numeric"
+          autoComplete={i === 0 ? "one-time-code" : "off"}
+          aria-label={`Digit ${i + 1}`}
+          maxLength={6}
+          onChange={(e) => {
+            const typed = e.target.value.replace(/\D/g, "");
+            if (!typed) return;
+            if (typed.length > 1) {
+              const next = (value.slice(0, i) + typed).slice(0, 6);
+              onChange(next);
+              focus(next.length);
+              return;
+            }
+            const next = (value.slice(0, i) + typed + value.slice(i + 1)).slice(0, 6);
+            onChange(next);
+            focus(i + 1);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Backspace") {
+              e.preventDefault();
+              if (d) onChange(value.slice(0, i) + value.slice(i + 1));
+              else if (i > 0) {
+                onChange(value.slice(0, i - 1) + value.slice(i));
+                focus(i - 1);
+              }
+            }
+            if (e.key === "ArrowLeft") focus(i - 1);
+            if (e.key === "ArrowRight") focus(i + 1);
+          }}
+          onFocus={(e) => e.target.select()}
+          className={cn(
+            "focus-ring h-14 w-full min-w-0 rounded-xl border bg-white text-center font-mono text-2xl font-bold text-ink-900 transition-colors focus:border-primary-400 disabled:opacity-60",
+            d ? "border-primary-300 bg-primary-50/40" : "border-ink-900/15"
+          )}
+        />
+      ))}
     </div>
   );
 }

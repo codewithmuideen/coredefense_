@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { newsletterSchema } from "@/lib/validations";
-import { getResendClient, FROM_EMAIL, TO_EMAIL } from "@/lib/resend";
+import { TO_EMAIL } from "@/lib/resend";
+import { sendEmailOrThrow } from "@/lib/email/send";
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -21,17 +22,13 @@ export async function POST(request: Request) {
   const { email } = parsed.data;
 
   try {
-    const resend = getResendClient();
-
-    await resend.emails.send({
-      from: FROM_EMAIL,
+    await sendEmailOrThrow({
       to: TO_EMAIL,
       subject: "New newsletter subscriber",
       html: `<p>New subscriber: ${escapeHtml(email)}</p>`,
     });
 
-    await resend.emails.send({
-      from: FROM_EMAIL,
+    await sendEmailOrThrow({
       to: email,
       subject: "You're subscribed to CoreDefense insights",
       html: `
