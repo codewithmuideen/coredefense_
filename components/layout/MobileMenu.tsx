@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, LogIn, MessageCircle, X } from "lucide-react";
+import { ChevronDown, LogIn, X } from "lucide-react";
 import { megaMenus } from "@/lib/nav-data";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
-import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 interface MobileMenuProps {
@@ -143,15 +142,6 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 <LogIn className="h-4 w-4" />
                 Log in
               </Link>
-              <a
-                href={CONTACT.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-lg border border-emerald-500/30 px-5 py-2.5 text-sm font-semibold text-emerald-700 hover:bg-emerald-50"
-              >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp {CONTACT.phoneDisplay}
-              </a>
             </div>
           </div>
         </motion.div>

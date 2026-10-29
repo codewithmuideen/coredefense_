@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Twitter, Github, Mail, MessageCircle, Phone } from "lucide-react";
+import { Linkedin, Twitter, Github, Mail, Phone } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 import { footerColumns } from "@/lib/nav-data";
 import WhatsAppQR from "@/components/ui/WhatsAppQR";
@@ -21,9 +21,6 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col gap-3 text-sm sm:flex-row sm:gap-6">
-            <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer" className="focus-ring inline-flex items-center gap-2 text-white/80 hover:text-emerald-400">
-              <MessageCircle className="h-4 w-4 text-emerald-400" /> WhatsApp
-            </a>
             <a href={CONTACT.phoneHref} className="focus-ring inline-flex items-center gap-2 text-white/80 hover:text-primary-400">
               <Phone className="h-4 w-4 text-primary-400" /> {CONTACT.phoneDisplay}
             </a>

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import CTAButton from "@/components/ui/CTAButton";
-import { MessageCircle } from "lucide-react";
+import { Mail } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 
 export default function FinalCTA() {
@@ -28,7 +28,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-5 max-w-xl text-balance text-base text-white/60 sm:text-lg"
         >
-          Got a question that doesn&apos;t need a meeting? Message the team on WhatsApp and get a straight answer, usually the same day.
+          Tell us what you&apos;re working on and a specialist will come back with a straight answer, usually within one working day.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,11 +37,11 @@ export default function FinalCTA() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <CTAButton href={CONTACT.whatsappHref} size="lg" icon={false} className="!bg-emerald-500 hover:!bg-emerald-600">
-            <MessageCircle className="h-5 w-5" /> Chat on WhatsApp
+          <CTAButton href="/contact" size="lg">
+            Talk to an Expert
           </CTAButton>
-          <CTAButton href="/contact" variant="ghost" size="lg">
-            Other ways to reach us
+          <CTAButton href={`mailto:${CONTACT.email}`} variant="ghost" size="lg" icon={false}>
+            <Mail className="h-5 w-5" /> {CONTACT.email}
           </CTAButton>
         </motion.div>
       </div>

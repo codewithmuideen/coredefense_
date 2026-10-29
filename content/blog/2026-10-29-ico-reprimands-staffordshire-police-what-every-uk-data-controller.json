@@ -1,0 +1,59 @@
+{
+  "slug": "2026-10-29-ico-reprimands-staffordshire-police-what-every-uk-data-controller",
+  "category": "Blog",
+  "title": "ICO reprimands Staffordshire Police: what every UK data controller should learn",
+  "excerpt": "The UK's privacy regulator has reprimanded Staffordshire Police after a serious breach involving domestic abuse information. When the data concerns vulnerable people, everyday handling mistakes carry real-world risk.",
+  "topic": "Data Protection",
+  "date": "2026-10-29",
+  "readTime": "3 min read",
+  "icon": "landmark",
+  "takeaways": [
+    "The Information Commissioner's Office has issued a reprimand to Staffordshire Police after a serious breach of personal information.",
+    "The breach related to domestic abuse, where exposure of personal details can put people at risk of harm.",
+    "Many serious breaches come from routine processes such as sharing, redaction and disclosure rather than hacking.",
+    "Map where your most sensitive records go, and add checks at the points where they leave your control."
+  ],
+  "sections": [
+    {
+      "heading": "What happened",
+      "paragraphs": [
+        "The Information Commissioner's Office (ICO), the UK's data protection regulator, has issued a reprimand to Staffordshire Police following a serious breach of personal information connected to a domestic abuse case.",
+        "The public summary does not set out every detail of how the breach occurred, and we will not speculate beyond it. What is clear is that the regulator judged the incident serious enough to take formal action."
+      ]
+    },
+    {
+      "heading": "Why it matters beyond policing",
+      "paragraphs": [
+        "Information about domestic abuse is among the most sensitive data any organisation can hold. If details such as a victim's address or contact information reach the wrong person, the consequences can be physical, not just financial or reputational.",
+        "Housing associations, councils, health and care providers, charities, schools, law firms and employers all hold similar information about vulnerable people. The same disciplines apply to all of them, and the ICO has shown repeatedly that it expects organisations to match their controls to the harm that a mistake could cause."
+      ],
+      "callout": "The more harm a disclosure could cause, the more checks it should pass before it leaves your organisation."
+    },
+    {
+      "heading": "What to do now",
+      "paragraphs": [
+        "These steps help reduce the chance of a similar incident."
+      ],
+      "list": [
+        "Identify which records would cause serious harm if disclosed, and who can access, export or share them.",
+        "Add a second-person check or an automated control before high-risk information is sent outside the organisation.",
+        "Review redaction methods so hidden text, metadata and attachments cannot reveal what was meant to be removed.",
+        "Train staff on the specific scenarios they face, not just general data protection principles.",
+        "Rehearse your breach response so you can contain an incident and protect affected people quickly."
+      ]
+    },
+    {
+      "heading": "How CoreDefense helps",
+      "paragraphs": [
+        "CoreDefense works with UK organisations to map sensitive data flows, tighten the processes where information leaves the business and prepare incident response plans that put the safety of affected people first."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "ICO Reprimands Staffordshire Police After Domestic Abuse Breach",
+      "url": "https://www.infosecurity-magazine.com/news/ico-reprimand-staffordshire-police/",
+      "publisher": "Infosecurity Magazine"
+    }
+  ]
+}

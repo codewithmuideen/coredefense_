@@ -59,7 +59,7 @@ export const searchIndex: SearchableItem[] = [
   { title: "Terms of Use", href: "/terms", category: "Pages" },
   { title: "Accessibility", href: "/accessibility", category: "Pages" },
   { title: "Talent Hub", href: "/careers", category: "Pages", description: "Careers and introducing yourself to CoreDefense" },
-  { title: "Contact", href: "/contact", category: "Pages", description: "Email, phone, WhatsApp and consultation booking" },
+  { title: "Contact", href: "/contact", category: "Pages", description: "Email, phone and consultation booking" },
   { title: "Request Early Access", href: "/request-access", category: "Pages" },
 
   // Articles

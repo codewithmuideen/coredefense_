@@ -1,0 +1,60 @@
+{
+  "slug": "2026-10-29-26-400-working-cloud-and-ai-keys-found-in-public-code-check-your-own",
+  "category": "Blog",
+  "title": "26,400 working cloud and AI keys found in public code: check your own",
+  "excerpt": "A researcher scanning public repositories on Gitee found 26,400 credentials that still worked, most of them for cloud and AI services. The lesson applies to every team that writes code, wherever it is hosted.",
+  "topic": "Cloud Security",
+  "date": "2026-10-29",
+  "readTime": "3 min read",
+  "icon": "key",
+  "takeaways": [
+    "An independent researcher scanned 7.25 million public Gitee repositories and found 26,400 credentials that still worked.",
+    "Most were keys for cloud and AI services, which can run up large bills or expose data if misused.",
+    "Anyone who copied the code could have used the keys; the hosting platform is not the real issue.",
+    "Scan your code and history for secrets, rotate anything found, and move keys into a proper secrets manager."
+  ],
+  "sections": [
+    {
+      "heading": "What happened",
+      "paragraphs": [
+        "Independent researcher Ben Zimmermann scanned 7.25 million public repositories on Gitee, a Chinese code-hosting service, and reported on 28 October that 26,400 of the credentials developers had left in that code were still valid when tested. Most were keys for cloud and AI services.",
+        "The point that stands out is not the number of secrets found, which is sadly familiar, but that so many of them still worked. Anyone who came across the code could have picked up a key and used it."
+      ]
+    },
+    {
+      "heading": "Why it matters",
+      "paragraphs": [
+        "A working cloud key can give an attacker access to storage, databases or compute, depending on its permissions. AI service keys are increasingly attractive too: they can be used to run up large usage bills on someone else's account, or to reach data and prompts tied to that account.",
+        "It would be a mistake to treat this as a problem with one platform. The same pattern appears on every public code host, and private repositories are not immune either, because they are often shared with contractors, cloned onto laptops and copied into build systems."
+      ],
+      "callout": "A secret committed to code should be treated as public the moment it is pushed, and rotated, not just deleted."
+    },
+    {
+      "heading": "What to do now",
+      "paragraphs": [
+        "A few practical steps will close most of the gap."
+      ],
+      "list": [
+        "Run a secret scanner across all repositories, including their full commit history, not only the latest version.",
+        "Rotate any key that has ever been committed, even if it has since been removed from the code.",
+        "Store keys in a secrets manager or your cloud provider's vault and inject them at run time.",
+        "Add pre-commit and pipeline checks that block new secrets before they reach a shared repository.",
+        "Give each key the narrowest permissions it needs and set spending alerts on cloud and AI accounts."
+      ]
+    },
+    {
+      "heading": "Building it into how you work",
+      "paragraphs": [
+        "Leaked keys are rarely a sign of careless people. They are usually a sign that the safe way of handling secrets is harder than the unsafe one. Making the secure path the easy path, with templates, shared tooling and automated checks, does more than any policy document.",
+        "CoreDefense's digital engineering and cybersecurity teams help UK organisations set up secret scanning, vaulting and least-privilege access as part of everyday delivery."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "26,400 Valid Cloud and AI Credentials Found Exposed in Public Gitee Repositories",
+      "url": "https://thehackernews.com/2026/10/26400-valid-cloud-and-ai-credentials.html",
+      "publisher": "The Hacker News"
+    }
+  ]
+}

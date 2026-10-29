@@ -1,0 +1,90 @@
+{
+  "slug": "2026-10-29-the-front-door-is-the-target-edge-devices-identity-and-leaked-keys",
+  "category": "Insight",
+  "title": "The front door is the target: edge devices, identity and leaked keys",
+  "excerpt": "This week's news shows attackers concentrating on the systems that decide who and what gets in: firewalls, single sign-on and access keys. Here is how UK organisations can shift their defences to match.",
+  "topic": "Security Strategy",
+  "date": "2026-10-29",
+  "readTime": "5 min read",
+  "icon": "radar",
+  "takeaways": [
+    "Cisco firewall and SD-WAN flaws, a leak blamed on an Okta single sign-on system and thousands of exposed keys all point at the same layer: access.",
+    "Systems that grant access are high-value targets because compromising one opens many doors at once.",
+    "Patch urgency should follow exposure: internet-facing and identity systems first, everything else after.",
+    "Treat identity providers and keys as crown jewels, with strong monitoring, short-lived credentials and tested recovery.",
+    "Resilience matters as much as prevention: plan for the day an access system is unavailable or compromised."
+  ],
+  "sections": [
+    {
+      "heading": "A pattern in the headlines",
+      "paragraphs": [
+        "Read the past day's security news one story at a time and it looks like the usual mix of patches, leaks and incidents. Read it together and a theme stands out. Cisco has patched an actively exploited flaw that lets unauthenticated attackers crash ASA and FTD firewalls. Separate research ties exploitation of a Cisco SD-WAN zero-day to infrastructure overlapping a network associated with Volt Typhoon. In the United States, more than 41,000 Department of Homeland Security employee records have been leaked online, with the data allegedly taken from an Okta single sign-on system earlier this year. And a researcher found 26,400 working cloud and AI credentials sitting in public code repositories.",
+        "Each of these stories concerns the systems that decide who and what is allowed in: the firewall and VPN at the edge, the network fabric connecting sites, the identity platform that signs people in, and the keys that let software talk to cloud services."
+      ]
+    },
+    {
+      "heading": "Why attackers aim at access",
+      "paragraphs": [
+        "The logic is straightforward. Breaking into one laptop gives an attacker one laptop. Breaking into, or disabling, the system that controls access can give them reach across the whole organisation, or let them shut it out of its own services.",
+        "These systems are also awkward to defend. Firewalls and SD-WAN devices sit on the internet by design and often run software that is patched less frequently than ordinary servers. Identity platforms hold the keys to every connected application. Access keys are copied into code, scripts and build systems, where they are easy to forget and hard to track."
+      ],
+      "callout": "Whoever controls the front door does not need to pick every lock inside the building."
+    },
+    {
+      "heading": "Rethinking patch priority",
+      "paragraphs": [
+        "Many organisations still patch on a fixed monthly cycle, ordered by severity score. That approach struggles when attackers are exploiting edge devices within days, or before a fix exists at all.",
+        "A better model ranks systems by exposure and impact. Anything internet-facing, and anything that controls identity or network access, should move to an emergency track when a vendor confirms exploitation. That means knowing in advance which devices fall into that category, who owns them, and who is authorised to take them down for an urgent update."
+      ],
+      "list": [
+        "Keep a live inventory of internet-facing devices, including those run by suppliers.",
+        "Define a fast-track patching route for edge and identity systems with pre-agreed downtime.",
+        "Watch vendor and national cyber advisories, such as those from the NCSC, for confirmed exploitation."
+      ]
+    },
+    {
+      "heading": "Treating identity as a crown jewel",
+      "paragraphs": [
+        "The DHS leak is a reminder that an identity provider is itself a store of valuable data and a route into everything it connects to. Details of how the alleged compromise happened are not yet clear, but the defensive lessons are well established.",
+        "Administrator access to the identity platform should be limited to a small number of named people using phishing-resistant authentication. Changes to sign-in policies, new applications and new administrators should raise alerts. Logs should be retained and reviewed, not just collected. For software, long-lived keys should give way to short-lived credentials issued at run time, so that a leaked key expires before it can be abused."
+      ]
+    },
+    {
+      "heading": "Planning for the bad day",
+      "paragraphs": [
+        "Prevention will not always succeed, and a crashed firewall or locked identity system can halt a business as effectively as ransomware. Resilience planning should answer some uncomfortable questions in advance. How will staff work if the VPN is down? How will administrators sign in if the identity provider is unavailable or untrusted? How quickly can every cloud and AI key be rotated?",
+        "Organisations that have rehearsed these scenarios recover in hours. Those that have not can lose days working out the answers under pressure."
+      ],
+      "callout": "Resilience is the plan you have already tested, not the one you intend to write."
+    },
+    {
+      "heading": "Where to start",
+      "paragraphs": [
+        "For most UK organisations, the most valuable first step is a short, focused review of the access layer: an inventory of internet-facing devices and their patch status, a check of identity platform administration and monitoring, and a scan for exposed secrets in code. Those three pieces of work address every story in this week's headlines.",
+        "CoreDefense helps businesses run exactly this kind of review and turn the findings into a prioritised plan, combining security assessment with the process and engineering changes that make good practice stick."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Cisco Patches Actively Exploited ASA and FTD VPN Flaw That Can Crash Firewalls",
+      "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html",
+      "publisher": "The Hacker News"
+    },
+    {
+      "title": "Cisco SD-WAN Zero-Day Exploitation Tied to Volt Typhoon's 'Silent Train' Network",
+      "url": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploitation-tied-to-volt-typhoons-silent-train-network/",
+      "publisher": "SecurityWeek"
+    },
+    {
+      "title": "Over 41,000 DHS Employee Records Leaked Online",
+      "url": "https://www.securityweek.com/over-41000-dhs-employee-records-leaked-online/",
+      "publisher": "SecurityWeek"
+    },
+    {
+      "title": "26,400 Valid Cloud and AI Credentials Found Exposed in Public Gitee Repositories",
+      "url": "https://thehackernews.com/2026/10/26400-valid-cloud-and-ai-credentials.html",
+      "publisher": "The Hacker News"
+    }
+  ]
+}

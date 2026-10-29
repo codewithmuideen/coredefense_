@@ -50,6 +50,6 @@ export const faqItems: FAQItem[] = [
   {
     question: "What's the fastest way to reach you?",
     answer:
-      "Send a WhatsApp message to +44 7460 082168, email info@coredefense.co.uk, or use the form on our contact page. Every message is read by a member of the team.",
+      "Call +44 7460 082168, email info@coredefense.co.uk, or use the form on our contact page. Every message is read by a member of the team.",
   },
 ];

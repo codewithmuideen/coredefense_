@@ -234,6 +234,11 @@ async function main() {
     console.log(`Posts for ${date} already exist. Use --force to regenerate.`);
     return;
   }
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error(
+      "ANTHROPIC_API_KEY is not set. Add it in GitHub under Settings > Secrets and variables > Actions > New repository secret."
+    );
+  }
   if (stories.length < 3) {
     throw new Error("Not enough recent stories to write today's posts.");
   }
@@ -266,7 +271,7 @@ main().catch((err) => {
   } else if (err instanceof Anthropic.APIError) {
     console.error(`Claude API error ${err.status}: ${err.message}`);
   } else {
-    console.error(err);
+    console.error(err instanceof Error ? err.message : err);
   }
   process.exit(1);
 });
