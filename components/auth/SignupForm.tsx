@@ -4,17 +4,17 @@ import { useState } from "react";
 import Link from "next/link";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check, Copy, Loader2, Sparkles, UserPlus, X } from "lucide-react";
+import { Check, Copy, Loader2, MailCheck, Sparkles, UserPlus, X } from "lucide-react";
 import { PASSWORD_RULES, signupSchema, type SignupInput } from "@/lib/validations";
 import { generatePassword, passwordScore, SCORE_LABELS } from "@/lib/password";
-import { FieldError, NotLiveNotice, PasswordInput, SsoButtons, fieldBorder, inputClass } from "@/components/auth/AuthFields";
+import { AuthNotice, FieldError, PasswordInput, SsoButtons, fieldBorder, inputClass, submitClass } from "@/components/auth/AuthFields";
 import { cn } from "@/lib/utils";
 
 const SCORE_COLOURS = ["bg-ink-900/10", "bg-red-500", "bg-amber-500", "bg-primary-400", "bg-emerald-500"];
 
-// Validation only: nothing is sent anywhere until the platform's account backend exists.
 export default function SignupForm() {
-  const [notice, setNotice] = useState<string | null>(null);
+  const [notice, setNotice] = useState<{ tone: "info" | "error"; text: string } | null>(null);
+  const [done, setDone] = useState<{ email: string; testMode: boolean; emailError?: string } | null>(null);
   const [checking, setChecking] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -46,16 +46,56 @@ export default function SignupForm() {
     }
   }
 
-  async function onSubmit() {
+  async function onSubmit(values: SignupInput) {
     setChecking(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setChecking(false);
-    setNotice("Everything checks out. Self-service accounts open when the platform launches; nothing has been saved. To get in sooner, request a pilot place.");
+    setNotice(null);
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setNotice({ tone: "error", text: data.error ?? "We couldn't create your account. Please try again." });
+        return;
+      }
+      setDone({ email: data.email, testMode: !!data.redirected, emailError: data.emailError });
+    } catch {
+      setNotice({ tone: "error", text: "Network error. Check your connection and try again." });
+    } finally {
+      setChecking(false);
+    }
+  }
+
+  if (done) {
+    return (
+      <div className="py-4 text-center">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+          <MailCheck className="h-7 w-7" />
+        </span>
+        <h2 className="mt-5 text-xl font-bold text-ink-900">Check your inbox</h2>
+        <p className="mt-2 text-sm leading-relaxed text-ink-500">
+          We sent a confirmation link to <strong className="text-ink-800">{done.email}</strong>. Click it to activate your account. The link expires in 24 hours.
+        </p>
+        {done.testMode && (
+          <div className="mt-5 text-left">
+            <AuthNotice>Email is in test mode, so the message was delivered to the site owner&apos;s test inbox instead.</AuthNotice>
+          </div>
+        )}
+        {done.emailError && (
+          <div className="mt-5 text-left">
+            <AuthNotice tone="error">Your account was created but the email didn&apos;t send: {done.emailError}</AuthNotice>
+          </div>
+        )}
+        <Link href="/login" className="focus-ring mt-6 inline-flex rounded font-semibold text-primary-600 hover:text-primary-700">Back to log in</Link>
+      </div>
+    );
   }
 
   return (
     <div className="space-y-6">
-      <SsoButtons onSelect={(p) => setNotice(`${p} sign-up opens alongside the platform itself.`)} />
+      <SsoButtons onSelect={(p) => setNotice({ tone: "info", text: `${p} sign-up is coming soon. Use your work email for now.` })} />
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
         <div className="grid gap-5 sm:grid-cols-2">
@@ -153,20 +193,15 @@ export default function SignupForm() {
         </label>
         <FieldError message={errors.terms?.message} />
 
-        {notice && (
-          <NotLiveNotice>
-            {notice}{" "}
-            <Link href="/request-access" className="font-semibold underline">Request early access</Link>
-          </NotLiveNotice>
-        )}
+        {notice && <AuthNotice tone={notice.tone}>{notice.text}</AuthNotice>}
 
         <button
           type="submit"
           disabled={checking}
-          className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-500 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-600 hover:shadow-[0_8px_24px_-8px_rgba(30,106,255,0.6)] disabled:opacity-70"
+          className={submitClass}
         >
           {checking ? <Loader2 className="h-4 w-4 animate-spin" /> : <UserPlus className="h-4 w-4" />}
-          {checking ? "Checking…" : "Create account"}
+          {checking ? "Creating account…" : "Create account"}
         </button>
       </form>
 

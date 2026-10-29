@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { trialSchema } from "@/lib/validations";
-import { getResendClient, FROM_EMAIL, TO_EMAIL } from "@/lib/resend";
+import { TO_EMAIL } from "@/lib/resend";
+import { sendEmailOrThrow } from "@/lib/email/send";
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -21,10 +22,7 @@ export async function POST(request: Request) {
   const { firstName, lastName, workEmail, company, jobTitle, phone, employees, concern } = parsed.data;
 
   try {
-    const resend = getResendClient();
-
-    await resend.emails.send({
-      from: FROM_EMAIL,
+    await sendEmailOrThrow({
       to: TO_EMAIL,
       replyTo: workEmail,
       subject: `New platform access request from ${company}`,
@@ -40,8 +38,7 @@ export async function POST(request: Request) {
       `,
     });
 
-    await resend.emails.send({
-      from: FROM_EMAIL,
+    await sendEmailOrThrow({
       to: workEmail,
       subject: "Your CoreDefense access request",
       html: `

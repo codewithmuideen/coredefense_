@@ -9,6 +9,7 @@ import { megaMenus } from "@/lib/nav-data";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
+import { useSignedIn } from "@/lib/supabase/useSignedIn";
 
 interface MobileMenuProps {
   open: boolean;
@@ -18,6 +19,7 @@ interface MobileMenuProps {
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const signedIn = useSignedIn();
 
   useEffect(() => setMounted(true), []);
 
@@ -135,12 +137,12 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 Talk to an Expert
               </CTAButton>
               <Link
-                href="/login"
+                href={signedIn ? "/dashboard" : "/login"}
                 onClick={onClose}
                 className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-900/15 px-5 py-2.5 text-sm font-semibold text-ink-800 hover:border-primary-300 hover:text-primary-600"
               >
                 <LogIn className="h-4 w-4" />
-                Log in
+                {signedIn ? "Dashboard" : "Log in"}
               </Link>
             </div>
           </div>

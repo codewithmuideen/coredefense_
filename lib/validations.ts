@@ -99,7 +99,8 @@ export const PASSWORD_RULES = [
 ] as const;
 
 export const loginSchema = z.object({
-  email: workEmail,
+  // Existing accounts may predate the company-email rule, so login only checks the format.
+  email: z.string().trim().min(1, "Enter your work email").email("Enter a valid email address, like name@company.com"),
   password: z.string().min(1, "Enter your password"),
   remember: z.boolean().optional(),
 });
