@@ -37,9 +37,6 @@ export default function FinalCTA() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <CTAButton href="/contact" size="lg">
-            Talk to an Expert
-          </CTAButton>
           <CTAButton href={`mailto:${CONTACT.email}`} variant="ghost" size="lg" icon={false}>
             <Mail className="h-5 w-5" /> {CONTACT.email}
           </CTAButton>
