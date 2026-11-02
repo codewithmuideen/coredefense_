@@ -25,13 +25,8 @@ export default function TeamGrid() {
               aria-label={`${member.name} on LinkedIn`}
               className="focus-ring relative block"
             >
-              {/* Brand backdrop: blue-to-navy gradient, faint grid, and a glow behind the head */}
-              <div className="absolute inset-0 bg-gradient-to-b from-primary-500 via-primary-700 to-ink-900" aria-hidden />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#46505f] via-[#3d4654] to-[#303844]" aria-hidden />
               <div className="absolute inset-0 bg-grid-dark opacity-60" aria-hidden />
-              <div
-                className="absolute left-1/2 top-[18%] h-2/3 w-[120%] -translate-x-1/2 rounded-full bg-primary-300/40 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
-                aria-hidden
-              />
 
               <div className="relative aspect-[4/5] w-full">
                 <Image
