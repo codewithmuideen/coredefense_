@@ -159,17 +159,17 @@ export function GlassHighlights({ tone = "light", enabled = true }: { tone?: "li
         className={cn(
           "pointer-events-none absolute inset-0 -z-10 rounded-[inherit]",
           tone === "dark"
-            ? "shadow-[inset_0_1.5px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(255,255,255,0.22),inset_0_-18px_32px_-14px_rgba(127,169,255,0.6),inset_0_0_40px_-10px_rgba(0,200,255,0.35),0_0_60px_-10px_rgba(30,106,255,0.55)]"
+            ? "shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_0_0_1px_rgba(255,255,255,0.14),inset_0_-16px_28px_-14px_rgba(127,169,255,0.4),inset_0_0_32px_-12px_rgba(0,200,255,0.2),0_0_40px_-12px_rgba(30,106,255,0.35)]"
             : "shadow-[inset_0_1.5px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(30,106,255,0.25),inset_0_-14px_28px_-18px_rgba(30,106,255,0.35)]"
         )}
       />
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 rounded-[inherit] opacity-60 transition-opacity duration-500 group-hover/glass:opacity-100"
+        className="pointer-events-none absolute inset-0 -z-10 rounded-[inherit] opacity-30 transition-opacity duration-500 group-hover/glass:opacity-100"
         style={{
           background:
             tone === "dark"
-              ? "radial-gradient(420px circle at var(--glass-x, 50%) var(--glass-y, 0%), rgba(160,200,255,0.45), rgba(0,200,255,0.12) 30%, transparent 55%)"
+              ? "radial-gradient(420px circle at var(--glass-x, 50%) var(--glass-y, 0%), rgba(160,200,255,0.3), rgba(0,200,255,0.08) 30%, transparent 55%)"
               : "radial-gradient(360px circle at var(--glass-x, 50%) var(--glass-y, 0%), rgba(255,255,255,0.95), rgba(127,169,255,0.25) 30%, transparent 55%)",
         }}
       />

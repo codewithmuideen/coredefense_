@@ -11,9 +11,9 @@ export default function ScrollScaleIn({ children, className }: { children: React
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start 0.55"] });
-  const scale = useTransform(scrollYProgress, [0, 1], [0.78, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [160, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.86, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [0.2, 1]);
 
   if (reduceMotion) return <div className={className}>{children}</div>;
 
