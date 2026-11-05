@@ -22,9 +22,9 @@ export default function Hero() {
 
   // Scroll world: as the hero leaves, copy drifts up and dims while the 3D core (which moves slower) turns.
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -90]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.85], [1, reduceMotion ? 1 : 0.25]);
-  const globeY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 60]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -240]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, reduceMotion ? 1 : 0]);
+  const globeY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 220]);
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-ink-900">
@@ -35,11 +35,13 @@ export default function Hero() {
         containerRef={sectionRef}
         scroll={scrollYProgress}
         focus={[0.72, 0.55]}
-        intensity={0.9}
+        intensity={1.2}
         coreAnchorRef={cardRef}
         anchorOffset={contentY}
       />
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
+      {/* Keeps the headline readable over the brighter shader. */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink-900/85 via-ink-900/45 to-transparent lg:w-[65%]" aria-hidden />
       <motion.div style={{ y: globeY }} className="absolute inset-x-0 top-0 h-[560px] radial-fade" aria-hidden>
         <Image
           src="/images/backgrounds/globe-network.png"
@@ -122,10 +124,10 @@ export default function Hero() {
           <LiquidGlass
             tone="dark"
             radius={16}
-            bezel={22}
-            refraction={30}
-            blur={16}
-            className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-primary-900/40"
+            bezel={44}
+            refraction={80}
+            blur={10}
+            className="overflow-hidden rounded-2xl border border-white/25 bg-ink-900/35 shadow-[0_30px_90px_-20px_rgba(30,106,255,0.65)]"
           >
             <video
               src="/video/hero-reel.mp4"

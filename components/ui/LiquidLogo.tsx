@@ -41,7 +41,7 @@ export default function LiquidLogo({ src, width, height, className, label = "Cor
         const t = Math.min((now - start) / duration, 1);
         const k = 1 - easeOut(t);
         disp!.setAttribute("scale", (from * k).toFixed(2));
-        turb!.setAttribute("baseFrequency", `${(0.012 + 0.02 * k).toFixed(4)} ${(0.05 + 0.06 * k).toFixed(4)}`);
+        turb!.setAttribute("baseFrequency", `${(0.015 + 0.03 * k).toFixed(4)} ${(0.06 + 0.09 * k).toFixed(4)}`);
         turb!.setAttribute("seed", String(Math.floor(now / 90) % 40));
         if (t < 1) frame.current = requestAnimationFrame(step);
         else svg!.style.filter = "";
@@ -49,12 +49,17 @@ export default function LiquidLogo({ src, width, height, className, label = "Cor
       frame.current = requestAnimationFrame(step);
     }
 
-    ripple(26, 1500);
-    const onEnter = () => ripple(7, 900);
+    ripple(70, 2600);
+    const onEnter = () => ripple(32, 1400);
+    // A wave runs through the logo every few seconds so the effect is seen without hovering.
+    const idle = window.setInterval(() => {
+      if (document.visibilityState === "visible") ripple(22, 1600);
+    }, 6000);
     const host = svg.closest("a") ?? svg;
     host.addEventListener("pointerenter", onEnter);
     return () => {
       cancelAnimationFrame(frame.current);
+      window.clearInterval(idle);
       host.removeEventListener("pointerenter", onEnter);
     };
   }, [id]);
@@ -69,7 +74,7 @@ export default function LiquidLogo({ src, width, height, className, label = "Cor
       style={{ aspectRatio: `${width} / ${height}` }}
     >
       <defs>
-        <filter id={id} x="-5%" y="-30%" width="110%" height="160%" colorInterpolationFilters="sRGB">
+        <filter id={id} x="-10%" y="-60%" width="120%" height="220%" colorInterpolationFilters="sRGB">
           <feTurbulence ref={turbRef} type="fractalNoise" baseFrequency="0.012 0.05" numOctaves={2} seed={3} result="noise" />
           <feDisplacementMap ref={dispRef} in="SourceGraphic" in2="noise" scale={0} xChannelSelector="R" yChannelSelector="G" />
         </filter>

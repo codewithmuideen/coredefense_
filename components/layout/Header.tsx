@@ -35,11 +35,11 @@ export default function Header() {
   // Glass only once content is moving underneath; with a mega menu open the header stays solid as before.
   const glassOn = scrolled && !activeMenu;
   const glass = useLiquidGlass<HTMLElement>({
-    refraction: 26,
-    bezel: 22,
+    refraction: 60,
+    bezel: 36,
     radius: 0,
-    blur: 18,
-    saturate: 180,
+    blur: 8,
+    saturate: 220,
     enabled: glassOn,
     bottomEdgeOnly: true,
   });
@@ -90,7 +90,7 @@ export default function Header() {
         ref={glass.ref}
         className={cn(
           "group/glass sticky top-0 z-50 w-full transition-[background-color,box-shadow] duration-500",
-          activeMenu ? "bg-white shadow-sm" : glassOn ? "bg-white/70 shadow-[0_8px_32px_-12px_rgba(8,11,20,0.18)]" : "bg-white"
+          activeMenu ? "bg-white shadow-sm" : glassOn ? "bg-white/35 shadow-[0_10px_40px_-10px_rgba(30,106,255,0.35)]" : "bg-white"
         )}
         style={glass.style}
         onPointerMove={glass.onPointerMove}
@@ -198,8 +198,7 @@ export default function Header() {
         <motion.span
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r from-primary-400 via-primary-500 to-primary-300 transition-opacity duration-300",
-            glassOn ? "opacity-100" : "opacity-0"
+            "pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left bg-gradient-to-r from-cyan-400 via-primary-500 to-violet-500 shadow-[0_0_12px_rgba(30,106,255,0.9)]"
           )}
           style={{ scaleX: progress }}
         />

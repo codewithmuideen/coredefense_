@@ -73,31 +73,39 @@ ${simplex3d}
 void main(){
   float aspect = uRes.x / max(uRes.y, 1.0);
   vec2 p = (vUv - 0.5) * vec2(aspect, 1.0);
-  float t = uTime * 0.045 + uScroll * 0.6;
+  float t = uTime * 0.16 + uScroll * 1.6;
 
-  // Two passes of domain warping give slow, liquid folds rather than blobs.
-  vec2 q = vec2(snoise(vec3(p * 0.85, t)), snoise(vec3(p * 0.85 + 5.2, t)));
+  // Two passes of domain warping: bold, moving liquid folds.
+  vec2 q = vec2(snoise(vec3(p * 1.1, t)), snoise(vec3(p * 1.1 + 5.2, t)));
   vec2 r = vec2(
-    snoise(vec3(p * 1.25 + q * 1.1 + vec2(1.7, 9.2), t * 1.2)),
-    snoise(vec3(p * 1.25 + q * 1.1 + vec2(8.3, 2.8), t * 1.2))
+    snoise(vec3(p * 1.6 + q * 1.6 + vec2(1.7, 9.2), t * 1.3)),
+    snoise(vec3(p * 1.6 + q * 1.6 + vec2(8.3, 2.8), t * 1.3))
   );
-  float n = snoise(vec3(p * 0.75 + r * 0.9, t * 0.7)) * 0.5 + 0.5;
+  float n = snoise(vec3(p * 0.9 + r * 1.3, t * 0.8)) * 0.5 + 0.5;
+  float n2 = snoise(vec3(p * 2.2 - r * 0.8, t * 1.1 + 3.0)) * 0.5 + 0.5;
 
-  // A broad pool of brand light behind the focal content, nudged by the warp field.
-  vec2 f = (uFocus - 0.5) * vec2(aspect, 1.0) + vec2(0.0, uScroll * 0.35);
-  float pool = smoothstep(0.95, 0.0, length(p - f + r * 0.15));
+  // A broad pool of brand light behind the focal content, pushed around by the warp field.
+  vec2 f = (uFocus - 0.5) * vec2(aspect, 1.0) + vec2(0.0, uScroll * 0.6);
+  float pool = smoothstep(1.4, 0.0, length(p - f + r * 0.3));
 
-  // Soft light that follows the visitor's pointer.
+  // Strong light that follows the visitor's pointer.
   vec2 m = (uPointer - 0.5) * vec2(aspect, 1.0);
-  float pl = smoothstep(0.65, 0.0, length(p - m));
+  float pl = smoothstep(0.75, 0.0, length(p - m));
+
+  vec3 cyan = vec3(0.0, 0.85, 1.0);
+  vec3 violet = vec3(0.45, 0.25, 1.0);
 
   vec3 col = uBase;
-  col = mix(col, uDeep, smoothstep(0.2, 0.85, n) * 0.95);
-  col = mix(col, uBrand, pow(smoothstep(0.42, 1.0, n), 2.0) * pool * uIntensity);
-  col += uGlow * (pl * 0.08 + pow(pool, 3.0) * 0.06) * uIntensity;
+  col = mix(col, uDeep * 1.35, smoothstep(0.15, 0.75, n));
+  col = mix(col, uBrand, smoothstep(0.35, 0.9, n) * (0.15 + pool * 0.75) * uIntensity);
+  col = mix(col, violet, smoothstep(0.62, 0.95, n2) * 0.55 * uIntensity);
+  // Bright liquid ridges where the folds crest.
+  float ridge = pow(1.0 - abs(n - 0.62) * 3.2, 6.0);
+  col += mix(uGlow, cyan, n2) * max(ridge, 0.0) * 0.32 * uIntensity;
+  col += uGlow * (pl * 0.28 + pow(pool, 2.0) * 0.1) * uIntensity;
 
-  // Vignette keeps the edges in the ink tone so copy always sits on dark.
-  col *= mix(0.5, 1.0, smoothstep(1.35, 0.15, length(p * vec2(0.75, 1.1))));
+  // Light vignette so copy at the edges still sits on dark.
+  col *= mix(0.72, 1.0, smoothstep(1.5, 0.2, length(p * vec2(0.75, 1.1))));
 
   // Dither to stop banding in the long gradients.
   col += (fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) / 255.0;
@@ -125,7 +133,7 @@ varying vec3 vNormal;
 varying vec3 vView;
 void main(){
   float f = pow(1.0 - abs(dot(normalize(vNormal), normalize(vView))), uPower);
-  gl_FragColor = vec4(uColor, (0.06 + f) * uOpacity);
+  gl_FragColor = vec4(uColor, (0.15 + f * 1.6) * uOpacity);
 }
 `;
 

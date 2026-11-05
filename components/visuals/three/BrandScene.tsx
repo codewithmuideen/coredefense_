@@ -94,8 +94,8 @@ function GradientPlane({
     if (!animate) return;
     uniforms.uTime.value += Math.min(delta, 0.05);
     const p = pointer.current;
-    p.x += (p.tx - p.x) * 0.04;
-    p.y += (p.ty - p.y) * 0.04;
+    p.x += (p.tx - p.x) * 0.08;
+    p.y += (p.ty - p.y) * 0.08;
     uniforms.uPointer.value.set(p.x, p.y);
     uniforms.uScroll.value = scroll?.get() ?? 0;
   });
@@ -116,9 +116,9 @@ function GradientPlane({
 
 // Faces stay faint (a hint of glass); the edges carry the form, like the line-work of the logo mark.
 const SHELLS = [
-  { size: 2.6, opacity: 0.12, power: 4.0, edge: 0.34, spin: -0.07 },
-  { size: 1.75, opacity: 0.16, power: 4.0, edge: 0.46, spin: 0.11 },
-  { size: 1.05, opacity: 0.22, power: 3.5, edge: 0.7, spin: -0.16 },
+  { size: 2.6, opacity: 0.45, power: 2.5, edge: 0.85, spin: -0.22 },
+  { size: 1.75, opacity: 0.55, power: 2.5, edge: 0.95, spin: 0.34 },
+  { size: 1.05, opacity: 0.7, power: 2.2, edge: 1.0, spin: -0.5 },
 ];
 
 /**
@@ -164,7 +164,7 @@ function Core({
       })),
     []
   );
-  const edgeColor = useMemo(() => new Color("#7FA9FF"), []);
+  const edgeColor = useMemo(() => new Color("#9CC2FF"), []);
 
   // Measure where the anchor rests inside the section (centre is unaffected by scale animations).
   useEffect(() => {
@@ -199,25 +199,26 @@ function Core({
     const x = (place.cx - 0.5) * viewport.width;
     const y = -(place.cy - 0.5) * viewport.height;
     // Slightly larger than the card so the frames break past its edges and read as surrounding it.
-    const scale = (place.w * viewport.width * 1.32) / SHELLS[0].size;
-    g.position.set(x, y + Math.sin(t * 0.55) * 0.06 + p * 0.5, -1.5);
-    g.scale.setScalar(scale * (1 + p * 0.1));
+    const scale = (place.w * viewport.width * 1.75) / SHELLS[0].size;
+    g.position.set(x, y + Math.sin(t * 0.9) * 0.25 + p * 1.5, -1.5);
+    g.scale.setScalar(scale * (1 + p * 0.45));
 
     // Pointer tilts the whole object; scroll turns it as the visitor moves into the page.
     const pt = pointer.current;
-    tilt.current.rotation.x += ((0.5 - pt.y) * 0.35 + 0.42 + p * 0.9 - tilt.current.rotation.x) * 0.05;
-    tilt.current.rotation.y += ((pt.x - 0.5) * 0.5 + 0.6 + p * 1.4 - tilt.current.rotation.y) * 0.05;
+    tilt.current.rotation.x += ((0.5 - pt.y) * 1.1 + 0.42 + p * 2.4 - tilt.current.rotation.x) * 0.08;
+    tilt.current.rotation.y += ((pt.x - 0.5) * 1.5 + 0.6 + p * 3.2 - tilt.current.rotation.y) * 0.08;
 
     shells.current.forEach((s, i) => {
       if (!s) return;
       s.rotation.y += delta * SHELLS[i].spin;
       s.rotation.z += delta * SHELLS[i].spin * 0.4;
       // Layers drift apart a little as the hero scrolls away.
-      s.scale.setScalar(SHELLS[i].size * (1 + p * (0.06 + i * 0.05)));
+      s.scale.setScalar(SHELLS[i].size * (1 + Math.sin(t * 1.2 + i) * 0.04 + p * (0.25 + i * 0.2)));
     });
     if (core.current) {
-      core.current.rotation.y -= delta * 0.25;
-      core.current.scale.setScalar(0.42 * (1 + Math.sin(t * 1.4) * 0.035));
+      core.current.rotation.y -= delta * 0.8;
+      core.current.rotation.x += delta * 0.4;
+      core.current.scale.setScalar(0.42 * (1 + Math.sin(t * 2.2) * 0.12));
     }
     g.visible = place.ready;
   });
@@ -251,10 +252,10 @@ function Core({
         ))}
         <group ref={core} scale={0.42}>
           <mesh geometry={box}>
-            <meshBasicMaterial color="#1E6AFF" />
+            <meshBasicMaterial color="#3D82FF" />
           </mesh>
           <lineSegments geometry={edges}>
-            <lineBasicMaterial color="#D5E3FF" transparent opacity={0.9} />
+            <lineBasicMaterial color="#FFFFFF" />
           </lineSegments>
         </group>
       </group>
@@ -280,7 +281,7 @@ export default function BrandScene({
   return (
     <Canvas
       frameloop={frameloop}
-      dpr={tier === "full" ? [1, 1.75] : 1}
+      dpr={tier === "full" ? [1, 1.75] : [1, 1.5]}
       flat
       gl={{ antialias: tier === "full", alpha: false, stencil: false, powerPreference: "high-performance" }}
       camera={{ position: [0, 0, 10], fov: 35 }}
@@ -288,7 +289,7 @@ export default function BrandScene({
       style={{ pointerEvents: "none" }}
     >
       <GradientPlane pointer={pointer} scroll={scroll} focus={focus} intensity={intensity} animate={animate} />
-      {coreAnchorRef && tier === "full" && (
+      {coreAnchorRef && (
         <Core
           pointer={pointer}
           scroll={scroll}
