@@ -111,3 +111,12 @@ body {
   25% { transform: rotate(-14deg); }
   75% { transform: rotate(14deg); }
 }
+
+/* Liquid logo: fades in while its ripple settles (see LiquidLogo). */
+@keyframes logo-in {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: none; }
+}
+.liquid-logo {
+  animation: logo-in 0.9s var(--ease-out-expo) both;
+}

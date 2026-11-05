@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import BrandCanvas from "@/components/visuals/BrandCanvas";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
@@ -35,11 +37,14 @@ export default function PageHero({
   primaryHref,
   image,
 }: PageHeroProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   return (
-    <section className="relative overflow-hidden bg-ink-900 pb-20 pt-14 sm:pb-24 sm:pt-20">
+    <section ref={sectionRef} className="relative overflow-hidden bg-ink-900 pb-20 pt-14 sm:pb-24 sm:pt-20">
       {breadcrumbs.length > 0 && <JsonLd data={breadcrumbSchema(breadcrumbs)} />}
-      <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden />
       <div className="pointer-events-none absolute -left-24 top-0 h-80 w-80 rounded-full bg-primary-500/20 blur-[110px]" aria-hidden />
+      {/* Same light as the home hero, quieter, so every page opens in the brand's atmosphere. */}
+      <BrandCanvas containerRef={sectionRef} focus={[0.18, 0.8]} intensity={0.5} />
+      <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden />
 
       <div className={image ? "container-page relative grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center" : "container-page relative"}>
         <div>
