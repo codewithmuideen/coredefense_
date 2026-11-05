@@ -13,12 +13,12 @@ export default function FinalCTA() {
   const reduceMotion = useReducedMotion();
   // Light rises with the visitor as the section scrolls into place; copy settles at a slower rate.
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const copyY = useTransform(scrollYProgress, [0, 1], [reduceMotion ? 0 : 90, reduceMotion ? 0 : -90]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [reduceMotion ? 0 : 45, reduceMotion ? 0 : -45]);
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-ink-900 py-24 sm:py-32">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-500/15 blur-[160px]" aria-hidden />
-      <BrandCanvas containerRef={sectionRef} scroll={scrollYProgress} focus={[0.5, 0.45]} intensity={0.95} />
+      <BrandCanvas containerRef={sectionRef} scroll={scrollYProgress} focus={[0.5, 0.45]} intensity={0.6} />
       <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,13,22,0.7),transparent_70%)]" aria-hidden />
 
@@ -48,7 +48,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <LiquidGlass tone="dark" radius={8} bezel={14} refraction={26} blur={6} className="rounded-lg">
+          <LiquidGlass tone="dark" radius={8} bezel={10} refraction={16} blur={6} className="rounded-lg">
             <CTAButton href={`mailto:${CONTACT.email}`} variant="ghost" size="lg" icon={false} className="bg-white/[0.07]">
               <Mail className="h-5 w-5" /> {CONTACT.email}
             </CTAButton>
