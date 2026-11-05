@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ShieldCheck, Briefcase, Activity } from "lucide-react";
 import StatCounter from "@/components/ui/StatCounter";
 import { cn } from "@/lib/utils";
+import ScrollScaleIn from "@/components/ui/ScrollScaleIn";
 
 const stats = [
   { value: 18750, suffix: "+", label: "Threats Resolved", icon: ShieldCheck },
@@ -22,6 +23,7 @@ export default function TrustStats() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="container-page">
+        <ScrollScaleIn>
         <div className="relative overflow-hidden rounded-3xl bg-ink-900">
           <div className="absolute inset-0 bg-grid-dark opacity-30" aria-hidden />
           <div className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rounded-full bg-primary-500/20 blur-[110px]" aria-hidden />
@@ -71,6 +73,7 @@ export default function TrustStats() {
             </div>
           </div>
         </div>
+        </ScrollScaleIn>
       </div>
     </section>
   );

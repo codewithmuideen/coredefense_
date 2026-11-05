@@ -1,9 +1,12 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ShieldCheck, Cpu, Workflow, Sparkles } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
+import LiquidGlass from "@/components/ui/LiquidGlass";
+import BrandCanvas from "@/components/visuals/BrandCanvas";
 
 const badges = [
   { icon: ShieldCheck, label: "Cybersecurity" },
@@ -13,10 +16,33 @@ const badges = [
 ];
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  // Scroll world: as the hero leaves, copy drifts up and dims while the 3D core (which moves slower) turns.
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -240]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, reduceMotion ? 1 : 0]);
+  const globeY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 220]);
+
   return (
-    <section className="relative overflow-hidden bg-ink-900">
+    <section ref={sectionRef} className="relative overflow-hidden bg-ink-900">
+      {/* CSS glows stay as the fallback; the shader gradient fades in over them when WebGL is available. */}
+      <div className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-primary-500/20 blur-[120px]" aria-hidden />
+      <div className="pointer-events-none absolute -right-24 top-64 h-80 w-80 rounded-full bg-primary-400/10 blur-[100px]" aria-hidden />
+      <BrandCanvas
+        containerRef={sectionRef}
+        scroll={scrollYProgress}
+        focus={[0.72, 0.55]}
+        intensity={1.2}
+        coreAnchorRef={cardRef}
+        anchorOffset={contentY}
+      />
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-      <div className="absolute inset-x-0 top-0 h-[560px] radial-fade" aria-hidden>
+      {/* Keeps the headline readable over the brighter shader. */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink-900/85 via-ink-900/45 to-transparent lg:w-[65%]" aria-hidden />
+      <motion.div style={{ y: globeY }} className="absolute inset-x-0 top-0 h-[560px] radial-fade" aria-hidden>
         <Image
           src="/images/backgrounds/globe-network.png"
           alt=""
@@ -24,11 +50,9 @@ export default function Hero() {
           priority
           className="object-cover object-top opacity-30"
         />
-      </div>
-      <div className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-primary-500/20 blur-[120px]" aria-hidden />
-      <div className="pointer-events-none absolute -right-24 top-64 h-80 w-80 rounded-full bg-primary-400/10 blur-[100px]" aria-hidden />
+      </motion.div>
 
-      <div className="container-page relative grid gap-16 pb-24 pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pb-32 lg:pt-24">
+      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container-page relative grid gap-16 pb-24 pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pb-32 lg:pt-24">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -91,12 +115,20 @@ export default function Hero() {
         </div>
 
         <motion.div
+          ref={cardRef}
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-2xl backdrop-blur">
+          <LiquidGlass
+            tone="dark"
+            radius={16}
+            bezel={44}
+            refraction={80}
+            blur={10}
+            className="overflow-hidden rounded-2xl border border-white/25 bg-ink-900/35 shadow-[0_30px_90px_-20px_rgba(30,106,255,0.65)]"
+          >
             <video
               src="/video/hero-reel.mp4"
               autoPlay
@@ -129,9 +161,9 @@ export default function Hero() {
                 </div>
               </motion.div>
             </div>
-          </div>
+          </LiquidGlass>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
