@@ -22,9 +22,9 @@ export default function Hero() {
 
   // Scroll world: as the hero leaves, copy drifts up and dims while the 3D core (which moves slower) turns.
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -160]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, reduceMotion ? 1 : 0.15]);
-  const globeY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 130]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -90]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, reduceMotion ? 1 : 0.5]);
+  const globeY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 70]);
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-ink-900">
@@ -35,7 +35,7 @@ export default function Hero() {
         containerRef={sectionRef}
         scroll={scrollYProgress}
         focus={[0.72, 0.55]}
-        intensity={1.05}
+        intensity={0.6}
         coreAnchorRef={cardRef}
         anchorOffset={contentY}
       />
@@ -124,10 +124,10 @@ export default function Hero() {
           <LiquidGlass
             tone="dark"
             radius={16}
-            bezel={32}
-            refraction={50}
+            bezel={22}
+            refraction={28}
             blur={10}
-            className="overflow-hidden rounded-2xl border border-white/25 bg-ink-900/35 shadow-[0_30px_80px_-24px_rgba(30,106,255,0.45)]"
+            className="overflow-hidden rounded-2xl border border-white/25 bg-ink-900/35 shadow-[0_30px_70px_-28px_rgba(30,106,255,0.3)]"
           >
             <video
               src="/video/hero-reel.mp4"

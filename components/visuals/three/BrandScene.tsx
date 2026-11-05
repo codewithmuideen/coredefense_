@@ -116,9 +116,9 @@ function GradientPlane({
 
 // Faces stay faint (a hint of glass); the edges carry the form, like the line-work of the logo mark.
 const SHELLS = [
-  { size: 2.6, opacity: 0.25, power: 3.0, edge: 0.55, spin: -0.13 },
-  { size: 1.75, opacity: 0.32, power: 3.0, edge: 0.65, spin: 0.2 },
-  { size: 1.05, opacity: 0.42, power: 2.8, edge: 0.85, spin: -0.3 },
+  { size: 2.6, opacity: 0.14, power: 3.5, edge: 0.3, spin: -0.08 },
+  { size: 1.75, opacity: 0.18, power: 3.5, edge: 0.4, spin: 0.12 },
+  { size: 1.05, opacity: 0.24, power: 3.2, edge: 0.6, spin: -0.18 },
 ];
 
 /**
@@ -199,14 +199,14 @@ function Core({
     const x = (place.cx - 0.5) * viewport.width;
     const y = -(place.cy - 0.5) * viewport.height;
     // Slightly larger than the card so the frames break past its edges and read as surrounding it.
-    const scale = (place.w * viewport.width * 1.5) / SHELLS[0].size;
-    g.position.set(x, y + Math.sin(t * 0.7) * 0.12 + p * 0.9, -1.5);
-    g.scale.setScalar(scale * (1 + p * 0.25));
+    const scale = (place.w * viewport.width * 1.35) / SHELLS[0].size;
+    g.position.set(x, y + Math.sin(t * 0.6) * 0.07 + p * 0.5, -1.5);
+    g.scale.setScalar(scale * (1 + p * 0.12));
 
     // Pointer tilts the whole object; scroll turns it as the visitor moves into the page.
     const pt = pointer.current;
-    tilt.current.rotation.x += ((0.5 - pt.y) * 0.7 + 0.42 + p * 1.6 - tilt.current.rotation.x) * 0.08;
-    tilt.current.rotation.y += ((pt.x - 0.5) * 1.0 + 0.6 + p * 2.2 - tilt.current.rotation.y) * 0.08;
+    tilt.current.rotation.x += ((0.5 - pt.y) * 0.4 + 0.42 + p * 1.0 - tilt.current.rotation.x) * 0.08;
+    tilt.current.rotation.y += ((pt.x - 0.5) * 0.55 + 0.6 + p * 1.4 - tilt.current.rotation.y) * 0.08;
 
     shells.current.forEach((s, i) => {
       if (!s) return;
@@ -216,9 +216,9 @@ function Core({
       s.scale.setScalar(SHELLS[i].size * (1 + Math.sin(t * 1.0 + i) * 0.02 + p * (0.15 + i * 0.12)));
     });
     if (core.current) {
-      core.current.rotation.y -= delta * 0.5;
-      core.current.rotation.x += delta * 0.2;
-      core.current.scale.setScalar(0.42 * (1 + Math.sin(t * 1.8) * 0.06));
+      core.current.rotation.y -= delta * 0.3;
+      core.current.rotation.x += delta * 0.1;
+      core.current.scale.setScalar(0.42 * (1 + Math.sin(t * 1.4) * 0.035));
     }
     g.visible = place.ready;
   });
@@ -252,7 +252,7 @@ function Core({
         ))}
         <group ref={core} scale={0.42}>
           <mesh geometry={box}>
-            <meshBasicMaterial color="#3D82FF" />
+            <meshBasicMaterial color="#1E6AFF" />
           </mesh>
           <lineSegments geometry={edges}>
             <lineBasicMaterial color="#D5E3FF" transparent opacity={0.9} />
