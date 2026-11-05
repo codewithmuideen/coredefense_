@@ -73,7 +73,7 @@ ${simplex3d}
 void main(){
   float aspect = uRes.x / max(uRes.y, 1.0);
   vec2 p = (vUv - 0.5) * vec2(aspect, 1.0);
-  float t = uTime * 0.16 + uScroll * 1.6;
+  float t = uTime * 0.09 + uScroll * 1.0;
 
   // Two passes of domain warping: bold, moving liquid folds.
   vec2 q = vec2(snoise(vec3(p * 1.1, t)), snoise(vec3(p * 1.1 + 5.2, t)));
@@ -96,16 +96,16 @@ void main(){
   vec3 violet = vec3(0.45, 0.25, 1.0);
 
   vec3 col = uBase;
-  col = mix(col, uDeep * 1.35, smoothstep(0.15, 0.75, n));
-  col = mix(col, uBrand, smoothstep(0.35, 0.9, n) * (0.15 + pool * 0.75) * uIntensity);
-  col = mix(col, violet, smoothstep(0.62, 0.95, n2) * 0.55 * uIntensity);
+  col = mix(col, uDeep * 1.15, smoothstep(0.15, 0.75, n));
+  col = mix(col, uBrand, smoothstep(0.35, 0.9, n) * (0.08 + pool * 0.6) * uIntensity);
+  col = mix(col, violet, smoothstep(0.62, 0.95, n2) * 0.3 * uIntensity);
   // Bright liquid ridges where the folds crest.
   float ridge = pow(1.0 - abs(n - 0.62) * 3.2, 6.0);
-  col += mix(uGlow, cyan, n2) * max(ridge, 0.0) * 0.32 * uIntensity;
-  col += uGlow * (pl * 0.28 + pow(pool, 2.0) * 0.1) * uIntensity;
+  col += mix(uGlow, cyan, n2) * max(ridge, 0.0) * 0.16 * uIntensity;
+  col += uGlow * (pl * 0.16 + pow(pool, 2.0) * 0.08) * uIntensity;
 
   // Light vignette so copy at the edges still sits on dark.
-  col *= mix(0.72, 1.0, smoothstep(1.5, 0.2, length(p * vec2(0.75, 1.1))));
+  col *= mix(0.6, 1.0, smoothstep(1.5, 0.2, length(p * vec2(0.75, 1.1))));
 
   // Dither to stop banding in the long gradients.
   col += (fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) / 255.0;
@@ -133,7 +133,7 @@ varying vec3 vNormal;
 varying vec3 vView;
 void main(){
   float f = pow(1.0 - abs(dot(normalize(vNormal), normalize(vView))), uPower);
-  gl_FragColor = vec4(uColor, (0.15 + f * 1.6) * uOpacity);
+  gl_FragColor = vec4(uColor, (0.1 + f * 1.2) * uOpacity);
 }
 `;
 

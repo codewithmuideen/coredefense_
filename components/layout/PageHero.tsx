@@ -43,7 +43,7 @@ export default function PageHero({
       {breadcrumbs.length > 0 && <JsonLd data={breadcrumbSchema(breadcrumbs)} />}
       <div className="pointer-events-none absolute -left-24 top-0 h-80 w-80 rounded-full bg-primary-500/20 blur-[110px]" aria-hidden />
       {/* Same light as the home hero, quieter, so every page opens in the brand's atmosphere. */}
-      <BrandCanvas containerRef={sectionRef} focus={[0.18, 0.8]} intensity={0.95} />
+      <BrandCanvas containerRef={sectionRef} focus={[0.18, 0.8]} intensity={0.8} />
       <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink-900/75 via-ink-900/35 to-transparent" aria-hidden />
 

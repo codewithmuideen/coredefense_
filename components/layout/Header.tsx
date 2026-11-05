@@ -11,7 +11,6 @@ import MobileMenu from "@/components/layout/MobileMenu";
 import GlobalSearch from "@/components/layout/GlobalSearch";
 import CTAButton from "@/components/ui/CTAButton";
 import Logo from "@/components/ui/Logo";
-import { GlassHighlights, useLiquidGlass } from "@/components/ui/LiquidGlass";
 import { cn } from "@/lib/utils";
 import { useSignedIn } from "@/lib/supabase/useSignedIn";
 import type { MegaMenuSection } from "@/types";
@@ -32,17 +31,6 @@ export default function Header() {
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const signedIn = useSignedIn();
-  // Glass only once content is moving underneath; with a mega menu open the header stays solid as before.
-  const glassOn = scrolled && !activeMenu;
-  const glass = useLiquidGlass<HTMLElement>({
-    refraction: 60,
-    bezel: 36,
-    radius: 0,
-    blur: 8,
-    saturate: 220,
-    enabled: glassOn,
-    bottomEdgeOnly: true,
-  });
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 220, damping: 40, restDelta: 0.001 });
 
@@ -87,20 +75,15 @@ export default function Header() {
   return (
     <>
       <header
-        ref={glass.ref}
         className={cn(
-          "group/glass sticky top-0 z-50 w-full transition-[background-color,box-shadow] duration-500",
-          activeMenu ? "bg-white shadow-sm" : glassOn ? "bg-white/35 shadow-[0_10px_40px_-10px_rgba(30,106,255,0.35)]" : "bg-white"
+          "sticky top-0 z-50 w-full transition-colors duration-300",
+          scrolled || activeMenu ? "bg-white shadow-sm" : "bg-white"
         )}
-        style={glass.style}
-        onPointerMove={glass.onPointerMove}
         onMouseLeave={scheduleClose}
       >
-        {glass.filter}
-        <GlassHighlights tone="light" enabled={glassOn} />
         <div className="container-page flex h-[72px] items-center justify-between gap-3 py-3">
           <Link href="/" className="focus-ring flex shrink-0 items-center rounded-md" aria-label="CoreDefense home">
-            <Logo liquid />
+            <Logo />
           </Link>
 
           <nav className="hidden items-center gap-0 lg:flex xl:gap-1" aria-label="Primary">
@@ -198,7 +181,7 @@ export default function Header() {
         <motion.span
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left bg-gradient-to-r from-cyan-400 via-primary-500 to-violet-500 shadow-[0_0_12px_rgba(30,106,255,0.9)]"
+            "pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left bg-gradient-to-r from-cyan-400 via-primary-500 to-violet-500 shadow-[0_0_8px_rgba(30,106,255,0.6)]"
           )}
           style={{ scaleX: progress }}
         />

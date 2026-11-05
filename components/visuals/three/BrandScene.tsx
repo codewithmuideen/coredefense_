@@ -116,9 +116,9 @@ function GradientPlane({
 
 // Faces stay faint (a hint of glass); the edges carry the form, like the line-work of the logo mark.
 const SHELLS = [
-  { size: 2.6, opacity: 0.45, power: 2.5, edge: 0.85, spin: -0.22 },
-  { size: 1.75, opacity: 0.55, power: 2.5, edge: 0.95, spin: 0.34 },
-  { size: 1.05, opacity: 0.7, power: 2.2, edge: 1.0, spin: -0.5 },
+  { size: 2.6, opacity: 0.25, power: 3.0, edge: 0.55, spin: -0.13 },
+  { size: 1.75, opacity: 0.32, power: 3.0, edge: 0.65, spin: 0.2 },
+  { size: 1.05, opacity: 0.42, power: 2.8, edge: 0.85, spin: -0.3 },
 ];
 
 /**
@@ -199,26 +199,26 @@ function Core({
     const x = (place.cx - 0.5) * viewport.width;
     const y = -(place.cy - 0.5) * viewport.height;
     // Slightly larger than the card so the frames break past its edges and read as surrounding it.
-    const scale = (place.w * viewport.width * 1.75) / SHELLS[0].size;
-    g.position.set(x, y + Math.sin(t * 0.9) * 0.25 + p * 1.5, -1.5);
-    g.scale.setScalar(scale * (1 + p * 0.45));
+    const scale = (place.w * viewport.width * 1.5) / SHELLS[0].size;
+    g.position.set(x, y + Math.sin(t * 0.7) * 0.12 + p * 0.9, -1.5);
+    g.scale.setScalar(scale * (1 + p * 0.25));
 
     // Pointer tilts the whole object; scroll turns it as the visitor moves into the page.
     const pt = pointer.current;
-    tilt.current.rotation.x += ((0.5 - pt.y) * 1.1 + 0.42 + p * 2.4 - tilt.current.rotation.x) * 0.08;
-    tilt.current.rotation.y += ((pt.x - 0.5) * 1.5 + 0.6 + p * 3.2 - tilt.current.rotation.y) * 0.08;
+    tilt.current.rotation.x += ((0.5 - pt.y) * 0.7 + 0.42 + p * 1.6 - tilt.current.rotation.x) * 0.08;
+    tilt.current.rotation.y += ((pt.x - 0.5) * 1.0 + 0.6 + p * 2.2 - tilt.current.rotation.y) * 0.08;
 
     shells.current.forEach((s, i) => {
       if (!s) return;
       s.rotation.y += delta * SHELLS[i].spin;
       s.rotation.z += delta * SHELLS[i].spin * 0.4;
       // Layers drift apart a little as the hero scrolls away.
-      s.scale.setScalar(SHELLS[i].size * (1 + Math.sin(t * 1.2 + i) * 0.04 + p * (0.25 + i * 0.2)));
+      s.scale.setScalar(SHELLS[i].size * (1 + Math.sin(t * 1.0 + i) * 0.02 + p * (0.15 + i * 0.12)));
     });
     if (core.current) {
-      core.current.rotation.y -= delta * 0.8;
-      core.current.rotation.x += delta * 0.4;
-      core.current.scale.setScalar(0.42 * (1 + Math.sin(t * 2.2) * 0.12));
+      core.current.rotation.y -= delta * 0.5;
+      core.current.rotation.x += delta * 0.2;
+      core.current.scale.setScalar(0.42 * (1 + Math.sin(t * 1.8) * 0.06));
     }
     g.visible = place.ready;
   });
@@ -255,7 +255,7 @@ function Core({
             <meshBasicMaterial color="#3D82FF" />
           </mesh>
           <lineSegments geometry={edges}>
-            <lineBasicMaterial color="#FFFFFF" />
+            <lineBasicMaterial color="#D5E3FF" transparent opacity={0.9} />
           </lineSegments>
         </group>
       </group>
