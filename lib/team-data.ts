@@ -28,7 +28,7 @@ export const teamMembers: TeamMember[] = [
     name: "Yogisha Paneru",
     role: "Cybersecurity Analyst",
     focus: "Turns security findings into clear, prioritised action for clients.",
-    photo: "/images/team/cutouts/Yogisha Paneru.png",
+    photo: "/images/team/cutouts/Yogisha Paneru v2.png",
     linkedin: "https://www.linkedin.com/in/yogisha-paneru-cybersecurity/",
   },
   {
