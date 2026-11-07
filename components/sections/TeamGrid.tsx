@@ -25,8 +25,8 @@ export default function TeamGrid() {
               aria-label={`${member.name} on LinkedIn`}
               className="focus-ring relative block"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#46505f] via-[#3d4654] to-[#303844]" aria-hidden />
-              <div className="absolute inset-0 bg-grid-dark opacity-60" aria-hidden />
+              {/* Same slate as the studio backdrop in the photos, so cut-outs and full photos match */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#45494f_0%,#40454e_55%,#3b3f48_100%)]" aria-hidden />
 
               <div className="relative aspect-[4/5] w-full">
                 <Image
