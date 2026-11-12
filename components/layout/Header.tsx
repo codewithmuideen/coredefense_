@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { ChevronDown, LayoutDashboard, LogIn, Menu, Search } from "lucide-react";
 import { megaMenus } from "@/lib/nav-data";
 import MegaMenuPanel from "@/components/layout/MegaMenuPanel";
@@ -31,8 +31,6 @@ export default function Header() {
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const signedIn = useSignedIn();
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 220, damping: 40, restDelta: 0.001 });
 
   useEffect(() => {
     setActiveMenu(null);
@@ -176,15 +174,6 @@ export default function Header() {
             </button>
           </div>
         </div>
-
-        {/* Reading progress, part of the scroll experience. Decorative only. */}
-        <motion.span
-          aria-hidden
-          className={cn(
-            "pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left bg-gradient-to-r from-cyan-400 via-primary-500 to-violet-500 shadow-[0_0_8px_rgba(30,106,255,0.6)]"
-          )}
-          style={{ scaleX: progress }}
-        />
 
         <AnimatePresence>
           {activeMegaMenu && (
