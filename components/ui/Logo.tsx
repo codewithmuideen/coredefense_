@@ -7,11 +7,9 @@ interface LogoProps {
 }
 
 export default function Logo({ className, dark = false }: LogoProps) {
-  const src = dark ? "/images/brand/logo-white.png" : "/images/brand/logo-black.png";
-
   return (
     <Image
-      src={src}
+      src={dark ? "/images/brand/logo-white.png" : "/images/brand/logo-black.png"}
       alt="CoreDefense"
       width={606}
       height={84}
