@@ -6,5 +6,5 @@ export const CONTACT = {
   phoneHref: "tel:+447460082168",
   whatsappHref: "https://wa.me/447460082168?text=Hi%20CoreDefense%2C%20I'd%20like%20to%20chat.",
   whatsappQr: "/images/brand/whatsapp-qr.svg",
-  location: "United Kingdom Nigeria",
+  location: "United Kingdom",
 };
