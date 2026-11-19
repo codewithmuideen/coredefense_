@@ -7,14 +7,16 @@ export interface BlogPost {
   publishedAt: string;
   summary: string;
   image?: string;
+  /** Set on the Insights page's regional feed, e.g. "Canada". */
+  region?: string;
 }
 
-interface FeedSource {
+export interface FeedSource {
   name: string;
   url: string;
 }
 
-const FEEDS: FeedSource[] = [
+export const GLOBAL_FEEDS: FeedSource[] = [
   { name: "The Hacker News", url: "https://feeds.feedburner.com/TheHackersNews" },
   { name: "BleepingComputer", url: "https://www.bleepingcomputer.com/feed/" },
   { name: "Krebs on Security", url: "https://krebsonsecurity.com/feed/" },
@@ -70,7 +72,7 @@ function extractImage(record: Record<string, unknown>, html: string): string | u
 }
 
 // Fallback for feeds without images: read the article's Open Graph image.
-async function fetchOgImage(link: string): Promise<string | undefined> {
+export async function fetchOgImage(link: string): Promise<string | undefined> {
   try {
     const res = await fetch(link, { headers: HEADERS, next: { revalidate: 3600 }, signal: AbortSignal.timeout(6000) });
     if (!res.ok) return undefined;
@@ -90,7 +92,7 @@ function truncate(input: string, max = 180): string {
   return input.slice(0, max).replace(/\s+\S*$/, "") + "…";
 }
 
-async function fetchFeed(source: FeedSource): Promise<BlogPost[]> {
+export async function fetchFeed(source: FeedSource): Promise<BlogPost[]> {
   try {
     const res = await fetch(source.url, {
       headers: HEADERS,
@@ -117,8 +119,10 @@ async function fetchFeed(source: FeedSource): Promise<BlogPost[]> {
               ? (linkRaw[0] as { "@_href"?: string })?.["@_href"]
               : (linkRaw as { "@_href"?: string })?.["@_href"];
         const pubDate = (record.pubDate as string) ?? (record.published as string) ?? (record.updated as string);
+        // Atom feeds (e.g. the Canadian Cyber Centre) may leave <summary> empty and put the text in <content>.
+        const atomContent = typeof record.content === "string" ? record.content : (record.content as { "#text"?: string })?.["#text"];
         const descriptionRaw =
-          (record.description as string) ?? (record["content:encoded"] as string) ?? (record.summary as string) ?? "";
+          (record.description as string) || (record["content:encoded"] as string) || (record.summary as string) || atomContent || "";
         const bodyHtml = [record["content:encoded"], record.description]
           .filter((v): v is string => typeof v === "string")
           .join(" ");
@@ -141,7 +145,7 @@ async function fetchFeed(source: FeedSource): Promise<BlogPost[]> {
 }
 
 export async function getLatestSecurityNews(limit = 24): Promise<BlogPost[]> {
-  const results = await Promise.all(FEEDS.map(fetchFeed));
+  const results = await Promise.all(GLOBAL_FEEDS.map(fetchFeed));
   const merged = results.flat();
   merged.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
