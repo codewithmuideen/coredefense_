@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Download, Search, Smartphone, Mail, ShieldOff, Users } from "lucide-react";
+import { Download, Search, Smartphone, Mail, ShieldOff, UserPlus, Users } from "lucide-react";
+import AddUserModal from "@/components/app/AddUserModal";
 import { Avatar, Badge, Card, EmptyState, btn, field } from "@/components/app/ui";
 import UserActions from "@/components/app/UserActions";
 import { formatDate, timeAgo } from "@/lib/app/format";
@@ -27,20 +28,21 @@ export default function UsersTable({ users, selfId, initialStatus }: { users: Ad
   const [status, setStatus] = useState(initialStatus ?? "all");
   const [sort, setSort] = useState<"newest" | "active" | "name">("newest");
   const [page, setPage] = useState(0);
+  const [adding, setAdding] = useState(false);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return users
       .filter((u) => role === "all" || u.role === role)
       .filter((u) => status === "all" || u.status === status)
-      .filter((u) => !q || `${u.name} ${u.email} ${u.company ?? ""}`.toLowerCase().includes(q))
+      .filter((u) => !q || `${u.name} ${u.email} ${u.company ?? ""} ${u.customerId}`.toLowerCase().includes(q))
       .sort((a, b) => (sort === "name" ? a.name.localeCompare(b.name) : sort === "active" ? (b.lastSignInAt ?? "").localeCompare(a.lastSignInAt ?? "") : b.createdAt.localeCompare(a.createdAt)));
   }, [users, query, role, status, sort]);
   const pages = Math.max(1, Math.ceil(filtered.length / PAGE));
   const rows = filtered.slice(page * PAGE, page * PAGE + PAGE);
 
   function exportCsv() {
-    const csv = [["Name", "Email", "Company", "Role", "Status", "2FA", "Created", "Last sign-in"], ...filtered.map((u) => [u.name, u.email, u.company ?? "", u.role, u.status, u.twoFactor, u.createdAt, u.lastSignInAt ?? ""])]
+    const csv = [["Customer ID", "Name", "Email", "Company", "Role", "Status", "2FA", "Created", "Last sign-in"], ...filtered.map((u) => [u.customerId, u.name, u.email, u.company ?? "", u.role, u.status, u.twoFactor, u.createdAt, u.lastSignInAt ?? ""])]
       .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
       .join("\n");
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
@@ -53,7 +55,7 @@ export default function UsersTable({ users, selfId, initialStatus }: { users: Ad
       <div className="flex flex-wrap items-center gap-3 border-b border-ink-900/[0.06] p-3 sm:px-5">
         <div className="relative min-w-[220px] flex-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-          <input value={query} onChange={(e) => { setQuery(e.target.value); setPage(0); }} placeholder="Search name, email or company…" className={cn(field, "pl-9")} />
+          <input value={query} onChange={(e) => { setQuery(e.target.value); setPage(0); }} placeholder="Search name, email, company or customer ID…" className={cn(field, "pl-9")} />
         </div>
         <select value={role} onChange={(e) => { setRole(e.target.value); setPage(0); }} className={cn(field, "w-auto py-2")} aria-label="Role">
           <option value="all">All roles</option>
@@ -72,20 +74,23 @@ export default function UsersTable({ users, selfId, initialStatus }: { users: Ad
           <option value="name">Name A–Z</option>
         </select>
         <button onClick={exportCsv} className={cn(btn.secondary, "py-2")}><Download className="h-4 w-4" /> <span className="hidden sm:inline">Export</span></button>
+        <button onClick={() => setAdding(true)} className={cn(btn.primary, "py-2")}><UserPlus className="h-4 w-4" /> Add user</button>
       </div>
+      <AddUserModal open={adding} onClose={() => setAdding(false)} />
 
       {filtered.length === 0 ? (
         <EmptyState icon={Users} title="No users match" description="Clear the filters or search for something else." />
       ) : (
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[860px] text-left text-sm">
+          <table className="w-full min-w-[960px] text-left text-sm">
             <thead>
               <tr className="border-b border-ink-900/[0.06] text-xs font-semibold uppercase tracking-wide text-slate-500">
                 <th className="px-5 py-3">User</th>
+                <th className="px-3 py-3">Customer ID</th>
                 <th className="px-3 py-3">Role</th>
                 <th className="px-3 py-3">Status</th>
                 <th className="px-3 py-3">Two-factor</th>
-                <th className="px-3 py-3">Joined</th>
+                <th className="px-3 py-3">Registered</th>
                 <th className="px-3 py-3">Last active</th>
                 <th className="px-5 py-3"><span className="sr-only">Actions</span></th>
               </tr>
@@ -104,6 +109,7 @@ export default function UsersTable({ users, selfId, initialStatus }: { users: Ad
                         </div>
                       </Link>
                     </td>
+                    <td className="whitespace-nowrap px-3 py-3 font-mono text-[12px] text-slate-600">{u.customerId}</td>
                     <td className="px-3 py-3">{u.role === "admin" ? <Badge className="bg-amber-50 text-amber-800 ring-amber-600/20">Admin</Badge> : <span className="text-slate-600">User</span>}</td>
                     <td className="px-3 py-3"><Badge className={STATUS_BADGE[u.status]}>{u.status[0].toUpperCase() + u.status.slice(1)}</Badge></td>
                     <td className="px-3 py-3"><span className={cn("inline-flex items-center gap-1.5 text-[13px] font-medium", tfa.cls)}><tfa.icon className="h-3.5 w-3.5" />{tfa.label}</span></td>

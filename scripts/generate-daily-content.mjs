@@ -32,6 +32,16 @@ const FEEDS = [
   { name: "SecurityWeek", url: "https://www.securityweek.com/feed/" },
   { name: "The Record", url: "https://therecord.media/feed" },
   { name: "Infosecurity Magazine", url: "https://www.infosecurity-magazine.com/rss/news/" },
+  // Regional agencies and newsrooms (same list as lib/regional-news.ts), so the insight covers
+  // Canada, the UK, the USA, the UAE and India.
+  { name: "Canadian Centre for Cyber Security", url: "https://www.cyber.gc.ca/api/cccs/rss/v1/get?feed=alerts_advisories&lang=en" },
+  { name: "NCSC (UK)", url: "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml" },
+  { name: "Computer Weekly", url: "https://www.computerweekly.com/rss/IT-security.xml" },
+  { name: "CISA (US)", url: "https://www.cisa.gov/cybersecurity-advisories/all.xml" },
+  { name: "CyberScoop", url: "https://cyberscoop.com/feed/" },
+  { name: "Security Middle East (UAE)", url: "https://www.securitymiddleeastmag.com/feed/" },
+  { name: "securityMEA", url: "https://www.securitymea.com/feed/" },
+  { name: "ET CISO (India)", url: "https://ciso.economictimes.indiatimes.com/rss/topstories" },
 ];
 
 // Must match the keys of ARTICLE_ICONS in lib/article-icons.ts.
@@ -141,7 +151,7 @@ Rules:
 - Credit every report you draw on in "sources", using the exact URL from the list provided.
 - UK English. Professional, clear and calm; no hype, no em dashes.
 - Blog briefs: 450-700 words each, three different stories, practical "what to do now" guidance.
-- Insight: 800-1100 words, a broader theme that links several of the day's stories, with strategic advice.`;
+- Insight: 800-1100 words, a broader theme that links several of the day's stories, with strategic advice. Where the headlines allow, give it an international lens: what the theme means for organisations in Canada, the UK, the USA, the UAE (Dubai) and India, citing regional agency or newsroom reports from the list.`;
 
 function wordCount(post) {
   const text = [post.excerpt, ...post.takeaways, ...post.sections.flatMap((s) => [s.heading, ...s.paragraphs, ...s.list, s.callout])].join(" ");

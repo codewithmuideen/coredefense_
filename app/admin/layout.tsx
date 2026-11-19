@@ -13,7 +13,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const viewer = await requireAdmin();
   const [unread, { count: openTickets }] = await Promise.all([
     unreadCount(viewer.user.id),
-    createAdminClient().from("tickets").select("id", { count: "exact", head: true }).eq("status", "open"),
+    createAdminClient().from("tickets").select("id", { count: "exact", head: true }).in("status", ["open", "in_progress"]),
   ]);
   return (
     <AppShell variant="admin" user={toShellUser(viewer)} unread={unread} openTickets={openTickets ?? 0}>

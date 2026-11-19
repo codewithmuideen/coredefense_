@@ -62,20 +62,43 @@ function SourceBadge({ source, solid = false }: { source: string; solid?: boolea
   );
 }
 
-export default function NewsFeed({ posts }: { posts: BlogPost[] }) {
+interface NewsFeedProps {
+  posts: BlogPost[];
+  /** Filter chips by publisher (blog) or by region (insights). */
+  filterBy?: "source" | "region";
+  /** Fixed chip order; chips with no stories are hidden. Defaults to the order sources appear in. */
+  filterOrder?: readonly string[];
+  liveLabel?: string;
+}
+
+export default function NewsFeed({
+  posts,
+  filterBy = "source",
+  filterOrder,
+  liveLabel = "Live from the security newsrooms, refreshed hourly",
+}: NewsFeedProps) {
   const [query, setQuery] = useState("");
   const [source, setSource] = useState("All");
   const [visible, setVisible] = useState(PAGE_SIZE);
-  const sources = useMemo(() => ["All", ...Array.from(new Set(posts.map((p) => p.source)))], [posts]);
+  const keyOf = (p: BlogPost) => (filterBy === "region" ? p.region ?? "" : p.source);
+  // In region mode every label carries the region, e.g. "Canada · CISA".
+  const labelOf = (p: BlogPost) => (filterBy === "region" && p.region ? `${p.region} · ${p.source}` : p.source);
+  const sources = useMemo(() => {
+    const present = new Set(posts.map(keyOf));
+    const order = filterOrder ? filterOrder.filter((f) => present.has(f)) : Array.from(present);
+    return ["All", ...order];
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyOf only depends on filterBy
+  }, [posts, filterOrder, filterBy]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return posts.filter((post) => {
-      const matchesSource = source === "All" || post.source === source;
+      const matchesSource = source === "All" || keyOf(post) === source;
       const matchesQuery = !q || post.title.toLowerCase().includes(q) || post.summary.toLowerCase().includes(q);
       return matchesSource && matchesQuery;
     });
-  }, [posts, query, source]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps -- keyOf only depends on filterBy
+  }, [posts, query, source, filterBy]);
 
   const featured = filtered[0];
   const sideList = filtered.slice(1, 5);
@@ -88,7 +111,7 @@ export default function NewsFeed({ posts }: { posts: BlogPost[] }) {
         <div className="flex flex-col gap-5 border-b border-ink-900/8 pb-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3.5 py-1.5 text-xs font-semibold text-primary-700">
             <Radio className="h-3.5 w-3.5 animate-pulse" aria-hidden />
-            Live from the security newsrooms, refreshed hourly
+            {liveLabel}
           </div>
           <div className="relative w-full lg:max-w-sm">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400" />
@@ -144,7 +167,7 @@ export default function NewsFeed({ posts }: { posts: BlogPost[] }) {
               <Thumbnail post={featured} sizes="lg" className="aspect-[16/9] w-full rounded-2xl" />
               <div className="mt-5">
                 <div className="flex flex-wrap items-center gap-3">
-                  <SourceBadge source={`Latest · ${featured.source}`} solid />
+                  <SourceBadge source={`Latest · ${labelOf(featured)}`} solid />
                   <span className="inline-flex items-center gap-1 text-xs text-ink-400" suppressHydrationWarning>
                     <Clock className="h-3.5 w-3.5" /> {timeAgo(featured.publishedAt)}
                   </span>
@@ -175,7 +198,7 @@ export default function NewsFeed({ posts }: { posts: BlogPost[] }) {
                       >
                         <Thumbnail post={post} sizes="sm" className="aspect-[4/3] w-28 shrink-0 rounded-xl sm:w-32" />
                         <div className="min-w-0 flex-1">
-                          <p className="text-[11px] font-semibold uppercase tracking-wide text-primary-600">{post.source}</p>
+                          <p className="text-[11px] font-semibold uppercase tracking-wide text-primary-600">{labelOf(post)}</p>
                           <h3 className="mt-1 line-clamp-3 text-sm font-bold leading-snug text-ink-900 transition-colors group-hover:text-primary-600">
                             {post.title}
                           </h3>
@@ -207,7 +230,7 @@ export default function NewsFeed({ posts }: { posts: BlogPost[] }) {
                 >
                   <Thumbnail post={post} className="aspect-[16/10] w-full rounded-2xl" />
                   <div className="mt-4 flex items-center gap-3">
-                    <SourceBadge source={post.source} />
+                    <SourceBadge source={labelOf(post)} />
                     <span className="text-xs text-ink-400">{formatDate(post.publishedAt)}</span>
                   </div>
                   <h3 className="mt-3 line-clamp-2 text-base font-bold leading-snug text-ink-900 transition-colors group-hover:text-primary-600">

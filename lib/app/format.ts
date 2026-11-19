@@ -57,10 +57,12 @@ export const FINDING_STATUS: Record<FindingStatus, { label: string; badge: strin
   accepted: { label: "Risk accepted", badge: "bg-slate-100 text-slate-600 ring-slate-500/15" },
 };
 
-export const TICKET_STATUS: Record<TicketStatus, { label: string; badge: string }> = {
-  open: { label: "Open", badge: "bg-primary-50 text-primary-700 ring-primary-600/15" },
-  pending: { label: "Awaiting you", badge: "bg-amber-50 text-amber-800 ring-amber-600/20" },
-  resolved: { label: "Resolved", badge: "bg-emerald-50 text-emerald-700 ring-emerald-600/15" },
+export const TICKET_STATUS: Record<TicketStatus, { label: string; staffLabel: string; badge: string }> = {
+  open: { label: "Open", staffLabel: "New / open", badge: "bg-primary-50 text-primary-700 ring-primary-600/15" },
+  in_progress: { label: "In progress", staffLabel: "In progress", badge: "bg-violet-50 text-violet-700 ring-violet-600/15" },
+  awaiting_customer: { label: "Awaiting your reply", staffLabel: "Awaiting customer", badge: "bg-amber-50 text-amber-800 ring-amber-600/20" },
+  resolved: { label: "Resolved", staffLabel: "Resolved", badge: "bg-emerald-50 text-emerald-700 ring-emerald-600/15" },
+  closed: { label: "Closed", staffLabel: "Closed", badge: "bg-slate-100 text-slate-600 ring-slate-500/15" },
 };
 
 export const EVENT_LABELS: Record<string, { label: string; tone: "good" | "warn" | "bad" | "neutral" }> = {

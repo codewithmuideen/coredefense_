@@ -3,11 +3,14 @@
 export type Role = "user" | "admin";
 export type Severity = "critical" | "high" | "medium" | "low" | "info";
 export type FindingStatus = "open" | "in_progress" | "resolved" | "accepted";
-export type TicketStatus = "open" | "pending" | "resolved";
+export type TicketStatus = "open" | "in_progress" | "awaiting_customer" | "resolved" | "closed";
+export type TicketPriority = "not_urgent" | "urgent" | "crucial";
 export type NotificationKind = "security" | "finding" | "system" | "support";
 
 export interface Profile {
   id: string;
+  /** Shown as CD-10001; see customerId() in lib/app/support.ts. */
+  customer_no: number | null;
   email: string;
   first_name: string | null;
   last_name: string | null;
@@ -56,16 +59,36 @@ export interface AppNotification {
 
 export interface Ticket {
   id: string;
+  /** Customer number + ticket number, e.g. CD-10001-0003. */
+  ref: string | null;
+  seq: number | null;
   user_id: string;
   subject: string;
   category: string;
-  priority: "low" | "normal" | "high" | "urgent";
+  priority: TicketPriority;
   status: TicketStatus;
   message: string;
-  admin_reply: string | null;
-  replied_at: string | null;
+  due_at: string | null;
+  first_response_at: string | null;
+  last_activity_at: string;
+  last_reply_by: "customer" | "staff";
+  resolved_at: string | null;
+  closed_at: string | null;
+  rating: number | null;
+  rating_comment: string | null;
   created_at: string;
   updated_at: string;
+}
+
+export interface TicketMessage {
+  id: string;
+  ticket_id: string;
+  author_id: string | null;
+  author_name: string | null;
+  author_role: "customer" | "staff" | "system";
+  body: string;
+  internal: boolean;
+  created_at: string;
 }
 
 export interface LoginEvent {

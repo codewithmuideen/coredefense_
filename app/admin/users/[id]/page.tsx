@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Building2, CalendarDays, Clock, Mail, Phone, ShieldCheck } from "lucide-react";
+import { ArrowLeft, Building2, CalendarDays, Clock, IdCard, Mail, Phone, ShieldCheck } from "lucide-react";
 import { requireAdmin } from "@/lib/auth/session";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { Avatar, Badge, Card, CardHeader } from "@/components/app/ui";
 import UserActions from "@/components/app/UserActions";
 import { EVENT_LABELS, SEVERITY, TICKET_STATUS, formatDate, timeAgo } from "@/lib/app/format";
+import { PRIORITY, customerId, ticketRef } from "@/lib/app/support";
 import { exposureScore, summarise } from "@/lib/app/metrics";
 import type { Finding, LoginEvent, Profile, Ticket } from "@/types/app";
 import { cn } from "@/lib/utils";
@@ -61,7 +62,7 @@ export default async function AdminUserDetail({ params }: { params: Promise<{ id
                 {status[0].toUpperCase() + status.slice(1)}
               </Badge>
             </div>
-            <p className="mt-1 text-sm text-slate-500">{profile?.job_title ?? "No job title"}{profile?.company ? ` · ${profile.company}` : ""}</p>
+            <p className="mt-1 text-sm text-slate-500"><span className="font-mono font-semibold text-primary-700">{customerId(profile?.customer_no)}</span> · {profile?.job_title ?? "No job title"}{profile?.company ? ` · ${profile.company}` : ""}</p>
           </div>
         </div>
         <div className="border-t border-ink-900/[0.06] bg-slate-50/60 px-5 py-4 sm:px-8">
@@ -74,11 +75,13 @@ export default async function AdminUserDetail({ params }: { params: Promise<{ id
           <CardHeader title="Account details" />
           <dl className="space-y-4 p-5 text-sm sm:p-6">
             {[
+              { icon: IdCard, label: "Customer ID", value: customerId(profile?.customer_no) },
               { icon: Mail, label: "Email", value: authUser.email },
               { icon: Phone, label: "Phone", value: profile?.phone ?? "—" },
               { icon: Building2, label: "Company", value: profile?.company ?? "—" },
               { icon: ShieldCheck, label: "Two-factor", value: twoFactor },
-              { icon: CalendarDays, label: "Joined", value: formatDate(authUser.created_at, true) },
+              { icon: CalendarDays, label: "Registered", value: `${formatDate(authUser.created_at, true)} (${timeAgo(authUser.created_at)})` },
+              { icon: CalendarDays, label: "Email confirmed", value: authUser.email_confirmed_at ? formatDate(authUser.email_confirmed_at, true) : "Not yet" },
               { icon: Clock, label: "Last sign-in", value: authUser.last_sign_in_at ? `${formatDate(authUser.last_sign_in_at, true)} (${timeAgo(authUser.last_sign_in_at)})` : "Never" },
             ].map((r) => (
               <div key={r.label} className="flex gap-3">
@@ -147,12 +150,14 @@ export default async function AdminUserDetail({ params }: { params: Promise<{ id
           <ul className="divide-y divide-ink-900/[0.05]">
             {tickets.length === 0 && <li className="px-6 py-10 text-center text-sm text-slate-500">No tickets from this user.</li>}
             {tickets.map((t) => (
-              <li key={t.id} className="flex items-center gap-3 px-5 py-3 sm:px-6">
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium text-ink-900">{t.subject}</p>
-                  <p className="text-xs text-slate-500">{t.category} · {t.priority} · {timeAgo(t.created_at)}</p>
-                </div>
-                <Badge className={TICKET_STATUS[t.status].badge}>{TICKET_STATUS[t.status].label}</Badge>
+              <li key={t.id}>
+                <Link href={`/admin/tickets?t=${t.id}`} className="flex items-center gap-3 px-5 py-3 hover:bg-slate-50/70 sm:px-6">
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium text-ink-900"><span className="mr-2 font-mono text-xs font-semibold text-primary-700">{ticketRef(t)}</span>{t.subject}</p>
+                    <p className="text-xs text-slate-500">{t.category} · {PRIORITY[t.priority].label} · {timeAgo(t.created_at)}</p>
+                  </div>
+                  <Badge className={TICKET_STATUS[t.status].badge}>{TICKET_STATUS[t.status].staffLabel}</Badge>
+                </Link>
               </li>
             ))}
           </ul>
