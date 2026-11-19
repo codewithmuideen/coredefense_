@@ -177,15 +177,56 @@ export function broadcastTemplate(title: string, message: string, link: string) 
   };
 }
 
-export function ticketReplyTemplate(name: string, subject: string, reply: string, link: string) {
+const quote = (text: string) =>
+  `<div style="border-left:3px solid #1E6AFF;background:#F6F8FB;padding:14px 16px;border-radius:0 10px 10px 0;font-size:14px;line-height:1.7;color:#1F2937">${escapeHtml(text).replace(/\n/g, "<br>")}</div>`;
+
+export function ticketReplyTemplate(name: string, subject: string, reply: string, link: string, ref?: string) {
+  const tag = ref ? `[${ref}] ` : "";
   return {
-    subject: `Re: ${subject}`,
+    subject: `${tag}Re: ${subject}`,
     html: layout({
       preheader: reply.slice(0, 110),
       heading: "Our team replied to your request",
-      intro: `Hi ${escapeHtml(name)}, there's an update on <strong>${escapeHtml(subject)}</strong>:`,
-      body: `<div style="border-left:3px solid #1E6AFF;background:#F6F8FB;padding:14px 16px;border-radius:0 10px 10px 0;font-size:14px;line-height:1.7;color:#1F2937">${escapeHtml(reply).replace(/\n/g, "<br>")}</div>`,
-      cta: { label: "View the conversation", href: link },
+      intro: `Hi ${escapeHtml(name)}, there's an update on <strong>${escapeHtml(subject)}</strong>${ref ? ` (ticket ${escapeHtml(ref)})` : ""}:`,
+      body: quote(reply),
+      cta: { label: "View and reply", href: link },
+    }),
+  };
+}
+
+export function ticketReceivedTemplate(name: string, ref: string, subject: string, urgency: string, target: string, link: string) {
+  return {
+    subject: `[${ref}] We've received your request: ${subject}`,
+    html: layout({
+      preheader: `Your ticket reference is ${ref}. We aim to respond ${target}.`,
+      heading: "We've got your request",
+      intro: `Hi ${escapeHtml(name)}, thanks for getting in touch. Your ticket reference is <strong>${escapeHtml(ref)}</strong>. Please quote it if you contact us about this request.`,
+      body: `<p style="margin:0;font-size:14px;line-height:1.7;color:#1F2937"><strong>Subject:</strong> ${escapeHtml(subject)}<br><strong>Urgency:</strong> ${escapeHtml(urgency)}<br><strong>First response:</strong> ${escapeHtml(target)}</p>`,
+      cta: { label: "Track your request", href: link },
+    }),
+  };
+}
+
+export function ticketStatusTemplate(name: string, ref: string, subject: string, status: string, link: string) {
+  return {
+    subject: `[${ref}] ${status}: ${subject}`,
+    html: layout({
+      preheader: `Ticket ${ref} is now ${status.toLowerCase()}.`,
+      heading: `Your request is ${status.toLowerCase()}`,
+      intro: `Hi ${escapeHtml(name)}, ticket <strong>${escapeHtml(ref)}</strong> (${escapeHtml(subject)}) is now <strong>${escapeHtml(status.toLowerCase())}</strong>. If something still isn't right, reply from your dashboard and we'll reopen it.`,
+      cta: { label: "View your request", href: link },
+    }),
+  };
+}
+
+export function accountInviteTemplate(name: string, customerId: string, link: string) {
+  return {
+    subject: "Your CoreDefense account is ready",
+    html: layout({
+      preheader: "Set your password to get started.",
+      heading: "Welcome to CoreDefense",
+      intro: `Hi ${escapeHtml(name)}, our team has created a CoreDefense account for you. Your customer ID is <strong>${escapeHtml(customerId)}</strong>. Set a password to sign in, open support requests and follow your training and security work.`,
+      cta: { label: "Set your password", href: link },
     }),
   };
 }

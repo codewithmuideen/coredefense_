@@ -1,9 +1,11 @@
 import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { Profile } from "@/types/app";
+import { customerId } from "@/lib/app/support";
 
 export interface AdminUserRow {
   id: string;
+  customerId: string;
   email: string;
   name: string;
   company: string | null;
@@ -31,6 +33,7 @@ export async function listAllUsers(): Promise<AdminUserRow[]> {
     const name = [p?.first_name ?? u.user_metadata?.first_name, p?.last_name ?? u.user_metadata?.last_name].filter(Boolean).join(" ") || u.email?.split("@")[0] || "Unknown";
     return {
       id: u.id,
+      customerId: customerId(p?.customer_no),
       email: u.email ?? "",
       name,
       company: p?.company ?? (u.user_metadata?.company as string) ?? null,

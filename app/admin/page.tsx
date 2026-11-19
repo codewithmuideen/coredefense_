@@ -21,8 +21,8 @@ export default async function AdminOverview() {
   const [users, { data: eventRows }, { count: openTickets }, { count: urgentTickets }, { count: criticalFindings }] = await Promise.all([
     listAllUsers(),
     admin.from("login_events").select("*").gte("created_at", since30).order("created_at", { ascending: false }).limit(5000),
-    admin.from("tickets").select("id", { count: "exact", head: true }).neq("status", "resolved"),
-    admin.from("tickets").select("id", { count: "exact", head: true }).neq("status", "resolved").in("priority", ["urgent", "high"]),
+    admin.from("tickets").select("id", { count: "exact", head: true }).in("status", ["open", "in_progress", "awaiting_customer"]),
+    admin.from("tickets").select("id", { count: "exact", head: true }).in("status", ["open", "in_progress"]).in("priority", ["crucial", "urgent"]),
     admin.from("findings").select("id", { count: "exact", head: true }).eq("severity", "critical").in("status", ["open", "in_progress"]),
   ]);
   const events = (eventRows ?? []) as LoginEvent[];
@@ -63,7 +63,7 @@ export default async function AdminOverview() {
           )}
           {(urgentTickets ?? 0) > 0 && (
             <Link href="/admin/tickets" className="inline-flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-semibold text-amber-800 hover:bg-amber-100">
-              <LifeBuoy className="h-4 w-4" /> {urgentTickets} high-priority {urgentTickets === 1 ? "ticket needs" : "tickets need"} a reply
+              <LifeBuoy className="h-4 w-4" /> {urgentTickets} crucial or urgent {urgentTickets === 1 ? "ticket needs" : "tickets need"} a reply
             </Link>
           )}
         </div>

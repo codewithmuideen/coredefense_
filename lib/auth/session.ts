@@ -19,6 +19,7 @@ export const getViewer = cache(async (): Promise<Viewer | null> => {
   const { data: profile } = await supabase.from("profiles").select("*").eq("id", user.id).maybeSingle();
   const fallback: Profile = {
     id: user.id,
+    customer_no: null,
     email: user.email ?? "",
     first_name: (user.user_metadata?.first_name as string) ?? null,
     last_name: (user.user_metadata?.last_name as string) ?? null,
